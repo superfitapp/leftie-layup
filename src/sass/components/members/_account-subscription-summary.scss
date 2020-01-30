@@ -1,0 +1,25 @@
+.m-account-subscription-summary {
+  margin-bottom: 25px;
+
+  @include respond-to('medium') {
+    margin-bottom: 30px;
+  }
+}
+
+.m-account-subscription-summary__title {
+  color: var(--secondary-foreground-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.m-account-subscription-summary__id {
+  display: block;
+  color: var(--label-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.625rem;
+  font-weight: 500;
+}

@@ -1,0 +1,143 @@
+.m-author {
+  text-align: center;
+  padding: 40px $mobile-space;
+  background-color: var(--author-background-color);
+
+  @include respond-to('medium') {
+    text-align: left;
+    padding: 40px;
+    width: 50%;
+    border-right: 1px solid var(--border-color);
+  }
+}
+
+.rtl {
+  .m-author {
+    @include respond-to('medium') {
+      text-align: right;
+    }
+  }
+}
+
+.m-author__avatar-container {
+  display: flex;
+  align-items: flex-end;
+  width: 90px;
+  margin: 0 auto 20px;
+
+  @include respond-to('medium') {
+    margin: 0 0 20px;
+  }
+
+  &.more-authors {
+    width: 122px;
+  }
+}
+
+.m-author__avatar {
+  display: block;
+  flex: 0 0 auto;
+  width: 90px;
+  height: 90px;
+  padding: 4px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--author-background-color);
+  z-index: 2;
+  @include transition(transform 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+}
+
+.m-author__avatar:hover {
+  z-index: 4 !important;
+}
+
+.m-author__avatar:not(.author-0) {
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+  z-index: 1;
+  @include transform(translateX(-20px));
+}
+
+.rtl {
+  .m-author__avatar:not(.author-0) {
+    @include transform(translateX(20px));
+  }
+}
+
+.m-author__avatar div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.m-author__name {
+  color: var(--primary-foreground-color);
+  line-height: 1.2;
+  font-family: $font-playfair;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0 0 20px;
+
+  a {
+    color: inherit;
+  }
+}
+
+.m-author__bio {
+  color: var(--primary-foreground-color);
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+
+.m-author__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  @include respond-to('medium') {
+    justify-content: flex-start;
+  }
+
+  li {
+    margin: 0 11px;
+
+    &:first-of-type {
+      @include respond-to('medium') {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      color: var(--primary-foreground-color);
+
+      span {
+        color: inherit;
+        font-size: 0.938rem;
+      }
+    }
+  }
+}
+
+.rtl {
+  .m-author__social {
+    li {
+      &:first-of-type {
+        @include respond-to('medium') {
+          margin-left: 11px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

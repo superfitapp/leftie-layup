@@ -1,0 +1,134 @@
+.m-access-tag {
+  display: inline-block;
+  position: relative;
+  color: var(--secondary-foreground-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.625rem;
+  font-weight: 500;
+  padding: 4px 7px;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+
+  &:after {
+    content: attr(data-visibility);
+  }
+
+  &.in-featured-slide {
+    color: var(--background-color);
+
+    @include respond-to('medium') {
+      color: var(--secondary-foreground-color);
+    }
+  }
+
+  &.in-post-card {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    @include respond-to('medium') {
+      margin-top: 0;
+    }
+  }
+
+  &.in-article-hero {
+    color: var(--secondary-foreground-color);
+    border: 0;
+    margin-bottom: 5px;
+    background-color: var(--background-color);
+
+    &.desktop {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      z-index: 2;
+
+      @include respond-to('medium') {
+        display: block;
+      }
+    }
+  }
+
+  &.in-more-from-author {
+    font-size: 0.5625rem;
+    margin-right: 10px;
+  }
+
+  &.in-related-post {
+    color: $related-access-tag-color;
+    font-size: 0.5625rem;
+    border: 0;
+    padding: 3px 5px;
+    margin-bottom: 10px;
+    background-color: $related-access-tag-background-color;
+  }
+
+  &.in-account-module {
+    margin-bottom: 25px;
+
+    @include respond-to('medium') {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      margin-bottom: 0;
+    }
+
+    &.subscriber {
+      color: $alert-text-color;
+      font-weight: 700;
+      border-color: $badge-color;
+      background-color: $badge-color;
+    }
+
+    &.active {
+      color: $alert-text-color;
+      font-weight: 700;
+      border-color: $success-color;
+      background-color: $success-color;
+    }
+  }
+
+  &.in-subscription {
+    @include respond-to('medium') {
+      right: 0;
+    }
+  }
+
+  &.public {
+    display: none !important;
+  }
+}
+
+.rtl {
+  .m-access-tag {
+    &.in-article-hero {
+      &.desktop {
+        left: auto;
+        right: 40px;
+      }
+    }
+
+    &.in-more-from-author {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+
+    &.in-account-module {
+      @include respond-to('medium') {
+        right: auto;
+        left: 40px;
+      }
+    }
+
+    &.in-subscription {
+      @include respond-to('medium') {
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+}

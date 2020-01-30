@@ -1,0 +1,12 @@
+.m-mobile-submenu-icon {
+  display: inline-block;
+  color: var(--primary-foreground-color);
+  font-size: 1rem;
+  margin: 0 12px;
+  cursor: pointer;
+  @extend .no-appearance;
+
+  span {
+    color: inherit;
+  }
+}

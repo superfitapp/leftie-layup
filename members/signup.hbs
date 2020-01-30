@@ -1,0 +1,61 @@
+{{!--
+This template is used for the signup page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< ../default}}
+
+<div class="main-wrap">
+  {{> header}}
+
+  {{#if @member.paid}}
+
+    {{!-- Logged in, paying member: Redirect home --}}
+    <script>window.location = '{{@site.url}}'</script>
+
+  {{else if @member}}
+
+    {{!-- Logged in, not paying: Check out --}}
+    {{> "membership"}}
+
+  {{else}}
+
+    {{!-- Not logged in: Sign up --}}
+    <main class="l-auth">
+      <form data-members-form="signup" id="signup-form" class="l-auth__content" data-aos="fade-up">
+        <div class="l-auth__form">
+          <div class="m-auth-heading">
+            <h1 class="m-auth-heading__title">{{t "Signup to"}} {{@site.title}}</h1>
+            <p class="m-auth-heading__description">
+              {{t "Unlock full access and see the entire library of members-only content & updates."}}
+            </p>
+          </div>
+          <div class="m-auth-form">
+            <fieldset class="m-fieldset in-auth-form">
+              <label for="signup-input" class="sr-only">{{t "Your email address"}}</label>
+              <input data-members-email id="signup-input" class="m-input in-auth-form" type="email"
+                placeholder="{{t "Your email address"}}" />
+            </fieldset>
+            <button id="signup-button" class="m-button primary in-auth-form" type="submit">
+              <span>{{t "Continue"}}</span>
+            </button>
+          </div>
+          <div class="m-alert success in-auth-form">
+            <b>{{t "Great!"}}</b>
+            {{t "Check your inbox and click the link to confirm your subscription."}}
+          </div>
+          <p class="l-auth__form__invalid m-error-message in-auth-form">{{t "Please enter a valid email address"}}</p>
+          <p class="l-auth__form__error m-error-message in-auth-form">
+            {{t "Oops! There was an error sending the email, please try later"}}</p>
+          <p class="m-auth-secondary-text">
+            {{t "Already have an account?"}}
+            <a href="{{@site.url}}/signin">{{t "Sign in"}}</a>
+          </p>
+        </div>
+        <img src="{{asset "images/members/premium-illustration.svg"}}" alt="{{t "Sign up"}}" class="m-auth-illustration">
+      </form>
+    </main>
+
+  {{/if}}
+</div>

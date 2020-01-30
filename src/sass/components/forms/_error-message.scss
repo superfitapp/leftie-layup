@@ -1,0 +1,22 @@
+.m-error-message {
+  color: $error-color;
+  letter-spacing: 0.5px;
+  font-size: 0.750rem;
+  font-weight: 500;
+  padding-top: 25px;
+
+  &.in-auth-form {
+    max-width: 480px;
+    padding-top: 0;
+    padding-bottom: 25px;
+
+    @include respond-to('medium') {
+      max-width: 100%;
+    }
+  }
+
+  &.in-subscription {
+    display: block;
+    padding-top: 10px;
+  }
+}

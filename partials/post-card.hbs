@@ -1,0 +1,52 @@
+{{!--
+This template contains the structure of regular articles cards.
+--}}
+
+<article class="m-post-card {{post_class}} post-access-{{visibility}} {{#unless feature_image}}no-image{{/unless}} {{#if @even}}even{{else}}odd{{/if}} {{#if @last}}last{{/if}}">
+  <div class="m-post-card__image" data-aos="fade-up">
+    <div class="m-post-card__image__shadow"></div>
+    <a class="m-post-card__image__link" href="{{url}}" aria-label="{{title}}">
+      {{#if feature_image}}
+        <div class="m-post-card__image__background lozad" data-background-image="{{feature_image}}"></div>
+      {{else}}
+        <div class="m-post-card__image__background lozad" data-background-image="{{asset "images/empty/post-illustration.svg"}}"></div>
+      {{/if}}
+      {{#if featured}}
+        <div class="m-post-card__badge" title="{{t "Featured"}}">
+          <span class="icon-star"></span>
+        </div>
+      {{/if}}
+    </a>
+  </div>
+  <div class="m-post-card__content" data-aos="fade-up" data-aos-delay="250">
+    {{#if @labs.members}}
+      <span class="m-access-tag in-post-card {{visibility}}" data-visibility="{{t visibility}}"></span>
+    {{/if}}
+    <h2 class="m-post-card__title"><a href="{{url}}">{{title}}</a></h2>
+    {{#if custom_excerpt}}
+      <p class="m-post-card__excerpt">{{custom_excerpt}}</p>
+    {{/if}}
+    <div class="m-post-card__metas">
+      <div class="m-post-card__authors">
+        {{#foreach authors limit="3"}}
+          <a href="{{url}}" class="m-post-card__author author-{{@index}} js-tooltip" aria-label="Author"
+            data-tippy-content="{{name}}">
+            {{#if profile_image}}
+              <div style="background-image: url({{img_url profile_image size="xs"}});"></div>
+            {{else}}
+              <div style="background-image: url({{asset "images/empty/author-avatar-illustration.svg"}});"></div>
+            {{/if}}
+          </a>
+        {{/foreach}}
+      </div>
+      <div class="m-post-card__timestamp">
+        <span>{{date published_at timeago="true"}}</span>
+        <span>&nbsp; &bull; &nbsp;</span>
+        <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+      </div>
+    </div>
+    {{#if primary_tag}}
+      <a href="{{primary_tag.url}}" class="m-post-card__tag">{{primary_tag.name}}</a>
+    {{/if}}
+  </div>
+</article>

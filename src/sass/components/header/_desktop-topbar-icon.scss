@@ -1,0 +1,19 @@
+.m-desktop-topbar-icon {
+  display: inline-block;
+  color: var(--primary-foreground-color);
+  font-size: 1.125rem;
+  margin-left: 24px;
+  cursor: pointer;
+  @extend .no-appearance;
+
+  span {
+    color: inherit;
+  }
+}
+
+.rtl {
+  .m-desktop-topbar-icon {
+    margin-left: 0;
+    margin-right: 24px;
+  }
+}

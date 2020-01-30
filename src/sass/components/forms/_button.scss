@@ -1,0 +1,190 @@
+.m-button {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none !important;
+  font-weight: 700;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  @extend .no-appearance;
+
+  &.simple {
+    color: var(--primary-foreground-color);
+    font-size: 0.688rem;
+    padding: 9px 16px;
+  }
+
+  &.outlined {
+    color: var(--primary-foreground-color);
+    font-size: 0.688rem;
+    padding: 9px 16px;
+    border: 1px solid var(--primary-foreground-color);
+    background-color: transparent;
+    z-index: 1;
+    @include transition(all 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+  }
+
+  &.outlined:not(.no-fancy-animation) {
+    &:hover {
+      color: var(--background-color);
+
+      &:before {
+        left: 0;
+        right: 0;
+        opacity: 1;
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      opacity: 0;
+      background-color: var(--primary-foreground-color);
+      z-index: -1;
+      @include transition(all 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+    }
+  }
+
+  &.filled {
+    color: var(--background-color);
+    font-size: 0.688rem;
+    padding: 9px 16px;
+    background-color: var(--primary-foreground-color);
+    @include transition(all 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+
+    &:hover {
+      background-color: var(--secondary-foreground-color);
+    }
+  }
+
+  &.primary {
+    color: var(--background-color);
+    font-size: 0.875rem;
+    padding: 15px 20px;
+    min-width: 165px;
+    background-color: var(--primary-foreground-color);
+    overflow: hidden;
+
+    span {
+      display: block;
+    }
+  }
+
+  &.primary:not(.loading) {
+    &:hover {
+      span {
+        @include animation('animButtonSpan 0.4s');
+        @include keyframes(animButtonSpan) {
+          0% {
+            opacity: 1;
+            @include transform(translateX(0));
+          }
+
+          33% {
+            opacity: 0;
+            @include transform(translateX(20px));
+          }
+
+          66% {
+            opacity: 0;
+            @include transform(translateX(-20px));
+          }
+
+          100% {
+            opacity: 1;
+            @include transform(translateX(0));
+          }
+        }
+      }
+    }
+  }
+
+  &.loading {
+    cursor: default;
+    overflow: hidden;
+    background-color: var(--placeholder-color);
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 25%;
+      height: 2px;
+      background-color: $success-color;
+      @include animation('loading 1s infinite');
+      @include keyframes(loading) {
+        0% {
+          @include transform(translatex(0));
+        }
+        50% {
+          @include transform(translatex(300%));
+        }
+        100% {
+          @include transform(translatex(0));
+        }
+      }
+    }
+  }
+
+  &.in-desktop-topbar {
+    margin-left: 10px;
+  }
+
+  &.in-auth-form {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    @include respond-to('medium') {
+      height: 100%;
+      margin-left: -2px;
+    }
+  }
+
+  &.as-more {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+
+    span {
+      display: inline-block;
+      color: inherit;
+      font-size: 0.4375rem;
+      margin-left: 5px;
+      @include transform(translateY(1px));
+    }
+  }
+
+  &.in-mobile-menu.as-more {
+    padding: 15px 0;
+  }
+}
+
+.rtl {
+  .m-button {
+    &.in-desktop-topbar {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+
+    &.in-auth-form {
+      @include respond-to('medium') {
+        margin-left: 0;
+        margin-right: -2px;
+      }
+    }
+
+    &.as-more {
+      span {
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+}

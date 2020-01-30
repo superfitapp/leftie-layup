@@ -1,0 +1,47 @@
+.m-account-subscription-plan {
+  margin-bottom: 40px;
+
+  @include respond-to('medium') {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+  }
+}
+
+.m-account-subscription-plan__price {
+  color: var(--label-color) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.6px !important;
+
+  @include respond-to('medium') {
+    margin-right: 20px !important;
+  }
+}
+
+.rtl {
+  .m-account-subscription-plan__price {
+    @include respond-to('medium') {
+      margin-right: 0 !important;
+      margin-left: 20px !important;
+    }
+  }
+}
+
+.m-account-subscription-plan__date {
+  display: block;
+  color: var(--label-color);
+  letter-spacing: 1px;
+  font-size: 0.625rem;
+  font-weight: 500;
+
+  @include respond-to('medium') {
+    display: inline-block;
+    @include transform(translateY(14px));
+  }
+}
+
+.m-account-subscription-plan__price__number {
+  color: var(--secondary-foreground-color);
+  letter-spacing: 2px;
+  font-size: 3rem;
+}

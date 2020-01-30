@@ -1,0 +1,45 @@
+.m-auth-heading {
+  text-align: center;
+  margin-bottom: 40px;
+
+  @include respond-to('medium') {
+    margin-bottom: 35px;
+  }
+
+  @include respond-to('large') {
+    text-align: left;
+  }
+}
+
+.rtl {
+  .m-auth-heading {
+    @include respond-to('large') {
+      text-align: right;
+    }
+  }
+}
+
+.m-auth-heading__title {
+  color: var(--secondary-foreground-color);
+  line-height: 1.2;
+  font-family: $font-playfair;
+  font-size: 2.250rem;
+  font-weight: 700;
+  margin:  0 0 15px;
+
+  @include respond-to('large') {
+    font-size: 2.5rem;
+  }
+}
+
+.m-auth-heading__description {
+  color: var(--secondary-foreground-color);
+  line-height: 1.4;
+  font-size: 1rem;
+  margin: 0;
+
+  @include respond-to('large') {
+    font-size: 1.125rem;
+    max-width: 400px;
+  }
+}

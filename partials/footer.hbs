@@ -1,0 +1,46 @@
+{{!--
+This footer template is shared across all the pages.
+--}}
+
+<footer class="m-footer">
+  <div class="l-wrapper">
+    <div class="m-footer__top">
+      <div class="m-footer__top__menu">
+        <nav class="m-footer__nav">
+          {{#if @site.navigation}}
+            <ul class="m-navigation in-footer-menu" role="menu">
+              {{navigation}}
+            </ul>
+          {{/if}}
+        </nav>
+        {{#if @site.secondary_navigation}}
+          <nav class="m-footer__nav-secondary">
+            {{navigation type="secondary"}}
+          </nav>
+        {{/if}}
+      </div>
+      <div class="m-footer__buttons">
+        {{#if @site.facebook}}
+          <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook" class="m-footer-icon">
+            <span class="icon-facebook"></span>
+          </a>
+        {{/if}}
+        {{#if @site.twitter}}
+          <a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener" aria-label="Twitter" class="m-footer-icon">
+            <span class="icon-twitter"></span>
+          </a>
+        {{/if}}
+        <button class="m-footer-icon last js-open-search" aria-label="Open search">
+          <span class="icon-search"></span>
+        </button>
+      </div>
+    </div>
+    <div class="m-footer-copytight">
+      <p>
+        {{@site.title}} &copy; {{date format="YYYY"}}
+        &nbsp; &bull; &nbsp;
+        {{t "Published with"}} <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+      </p>
+    </div>
+  </div>
+</footer>

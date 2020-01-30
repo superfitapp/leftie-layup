@@ -1,0 +1,23 @@
+{{!--
+This template is used for the membership page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< ../default}}
+
+<div class="main-wrap">
+  {{> header}}
+
+  {{#if @member.paid}}
+
+    {{!-- Logged in, paying member: Redirect home --}}
+    <script>window.location = '{{@site.url}}'</script>
+
+  {{else}}
+
+    {{!-- Not logged in or not paying: Check out --}}
+    {{> "membership"}}
+
+  {{/if}}
+</div>

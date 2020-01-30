@@ -1,0 +1,25 @@
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!--Special header.hbs partial to generate the <header> tag--}}
+{{> header}}
+
+<main class="l-404">
+  <section class="l-404__content" data-aos="fade-up">
+    <div class="l-404__title">
+      <h1 class="m-404__title">404</h1>
+    </div>
+    <div class="l-404__text">
+      <p class="m-404__subtitle">{{t "Page not found"}}</p>
+      <p class="m-404__text">
+        {{t "Unfortunately the page you were looking for could not be found."}}
+      </p>
+      <a href="{{@site.url}}" class="m-button outlined">{{t "Go to the home page"}}</a>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,24 @@
+.m-fieldset {
+  position: relative;
+  margin-bottom: 35px;
+
+  &.in-newsletter-form {
+    max-width: 480px;
+    margin: 0 auto 35px;
+
+    @include respond-to('medium') {
+      max-width: 100%;
+    }
+  }
+
+  &.in-auth-form {
+    max-width: 480px;
+    margin: 0 auto 35px;
+
+    @include respond-to('medium') {
+      flex: 1;
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+}

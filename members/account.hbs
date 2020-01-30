@@ -1,0 +1,150 @@
+{{!--
+This template is used for the account page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< ../default}}
+
+<div class="main-wrap">
+  {{> header}}
+  <main>
+    <div class="l-wrapper">
+      <div class="l-content in-account">
+        {{#if @member.paid}}
+
+          {{!-- Logged in, paying member: Show account info --}}
+          <section class="m-account-module" data-aos="fade-up">
+            <header class="m-account-module__header">
+              <h1 class="m-account-module__title">
+                {{t "Account"}}
+              </h1>
+            </header>
+            <div class="m-account-module__body">
+              <span class="m-access-tag in-account-module subscriber" data-visibility="{{t "Subscriber"}}"></span>
+              <div class="m-account-info-block {{^if @member.name}}last{{/if}}">
+                <span class="m-account-info-block__label">{{t "Email"}}</span>
+                <p class="m-account-info-block__value">
+                  {{@member.email}}
+                </p>
+              </div>
+              {{#if @member.name}}
+                <div class="m-account-info-block last">
+                  <span class="m-account-info-block__label">{{t "Name"}}</span>
+                  <p class="m-account-info-block__value">
+                    {{@member.name}}
+                  </p>
+                </div>
+              {{/if}}
+            </div>
+          </section>
+          <section class="m-account-module last" data-aos="fade-up">
+            <header class="m-account-module__header">
+              <h1 class="m-account-module__title">
+                {{t "Subscriptions"}}
+              </h1>
+            </header>
+            <div class="m-account-module__body in-subscriptions">
+              {{#foreach @member.subscriptions}}
+                <div class="m-account-subscription {{#if @last}}last{{/if}}">
+                  <span class="m-access-tag in-account-module in-subscription {{status}}" data-visibility="{{status}}"></span>
+                  <div class="m-account-subscription-summary">
+                    <h2 class="m-account-subscription-summary__title">
+                      {{plan.nickname}}
+                    </h2>
+                    <span class="m-account-subscription-summary__id">
+                      {{t "id"}}: {{id}}
+                    </span>
+                  </div>
+                  <div class="m-account-subscription-plan">
+                    <p class="m-account-subscription-plan__price">
+                      <span class="uppercase">{{plan.currency}}</span> $<span class="m-account-subscription-plan__price__number js-plan-price" data-plan-price="{{ plan.amount }}">{{plan.amount}}</span> / {{plan.interval}}
+                    </p>
+                    <span clasS="m-account-subscription-plan__date">
+                      {{#if cancel_at_period_end}}
+                        {{t "expires"}}
+                      {{/if}}
+                        {{t "next bill date"}} 
+                      {{date current_period_end format="DD MMM YYYY"}}
+                    </span>
+                  </div>
+                  <div class="m-account-module__body__flex-container">
+                    <div class="m-account-info-block in-subscription">
+                      <span class="m-account-info-block__label">{{t "Customer details"}}</span>
+                      <p class="m-account-info-block__value">
+                        <span class="m-account-info-block__value__line">
+                          {{customer.email}}
+                        </span>
+                        {{#if customer.name}}
+                          <span class="m-account-info-block__value__line last">
+                            {{customer.name}}
+                          </span>
+                        {{/if}}
+                      </p>
+                    </div>
+                    <div class="m-account-info-block in-subscription last">
+                      <span class="m-account-info-block__label">{{t "Card details"}}</span>
+                      <p class="m-account-info-block__value">
+                        <span class="icon-card m-account-info-block__value__icon"></span>
+                        **** **** **** {{default_payment_card_last4}}
+                      </p>
+                    </div>
+                  </div>
+                  {{cancel_link
+                    class="m-account-cancel"
+                    errorClass="m-error-message in-subscription"
+                    cancelLabel=(t "cancel subscription")
+                    continueLabel=(t "continue subscription")
+                  }}
+                </div>
+              {{/foreach}}
+            </div>
+          </section>
+
+        {{else if @member}}
+
+          {{!-- Logged in, not paying: Link to checkout --}}
+          <section class="m-account-module last" data-aos="fade-up">
+            <header class="m-account-module__header">
+              <h1 class="m-account-module__title">
+                {{t "Account"}}
+              </h1>
+            </header>
+            <div class="m-account-module__body">
+              <span class="m-access-tag in-account-module" data-visibility="{{t "Member"}}"></span>
+              <div class="m-account-info-block">
+                <span class="m-account-info-block__label">{{t "Email"}}</span>
+                <p class="m-account-info-block__value">
+                  {{@member.email}}
+                </p>
+              </div>
+              {{#if @member.name}}
+                <div class="m-account-info-block">
+                  <span class="m-account-info-block__label">{{t "Name"}}</span>
+                  <p class="m-account-info-block__value">
+                    {{@member.name}}
+                  </p>
+                </div>
+              {{/if}}
+              <p>
+                <strong>{{t "Psst!…"}}</strong>
+                {{t "Currently, you're not a subscriber. Unlock full access and see the entire library of members-only content & updates."}}
+              </p>
+              <div class="m-account-module__button-container">
+                <a href="{{@site.url}}/signup" class="m-button primary">
+                  <span>{{t "Subscribe now"}}</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+        {{else}}
+
+          {{!-- Not logged in: Redirect to signin --}}
+          <script>window.location = '{{@site.url}}/signin/'</script>
+
+        {{/if}}
+      </div>
+    </div>
+  </main>
+</div>

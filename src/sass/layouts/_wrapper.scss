@@ -1,0 +1,22 @@
+.l-wrapper {
+  position: relative;
+  padding: 0 $mobile-space;
+  margin: 0 auto;
+  max-width: $max-wrapper-width;
+
+  @include respond-to('extra-large') {
+    padding: 0;
+  }
+
+  &.in-desktop-topbar {
+    @include respond-to('medium') {
+      height: 100%;
+    }
+  }
+
+  &.in-newsletter-top {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

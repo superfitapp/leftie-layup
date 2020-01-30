@@ -1,0 +1,25 @@
+{{!--
+This template is used for the newsletter page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+<div class="main-wrap">
+  <main class="l-newsletter">
+    <div class="l-newsletter__top">
+      <div class="l-wrapper in-newsletter-top">
+        <a href="{{@site.url}}" class="m-back">
+          <div class="m-back__icon">
+            <span class="icon-chevron-left"></span>
+          </div>
+          <span class="m-back__label">{{t "Back to home"}}</span>
+        </a>
+      </div>
+    </div>
+    <section class="l-newsletter__content" data-aos="fade-up">
+      {{> "newsletter-form"}}
+    </section>
+  </main>
+</default>

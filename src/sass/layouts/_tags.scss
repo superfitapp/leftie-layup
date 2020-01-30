@@ -1,0 +1,46 @@
+.l-tags {
+  margin-bottom: 30px;
+
+  @include respond-to('medium') {
+    margin-bottom: 65px;
+  }
+
+  h3 {
+    color: var(--primary-foreground-color);
+    font-family: $font-playfair;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 0 25px;
+  }
+}
+
+.l-tags__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.rtl {
+  .l-tags__list {
+    li {
+      margin-right: 0;
+      margin-left: 10px;
+
+      &:last-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+}

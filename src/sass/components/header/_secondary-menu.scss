@@ -1,0 +1,28 @@
+.m-secondary-menu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  .m-nav-item {
+    color: $submenu-text-color;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+
+    &.nav-current {
+      a {
+        font-weight: 700;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 5px 10px;
+      border-radius: 2px;
+      @include transition(background-color linear 0.1s);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+.m-full-content {
+  position: relative;
+  margin: 40px auto 0;
+  @include bs(var(--full-content-shadow));
+
+  @include respond-to('medium') {
+    max-width: 720px;
+    margin-top: 60px;
+  }
+}
+
+.m-full-content__container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 40px 30px;
+  background-color: var(--background-color);
+  position: relative;
+  z-index: 2;
+
+  @include respond-to('medium') {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px;
+  }
+}
+
+.m-full-content__illustration {
+  display: block;
+  width: 255px;
+  height: 202px;
+  margin: 0 auto 40px !important;
+
+  @include respond-to('medium') {
+    order: 2;
+    width: 227px;
+    height: 180px;
+    margin: 0 !important;
+  }
+
+  @include respond-to('large') {
+    width: 277px;
+    height: 220px;
+  }
+}
+
+.m-full-content__info {
+  text-align: center;
+
+  @include respond-to('medium') {
+    order: 1;
+    text-align: left;
+    padding-right: 50px;
+  }
+}
+
+.rtl {
+  .m-full-content__info {
+    @include respond-to('medium') {
+      text-align: right;
+      padding-right: 0;
+      padding-left: 50px;
+    }
+  }
+}
+
+.m-full-content__title {
+  color: var(--secondary-foreground-color);
+  font-family: $font-playfair;
+  font-weight: 700;
+  font-size: 2rem !important;
+  padding: 0 !important;
+  margin:  0 0 15px !important;
+}
+
+.m-full-content__description {
+  color: var(--secondary-foreground-color);
+  line-height: 1.5 !important;
+  font-size: 0.875rem !important;
+  margin: 0 -5px 30px !important;
+
+  @include respond-to('medium') {
+    font-size: 0.9375rem !important;
+    margin: 0 0 30px !important;
+  }
+}
+
+.m-full-content__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include respond-to('medium') {
+    justify-content: flex-start;
+  }
+
+  a:first-of-type {
+    margin-right: 10px;
+  }
+
+  a:last-of-type {
+    margin-left: 10px;
+  }
+}
+
+.rtl {
+  .m-full-content__buttons {
+    a:first-of-type {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+
+    a:last-of-type {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+  }
+}

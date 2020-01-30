@@ -1,0 +1,27 @@
+{{!--
+This template contains the structure of related articles.
+--}}
+
+<article class="m-related-article {{post_class}} post-access-{{visibility}} swiper-slide">
+  <a href="{{url}}" class="m-related-article__link" aria-label="{{title}}">
+    {{#if feature_image}}
+      <div class="m-related-article__image lozad" data-background-image="{{feature_image}}"></div>
+    {{else}}
+      <div class="m-related-article__image lozad no-image" data-background-image="{{asset "images/empty/related-article-empty-illustration.svg"}}"></div>
+    {{/if}}
+    <div class="m-related-article__content">
+      <div class="m-related-article__overlay"></div>
+      <div class="m-related-article__info">
+        {{#if @labs.members}}
+          <span class="m-access-tag in-related-post {{visibility}}" data-visibility="{{t visibility}}"></span>
+        {{/if}}
+        <h3 class="m-related-article__title">{{title}}</h3>
+        <p class="m-related-article__metas">
+          <span>{{date published_at timeago="true"}}</span>
+          <span>&nbsp; &bull; &nbsp;</span>
+          <span class="m-related-article__time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        </p>
+      </div>
+    </div>
+  </a>
+</article>

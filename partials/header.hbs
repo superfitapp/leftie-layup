@@ -1,0 +1,142 @@
+{{!--
+This header template is shared across all the pages.
+--}}
+
+<header class="m-header js-header">
+  <div class="m-mobile-topbar js-mobile-topbar">
+    {{#if @site.logo}}
+      <a href="{{@site.url}}" class="m-logo in-mobile-topbar">
+        <img src="{{@site.logo}}" alt="{{@site.title}}">
+      </a>
+    {{else}}
+      <span class="m-site-name in-mobile-topbar">
+        <a href="{{@site.url}}">
+          {{@site.title}}
+        </a>
+      </span>
+    {{/if}}
+    <button class="m-open-menu js-open-menu" aria-label="Open menu">
+      <span>
+        <i></i>
+        <i></i>
+      </span>
+    </button>
+    <div class="m-mobile-submenu js-mobile-submenu">
+      <nav>
+        <ul role="menu">
+          {{#if @site.navigation}}
+            {{navigation}}
+          {{/if}}
+          {{#if @labs.members}}
+            {{#if @member}}
+              <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}" role="menuitem">
+                <a href="{{@site.url}}/account">{{t "Account"}}</a>
+              </li>
+              <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}" role="menuitem">
+                <a href="#signout" data-members-signout>{{t "Log out"}}</a>
+              </li>
+            {{else}}
+              <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}" role="menuitem">
+                <a href="{{@site.url}}/signin">{{t "Sign in"}}</a>
+              </li>
+              <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}" role="menuitem">
+                <a href="{{@site.url}}/signup">{{t "Sign up"}}</a>
+              </li>
+            {{/if}}
+          {{/if}}
+          {{#if @site.secondary_navigation}}
+            <li class="m-nav-item more-item js-anime">
+              <button class="m-button simple in-mobile-menu as-more js-tooltip-secondary-menu" aria-label="More">
+                {{t "More"}}
+                <span class="icon-chevron-down"></span>
+              </button>
+            </li>
+          {{/if}}
+        </ul>
+      </nav>
+      <div class="m-mobile-submenu__social js-anime">
+        {{#if @site.facebook}}
+          <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook" class="m-mobile-submenu-icon">
+            <span class="icon-facebook"></span>
+          </a>
+        {{/if}}
+        {{#if @site.twitter}}
+          <a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener" aria-label="Twitter" class="m-mobile-submenu-icon">
+            <span class="icon-twitter"></span>
+          </a>
+        {{/if}}
+        <button class="m-mobile-submenu-icon js-open-search" aria-label="Open search">
+          <span class="icon-search"></span>
+        </button>
+        <div class="m-toggle-darkmode js-tooltip" data-tippy-content="{{t "Toggle dark mode"}}">
+          <label for="toggle-darkmode-mobile" class="sr-only">{{t "Toggle dark mode"}}</label>
+          <input type="checkbox" id="toggle-darkmode-mobile" class="js-toggle-darkmode">
+          <div>
+            <span class="icon-moon moon"></span>
+            <span class="icon-sun sun"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-desktop-topbar">
+    <div class="l-wrapper in-desktop-topbar">
+      <div class="m-desktop-topbar__content js-desktop-topbar-content">
+        <nav class="m-desktop-topbar__nav js-desktop-topbar-nav">
+          {{#if @site.logo}}
+            <a href="{{@site.url}}" class="m-logo in-desktop-topbar">
+              <img src="{{@site.logo}}" alt="{{@site.title}}">
+            </a>
+          {{else}}
+            <span class="m-site-name in-desktop-topbar">
+              <a href="{{@site.url}}">
+                {{@site.title}}
+              </a>
+            </span>
+          {{/if}}
+          {{#if @site.navigation}}
+            <div class="m-desktop-topbar__navigation-wrapper">
+              <ul class="m-navigation in-desktop-topbar" role="menu">
+                {{navigation}}
+              </ul>
+            </div>
+          {{/if}}
+        </nav>
+        <div class="m-desktop-topbar__buttons">
+          {{#if @site.secondary_navigation}}
+            <button class="m-button simple in-desktop-topbar as-more js-tooltip-secondary-menu" aria-label="More">
+              {{t "More"}}
+              <span class="icon-chevron-down"></span>
+            </button>
+          {{/if}}
+          {{#if @labs.members}}
+            {{#if @member}}
+              <a href="{{@site.url}}/account" class="m-button simple in-desktop-topbar">{{t "Account"}}</a>
+              <a href="#signout" class="m-button outlined in-desktop-topbar" data-members-signout>{{t "Log out"}}</a>
+            {{else}}
+              <a href="{{@site.url}}/signin" class="m-button simple in-desktop-topbar">{{t "Sign in"}}</a>
+              <a href="{{@site.url}}/signup" class="m-button outlined in-desktop-topbar">{{t "Sign up"}}</a>
+            {{/if}}
+          {{/if}}
+          <button class="m-desktop-topbar-icon js-open-search" aria-label="Open search">
+            <span class="icon-search"></span>
+          </button>
+          <div class="m-toggle-darkmode js-tooltip" data-tippy-content="{{t "Toggle dark mode"}}">
+            <label for="toggle-darkmode-desktop" class="sr-only">{{t "Toggle dark mode"}}</label>
+            <input type="checkbox" id="toggle-darkmode-desktop" class="js-toggle-darkmode">
+            <div>
+              <span class="icon-moon moon"></span>
+              <span class="icon-sun sun"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{#if @site.secondary_navigation}}
+    <div id="secondary-navigation-template" style="display: none;">
+      {{navigation type="secondary"}}
+    </div>
+  {{/if}}
+</header>

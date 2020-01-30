@@ -1,0 +1,14 @@
+.l-comments {
+  padding: 40px $mobile-space;
+
+  @include respond-to('medium') {
+    max-width: 960px;
+    padding: 0 50px;
+    margin: 0 auto 75px;
+  }
+
+  @include respond-to('large') {
+    padding: 0;
+    max-width: $medium-wrapper-width;
+  }
+}

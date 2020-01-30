@@ -1,0 +1,20 @@
+{{!--
+If the template in question has a background image, then we render responsive image styles
+for it, and apply those styles to the <header> tag.
+--}}
+
+{{#contentFor "herobackground"}}
+<style>
+  .m-article-hero__background {
+    background-image: url({{img_url background size='xl'}});
+  }
+
+  @media(max-width: 1000px) {
+    .m-article-hero__background {
+      background-image: url({{img_url background size='l'}});
+    }
+  }
+</style>
+{{/contentFor}}
+
+<div class="m-article-hero__background"></div>

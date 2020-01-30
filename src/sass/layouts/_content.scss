@@ -1,0 +1,17 @@
+.l-content {
+  position: relative;
+  padding-bottom: 40px;
+
+  @include respond-to('medium') {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  &.in-account {
+    padding-top: 40px;
+
+    @include respond-to('medium') {
+      padding-top: 75px;
+    }
+  }
+}

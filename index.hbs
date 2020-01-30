@@ -1,0 +1,72 @@
+{{!--
+This template is used for the index page.
+It can be used also as the home page or the default page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+<div class="main-wrap">
+  {{> header}}
+  <main>
+    <div class="l-wrapper">
+      {{#is "home"}}
+        {{#get "posts" filter="featured:true" include="authors,tags" limit="5" as |featured|}}
+          {{#if featured}}
+            <div class="m-featured-slider">
+              <div class="swiper-container js-featured-slider">
+                <div class="swiper-wrapper">
+                  {{#foreach featured visibility="all"}}
+                  {{!-- The tag below includes the markup for each featured post - partials/featured-slide.hbs --}}
+                  {{> "featured-slide"}}
+                  {{/foreach}}
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          {{else}}
+            <div class="m-blog-heading" data-aos="fade">
+              <h1 class="m-blog-heading__title">{{@site.title}}</h1>
+              <p class="m-blog-heading__description {{#if @member}}no-margin{{/if}}">{{@site.description}}</p>
+              {{#if @labs.members}}
+                {{^if @member}}
+                  <a href="{{@site.url}}/signup" class="m-button primary">
+                    <span>{{t "Sign up"}}</span>
+                  </a>
+                {{/if}}
+              {{/if}}
+            </div>
+          {{/if}}
+        {{/get}}
+      {{/is}}
+      <div class="l-content">
+        <div class="l-posts-container">
+          {{#foreach posts visibility="all"}}
+            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+            {{> "post-card"}}
+            {{else}}
+            {{> "no-posts"}}
+          {{/foreach}}
+        </div>
+        {{!-- Links to Previous/Next posts --}}
+        {{pagination}}
+      </div>
+    </div>
+    {{!-- Newsletter subscription form at the bottom of the page --}}
+    {{#if @labs.members}}
+      <section class="m-newsletter-section">
+        <div class="l-wrapper">
+          <div class="m-newsletter__content">
+            {{> "newsletter-form"}}
+          </div>
+        </div>
+      </section>
+    {{/if}}
+  </main>
+</div>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script defer src="{{asset "js/home.js"}}"></script>
+{{/contentFor}}

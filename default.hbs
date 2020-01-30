@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+
+<head>
+  {{!-- Document Settings --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  {{!-- Base Meta --}}
+  <title>{{meta_title}}</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {{!-- Styles'n'Scripts --}}
+  <style>
+    /* This font-face is here to make icons work if the Ghost instance is installed in a subdirectory */
+    @font-face {
+      font-family: 'icomoon';
+      src: url("{{asset 'fonts/icomoon.eot?agzxid'}}");
+      src: url("{{asset 'fonts/icomoon.eot?agzxid#iefix'}}") format('embedded-opentype'),
+      url("{{asset 'fonts/icomoon.ttf?agzxid'}}") format('truetype'),
+      url("{{asset 'fonts/icomoon.woff?agzxid'}}") format('woff'),
+      url("{{asset 'fonts/icomoon.svg?agzxid#icomoon'}}") format('svg');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
+
+  {{!-- This #block helper will pull data from the hero partial 
+    to inject styles of the hero image to make it responsive --}}
+  {{{block "herobackground"}}}
+
+  {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+  {{ghost_head}}
+
+  {{!-- This variable is used to make the search form work --}}
+  <script>
+    const ghostHost = "{{@site.url}}"
+  </script>
+
+  {{!-- This script loads the Google font asynchronously --}}
+  <script>
+    WebFontConfig = {
+      google: { families: ['Playfair+Display:700', 'Roboto:400,500,700&display=swap'] }
+    };
+    (function (d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+    })(document);
+  </script>
+</head>
+
+<body class="{{body_class}}">
+  {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+  {{{body}}}
+
+  {{!-- Search form --}}
+  {{> search}}
+  
+  {{!-- The footer --}}
+  {{> footer}}
+
+  {{!-- Notifications alerts --}}
+  {{> "notifications"}}
+
+  {{!-- Common scripts shared between pages --}}
+  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+  {{!--
+
+    anime.js v3.1.0
+    (c) 2019 Julian Garnier
+    Released under the MIT license
+    animejs.com
+
+    AOS v2.3.4
+    The MIT License (MIT)
+    Copyright (c) 2015 Michał Sajnóg
+
+    css-vars-ponyfill v2.1.2
+    https://jhildenbiddle.github.io/css-vars-ponyfill/
+    (c) 2018-2019 John Hildenbiddle <http://hildenbiddle.com> * MIT license
+
+    fitvids 2.0.0
+    DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+    Copyright (C) 2015 Ross Zurowski <ross@rosszurowski.com>
+
+    Fuse.js v3.4.5 - Lightweight fuzzy-search (http://fusejs.io)
+    Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
+    All Rights Reserved. Apache Software License 2.0
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    headroom.js v0.10.3 - Give your page some headroom. Hide your header until you need it
+    Copyright (c) 2019 Nick Williams - http://wicky.nillia.ms/headroom.js
+    License: MIT
+
+    jQuery v3.4.1 | (c) JS Foundation and other contributors | jquery.org/license
+
+    lozad.js - v1.14.0 - 2019-10-19
+    https://github.com/ApoorvSaxena/lozad.js
+    Copyright (c) 2019 Apoorv Saxena; Licensed MIT
+
+    medium-zoom 1.0.4 | MIT License | https://github.com/francoischalifour/medium-zoom
+
+    stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
+    version: v3.7.0
+    link: https://github.com/dollarshaveclub/stickybits#readme
+    author: Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
+    license: MIT
+
+    Swiper 5.2.0
+    Most modern mobile touch slider and framework with hardware accelerated transitions
+    http://swiperjs.com
+    Copyright 2014-2019 Vladimir Kharlampidi
+    Released under the MIT License
+    Released on: October 26, 2019
+
+    tippy.js v4.0.1
+    MIT License
+    Copyright (c) 2017 atomiks
+
+    viewport-units-buggyfill v0.6.2
+    web: https://github.com/rodneyrehm/viewport-units-buggyfill/
+    author: Rodney Rehm - http://rodneyrehm.de/en/
+
+    Ghost content-api
+    MIT License
+    Copyright (c) 2018-2019 Ghost Foundation
+
+  --}}
+  <script defer src="https://unpkg.com/@tryghost/content-api@1.2.7/umd/content-api.min.js"></script>
+  <script defer src="{{asset "js/manifest.js"}}"></script>
+  <script defer src="{{asset "js/vendor.js"}}"></script>
+  <script defer src="{{asset "js/app.js"}}"></script>
+
+  {{!-- The #block helper will pull in data from the #contentFor other template files --}}
+  {{{block "scripts"}}}
+
+  {{!-- Ghost outputs important scripts and data with this tag --}}
+  {{ghost_foot}}
+</body>
+
+</html>

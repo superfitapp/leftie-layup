@@ -1,0 +1,119 @@
+.m-subscription {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 30px;
+
+  @include respond-to('medium') {
+    margin-bottom: 0;
+  }
+
+  @include respond-to('extra-large') {
+    width: 350px;
+  }
+
+  &.last {
+    margin-bottom: 0;
+  }
+}
+
+.m-subscription__main-container {
+  flex: 1;
+}
+
+_:-ms-fullscreen, :root .m-subscription__main-container {
+  flex: 1 1 auto;
+}
+
+.m-subscription__type {
+  color: var(--secondary-foreground-color);
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.75px;
+  line-height: 1.2;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.m-subscription__price {
+  color: var(--label-color);
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.m-subscription__price__number {
+  color: var(--secondary-foreground-color);
+  font-size: 3rem;
+}
+
+.m-subscription__divider {
+  position: relative;
+  margin: 0 0 20px;
+  border: 0;
+  border-top: 1px solid var(--primary-subtle-color);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-subtle-color);
+    @include bs(0 0 0 10px var(--background-color));
+    @include transform(translate(-50%,-50%));
+  }
+}
+
+.m-subscription__list {
+  list-style-type: none;
+  padding: 10px 0 0;
+  margin: 0 0 40px;
+
+  li {
+    position: relative;
+    color: var(--secondary-foreground-color);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    font-size: 1rem;
+    padding-left: 23px;
+    margin-bottom: 15px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    span {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      color: inherit;
+      font-size: 0.5625rem;
+    }
+  }
+}
+
+.rtl {
+  .m-subscription__list {
+    li {
+      padding-left: 0;
+      padding-right: 23px;
+
+      span {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+
+.m-subscription__button-container {
+  display: flex;
+  justify-content: center;
+}

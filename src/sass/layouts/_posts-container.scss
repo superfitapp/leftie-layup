@@ -1,0 +1,9 @@
+.l-posts-container {
+  position: relative;
+  margin: 0 auto;
+
+  @include respond-to('medium') {
+    padding-bottom: 115px;
+    max-width: $max-wrapper-medium-width;
+  }
+}

@@ -1,0 +1,100 @@
+.m-account-module {
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 30px;
+
+  @include respond-to('medium') {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+
+  &.last {
+    margin-bottom: 0 !important;
+  }
+}
+
+.m-account-module__header {
+  padding: 10px 20px 15px;
+  background-color: var(--empty-color);
+  border-bottom: 1px solid var(--border-color);
+
+  @include respond-to('medium') {
+    padding: 15px 40px 20px;
+  }
+}
+
+.m-account-module__title {
+  color: var(--secondary-foreground-color);
+  line-height: 1.2;
+  font-family: $font-playfair;
+  font-size: 1.625rem;
+  font-weight: 700;
+  margin: 0;
+
+  @include respond-to('medium') {
+    font-size: 2rem;
+  }
+}
+
+.m-account-module__body {
+  position: relative;
+  padding: 30px 20px;
+
+  @include respond-to('medium') {
+    padding: 40px 200px 40px 40px;
+  }
+
+  &.in-subscriptions {
+    padding: 0 20px;
+
+    @include respond-to('medium') {
+      padding: 0 40px;
+    }
+  }
+
+  p {
+    color: var(--secondary-foreground-color);
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    font-size: 0.875rem;
+    margin: 0;
+
+    b, strong {
+      font-weight: 500;
+    }
+  }
+}
+
+.rtl {
+  .m-account-module__body {
+    @include respond-to('medium') {
+      padding: 40px 0 40px 200px;
+    }
+  }
+}
+
+.m-account-module__body__flex-container {
+  @include respond-to('medium') {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.m-account-module__button-container {
+  text-align: center;
+  padding-top: 30px;
+
+  @include respond-to('medium') {
+    text-align: left;
+  }
+}
+
+.rtl {
+  .m-account-module__button-container {
+    @include respond-to('medium') {
+      text-align: right;
+    }
+  }
+}

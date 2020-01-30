@@ -1,0 +1,44 @@
+.m-open-menu {
+  width: $mobile-bar-height;
+  height: $mobile-bar-height;
+  cursor: pointer;
+  @extend .no-appearance;
+  @extend .content-centered;
+
+  &.opened {
+    span {
+      i:first-of-type {
+        @include transform(rotate(45deg) translate(4px,2px));
+      }
+
+      i:last-of-type {
+        @include transform(rotate(-45deg) translate(-2px,-4px));
+      }
+    }
+  }
+
+  span {
+    width: 25px;
+    height: 8px;
+    position: relative;
+
+    i {
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: var(--primary-foreground-color);
+      @include transition(all 0.25s cubic-bezier(0.02, 0.01, 0.47,1));
+
+      &:first-of-type {
+        left: 0;
+        top: 0;
+      }
+
+      &:last-of-type {
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

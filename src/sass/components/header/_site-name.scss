@@ -1,0 +1,36 @@
+.m-site-name {
+  display: block;
+
+  &.in-mobile-topbar {
+    padding: 0 $mobile-space;
+    max-width: calc(100% - 50px);
+
+    a {
+      @include strip(1, 1.375rem, 1.2);
+    }
+  }
+
+  &.in-desktop-topbar {
+    flex-shrink: 0;
+    font-size: 1.750rem;
+    margin-right: 50px;
+    @include transform(translateY(-7px));
+  }
+
+  a {
+    color: var(--primary-foreground-color);
+    font-family: $font-playfair;
+    font-weight: 700;
+  }
+}
+
+.m-site-name.in-desktop-topbar:not(:root:root) { 
+  @include transform(translateY(-3px));
+}
+
+.rtl {
+  .m-site-name.in-desktop-topbar {
+    margin-right: 0;
+    margin-left: 50px;
+  }
+}

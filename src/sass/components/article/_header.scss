@@ -1,0 +1,26 @@
+.m-article-header {
+  display: none;
+
+  @include respond-to('medium') {
+    display: block;
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  &.no-hero {
+    display: block;
+    padding-top: 40px;
+
+    @include respond-to('medium') {
+      padding-top: 75px;
+      padding-bottom: 0;
+    }
+
+    .m-article-title,
+    .m-article-metas,
+    .m-article-tag,
+    .m-article-excerpt {
+      color: var(--primary-foreground-color);
+    }
+  }
+}

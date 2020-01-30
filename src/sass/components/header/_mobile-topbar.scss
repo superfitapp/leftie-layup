@@ -1,0 +1,18 @@
+.m-mobile-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $mobile-bar-height;
+  position: relative;
+  background-color: var(--background-color);
+  overflow: hidden;
+  z-index: 2;
+
+  &.opened {
+    overflow: visible;
+  }
+
+  @include respond-to('medium') {
+    display: none !important;
+  }
+}

@@ -1,0 +1,26 @@
+.m-auth-secondary-text {
+  color: var(--secondary-foreground-color);
+  text-align: center;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  font-size: 0.8125rem;
+  margin: 0;
+
+  @include respond-to('large') {
+    text-align: left;
+    font-size: 0.875rem;
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}
+
+.rtl {
+  .m-auth-secondary-text {
+    @include respond-to('large') {
+      text-align: right;
+    }
+  }
+}

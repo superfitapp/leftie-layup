@@ -1,0 +1,20 @@
+.m-tag {
+  color: var(--primary-foreground-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.688rem;
+  font-weight: 500;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background-color: var(--primary-subtle-color);
+  @include transition(background-color linear 0.1s);
+
+  @include respond-to('medium') {
+    font-size: 0.750rem;
+    padding: 4px 8px;
+  }
+
+  &:hover {
+    background-color: var(--tag-hover-color);
+  }
+}

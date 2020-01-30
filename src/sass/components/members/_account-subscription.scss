@@ -1,0 +1,21 @@
+.m-account-subscription {
+  position: relative;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border-color);
+
+  @include respond-to('medium') {
+    padding: 40px 200px 40px 0;
+  }
+
+  &.last {
+    border-bottom: 0;
+  }
+}
+
+.rtl {
+  .m-account-subscription {
+    @include respond-to('medium') {
+      padding: 40px 0 40px 200px;
+    }
+  }
+}

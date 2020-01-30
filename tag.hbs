@@ -1,0 +1,36 @@
+{{!--
+This template is used for the tag page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+<div class="main-wrap">
+  {{> header}}
+  <main>
+    <div class="l-wrapper">
+      <div class="l-content">
+        {{!-- Everything inside the #tag tags pulls data from the tag --}}
+        {{#tag}}
+        <section class="m-heading" data-aos="fade">
+          <h1 class="m-heading__title">{{name}}</h1>
+          <p class="m-heading__description">
+            {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}} {{t "with this tag"}}
+          </p>
+        </section>
+        {{/tag}}
+        <div class="l-posts-container">
+          {{#foreach posts}}
+            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+            {{> "post-card"}}
+            {{else}}
+            {{> "no-posts"}}
+          {{/foreach}}
+        </div>
+        {{!-- Links to Previous/Next posts --}}
+        {{pagination}}
+      </div>
+    </div>
+  </main>
+</div>

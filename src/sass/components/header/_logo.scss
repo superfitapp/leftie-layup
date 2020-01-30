@@ -1,0 +1,32 @@
+.m-logo {
+  display: inline-block;
+
+  &.in-mobile-topbar {
+    margin: 0 $mobile-space;
+
+    img {
+      height: 18px;
+    }
+  }
+
+  &.in-desktop-topbar {
+    flex-shrink: 0;
+    margin-right: 50px;
+    @include transform(translateY(-3px));
+
+    img {
+      height: 35px;
+    }
+  }
+
+  img {
+    width: auto;
+  }
+}
+
+.rtl {
+  .m-logo.in-desktop-topbar {
+    margin-right: 0;
+    margin-left: 50px;
+  }
+}

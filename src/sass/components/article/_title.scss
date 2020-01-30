@@ -1,0 +1,15 @@
+.m-article-title {
+  color: var(--background-color);
+  line-height: 1.1;
+  font-family: $font-playfair;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0 auto 25px;
+
+  @include respond-to('medium') {
+    color: var(--primary-foreground-color);
+    font-size: 3rem;
+    max-width: 720px;
+    margin-bottom: 30px;
+  }
+}

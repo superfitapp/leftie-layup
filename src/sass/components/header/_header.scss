@@ -1,0 +1,26 @@
+.m-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $mobile-bar-height;
+  will-change: transform;
+  z-index: 9;
+  @include transition(transform 0.25s ease-in-out);
+
+  @include respond-to('medium') {
+    height: $desktop-bar-height;
+  }
+
+  &.headroom--pinned {
+    @include transform(translateY(0));
+  }
+
+  &.headroom--unpinned:not(.opened) {
+    @include transform(translateY(-100%))
+  }
+
+  &.opened {
+    z-index: 10;
+  }
+}

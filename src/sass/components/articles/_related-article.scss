@@ -1,0 +1,153 @@
+.m-related-article {
+  flex: 1 1 230px !important;
+  width: auto !important;
+  min-width: 230px;
+  max-width: calc(100% - 40px);
+  height: 290px !important;
+  position: relative;
+  border-radius: 2px;
+
+  @include respond-to('medium') {
+    flex: 1 1 270px !important;
+    width: auto !important;
+    min-width: 270px;
+    max-width: 100%;
+    height: 340px !important;
+  }
+
+  @include respond-to('largest') {
+    max-width: $medium-wrapper-width;
+  }
+
+  &:before {
+    @include respond-to('extra-large') {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+      background-color: var(--primary-subtle-color);
+    }
+  }
+}
+
+.m-related-article__link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 2;
+  @include transition(transform 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+
+  @include respond-to('extra-large') {
+    @include transform(translate(20px, 20px));
+  }
+
+  &:hover {
+    @include respond-to('extra-large') {
+      @include transform(translate(30px, 30px));
+    }
+  }
+}
+
+.rtl {
+  .m-related-article__link {
+    @include respond-to('extra-large') {
+      @include transform(translate(-20px, 20px));
+    }
+
+    &:hover {
+      @include respond-to('extra-large') {
+        @include transform(translate(-30px, 30px));
+      }
+    }
+  }
+}
+
+.m-related-article__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+
+  &.no-image {
+    background-color: $related-empty-color;
+    background-position: center top;
+    background-size: 95% 70%;
+  }
+}
+
+.m-related-article__content {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.m-related-article__overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 240px;
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 );
+  z-index: 1;
+}
+
+.m-related-article__info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 2;
+
+  @include respond-to('medium') {
+    padding: 20px;
+  }
+}
+
+.m-related-article__content .m-related-article__title {
+  color: white;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  font-family: $font-roboto;
+  font-weight: 700;
+  font-size: 1.125rem;
+
+  @include respond-to('extra-large') {
+    font-size: 1.250rem;
+  }
+}
+
+.m-related-article__metas {
+  color: white;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.4px;
+  font-size: 0.750rem;
+}
+
+.m-related-article__time {
+  flex: 1;
+  width: auto !important;
+  @include strip(1, 0.750rem, 1.3);
+}

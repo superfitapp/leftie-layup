@@ -1,0 +1,24 @@
+.m-auth-illustration {
+  display: none;
+
+  @include respond-to('medium') {
+    display: block;
+    order: 1;
+    width: 300px;
+    height: 216px;
+    margin-bottom: 40px;
+  }
+
+  @include respond-to('large') {
+    display: block;
+    order: 2;
+    width: 400px;
+    height: 288px;
+    margin-bottom: 0;
+  }
+
+  @include respond-to('extra-large') {
+    width: 450px;
+    height: 325px;
+  }
+}

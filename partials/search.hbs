@@ -1,0 +1,22 @@
+{{!--
+This search template is used to display the search form.
+You need to create a custom integration first to get a Content API key and then 
+follow the instructions to enable the search feature.
+--}}
+
+<div class="l-search js-search">
+  <div class="l-search__close js-close-search"></div>
+  <div class="l-search-content">
+    <form class="m-search__form">
+      <span class="m-search__icon icon-search"></span>
+      <input type="text" class="m-input in-search-form js-input-search" placeholder="{{t "Type to search"}}" aria-label="Type to search">
+    </form>
+    <div class="m-search__results js-search-results hide"></div>
+    <div class="m-search__no-results align-center hide js-no-results">
+      <h4>{{ t "No results"}}</h4>
+      <p>
+        {{t "No results for your search, try something different."}}
+      </p>
+    </div>
+  </div>
+</div>
