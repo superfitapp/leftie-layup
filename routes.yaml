@@ -11,16 +11,14 @@ routes:
   /account/:
     template: members/account
     data: page.account
-
 collections:
   /:
     permalink: /{slug}/
     template: index
-    filter: visibility:public
-  /newsletter/:
+  /daily-layup/:
     permalink: /{slug}/
     template: index
-    filter: visibility:-public
+    filter: visibility:paid
   
 
 taxonomies:
