@@ -16,6 +16,12 @@ collections:
   /:
     permalink: /{slug}/
     template: index
+    filter: visibility:public
+  /newsletter/:
+    permalink: /{slug}/
+    template: index
+    filter: visibility:-public
+  
 
 taxonomies:
   tag: /tag/{slug}/
