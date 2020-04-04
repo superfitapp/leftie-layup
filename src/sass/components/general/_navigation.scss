@@ -4,8 +4,9 @@
   margin: 0;
 
   &.in-desktop-topbar {
+    align-items: center;
     position: absolute;
-    padding: 5px 0;
+    padding: 3px 0;
     max-width: 100%;
     white-space: nowrap;
   }
@@ -45,6 +46,12 @@
         border-radius: 50%;
         opacity: 0.5;
         background-color: var(--primary-foreground-color);
+      }
+    }
+
+    &.no-effect {
+      &:after {
+        display: none !important;
       }
     }
 

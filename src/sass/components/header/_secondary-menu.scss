@@ -16,13 +16,26 @@
 
     a {
       display: block;
-      padding: 5px 10px;
+      padding: 10px;
       border-radius: 2px;
       @include transition(background-color linear 0.1s);
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.1);
       }
+
+      @include respond-to('medium') {
+        padding: 5px 10px;
+      }
+    }
+  }
+}
+
+.rtl {
+  .m-secondary-menu {
+    .m-nav-item,
+    .m-nav-item a {
+      text-align: right !important;
     }
   }
 }

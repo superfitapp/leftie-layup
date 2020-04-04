@@ -16,25 +16,45 @@
 }
 
 .m-account-module__header {
-  padding: 10px 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
   background-color: var(--empty-color);
   border-bottom: 1px solid var(--border-color);
 
   @include respond-to('medium') {
-    padding: 15px 40px 20px;
+    padding: 22px 40px;
   }
 }
 
 .m-account-module__title {
+  flex: 1;
   color: var(--secondary-foreground-color);
-  line-height: 1.2;
+  line-height: 1;
   font-family: $font-playfair;
   font-size: 1.625rem;
   font-weight: 700;
+  padding-right: 20px;
   margin: 0;
 
   @include respond-to('medium') {
     font-size: 2rem;
+  }
+}
+
+.m-account-module__avatar {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include respond-to('medium') {
+    width: 39px;
+    height: 39px;
   }
 }
 

@@ -10,24 +10,11 @@
 
 .m-more-from-author__title {
   color: var(--primary-foreground-color);
-  text-align: center;
   line-height: 1.2;
   font-family: $font-playfair;
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0 0 25px;
-
-  @include respond-to('medium') {
-    text-align: left;
-  }
-}
-
-.rtl {
-  .m-more-from-author__title {
-    @include respond-to('medium') {
-      text-align: right;
-    }
-  }
 }
 
 .m-more-from-author__posts {

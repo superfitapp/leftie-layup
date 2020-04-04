@@ -1,0 +1,22 @@
+.m-search-label {
+  display: block;
+  color: var(--secondary-foreground-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 0 0 25px;
+  opacity: 0.8;
+
+  @include respond-to('medium') {
+    font-size: 0.875rem;
+  }
+
+  &.in-search-results {
+    margin-bottom: 10px;
+
+    @include respond-to('medium') {
+      margin-bottom: 5px;
+    }
+  }
+}

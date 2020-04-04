@@ -72,6 +72,7 @@
   }
 
   span {
+    color: $alert-text-color;
     font-size: 0.75rem;
 
     @include respond-to('medium') {

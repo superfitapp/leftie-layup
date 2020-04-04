@@ -1,0 +1,11 @@
+.m-progress {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  border-radius: 5px;
+  background-color: var(--primary-foreground-color);
+  z-index: 2;
+  @include transition(width linear 0.1s);
+}

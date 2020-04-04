@@ -66,7 +66,7 @@ into the {body} of the default.hbs template --}}
       {{/author}}
       <div class="l-content">
         <div class="l-posts-container">
-          {{#foreach posts}}
+          {{#foreach posts visibility="all"}}
             {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
             {{> "post-card"}}
             {{else}}

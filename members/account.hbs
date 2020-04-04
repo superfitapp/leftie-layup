@@ -19,6 +19,9 @@ into the {body} of the default.hbs template --}}
               <h1 class="m-account-module__title">
                 {{t "Account"}}
               </h1>
+              {{#if @member.avatar_image}}
+                <div class="m-account-module__avatar" style="background-image: url({{@member.avatar_image}});"></div>
+              {{/if}}
             </header>
             <div class="m-account-module__body">
               <span class="m-access-tag in-account-module subscriber" data-visibility="{{t "Subscriber"}}"></span>
@@ -36,6 +39,7 @@ into the {body} of the default.hbs template --}}
                   </p>
                 </div>
               {{/if}}
+              <a href="javascript:" data-members-edit-billing class="m-account-link">{{t "edit billing info"}}</a>
             </div>
           </section>
           <section class="m-account-module last" data-aos="fade-up">
@@ -58,7 +62,7 @@ into the {body} of the default.hbs template --}}
                   </div>
                   <div class="m-account-subscription-plan">
                     <p class="m-account-subscription-plan__price">
-                      <span class="uppercase">{{plan.currency}}</span> $<span class="m-account-subscription-plan__price__number js-plan-price" data-plan-price="{{ plan.amount }}">{{plan.amount}}</span> / {{plan.interval}}
+                      <span class="uppercase">{{plan.currency}}</span> {{plan.currency_symbol}}<span class="m-account-subscription-plan__price__number js-plan-price" data-plan-price="{{ plan.amount }}">{{plan.amount}}</span> / {{plan.interval}}
                     </p>
                     <span clasS="m-account-subscription-plan__date">
                       {{#if cancel_at_period_end}}
@@ -91,7 +95,7 @@ into the {body} of the default.hbs template --}}
                     </div>
                   </div>
                   {{cancel_link
-                    class="m-account-cancel"
+                    class="m-account-link"
                     errorClass="m-error-message in-subscription"
                     cancelLabel=(t "cancel subscription")
                     continueLabel=(t "continue subscription")
@@ -109,6 +113,9 @@ into the {body} of the default.hbs template --}}
               <h1 class="m-account-module__title">
                 {{t "Account"}}
               </h1>
+              {{#if @member.avatar_image}}
+                <div class="m-account-module__avatar" style="background-image: url({{@member.avatar_image}});"></div>
+              {{/if}}
             </header>
             <div class="m-account-module__body">
               <span class="m-access-tag in-account-module" data-visibility="{{t "Member"}}"></span>
@@ -128,7 +135,7 @@ into the {body} of the default.hbs template --}}
               {{/if}}
               <p>
                 <strong>{{t "Psst!…"}}</strong>
-                {{t "Currently, you're not a subscriber. Unlock full access and see the entire library of members-only content & updates."}}
+                {{t "Currently, you're not a subscriber. Unlock full access to Daily Layups and subscriber-only content.."}}
               </p>
               <div class="m-account-module__button-container">
                 <a href="{{@site.url}}/signup" class="m-button primary">

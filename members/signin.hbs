@@ -29,8 +29,7 @@ into the {body} of the default.hbs template --}}
           <div class="m-auth-form">
             <fieldset class="m-fieldset in-auth-form">
               <label for="signin-input" class="sr-only">{{t "Your email address"}}</label>
-              <input data-members-email id="signin-input" class="m-input in-auth-form" type="email"
-                placeholder="{{t "Your email address"}}" />
+              <input data-members-email id="signin-input" class="m-input in-auth-form" type="email" required placeholder="{{t "Your email address"}}" />
             </fieldset>
             <button id="signin-button" class="m-button primary in-auth-form" type="submit">
               <span>{{t "Send magic link"}}</span>

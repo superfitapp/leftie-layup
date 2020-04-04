@@ -11,6 +11,12 @@
   background-color: var(--background-color);
   @extend .no-appearance;
 
+  &:invalid,
+  &:focus:invalid {
+    outline: 0;
+    @include bs(0 0 0 0 transparent);
+  }
+
   &.in-newsletter-form,
   &.in-search-form {
     @include respond-to('medium') {
@@ -26,5 +32,6 @@
 
   &.in-search-form {
     padding-left: 50px;
+    padding-right: 50px;
   }
 }

@@ -1,0 +1,20 @@
+{{!--
+This template contains the structure of recent articles.
+--}}
+
+<article class="m-recent-article {{post_class}} post-access-{{visibility}} {{#if @last}}last{{/if}}">
+  <a href="{{url}}" class="m-recent-article__link" aria-label="{{title}}">
+    {{#if feature_image}}
+      <div class="m-recent-article__image lozad" data-background-image="{{img_url feature_image size="s"}}"></div>
+    {{else}}
+      <div class="m-recent-article__image no-image lozad" data-background-image="{{asset "images/empty/post-illustration.svg"}}"></div>
+    {{/if}}
+    <div class="m-recent-article__info">
+      <h4 class="m-recent-article__title">{{title}}</h4>
+      <span class="m-recent-article__date">{{date published_at format=(t "MMMM DD, YYYY")}}</span>
+      {{#if @labs.members}}
+        <span class="m-access-tag in-recent-post {{visibility}}" data-visibility="{{t visibility}}"></span>
+      {{/if}}
+    </div>
+  </a>
+</article>
