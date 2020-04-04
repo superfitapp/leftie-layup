@@ -6,11 +6,13 @@
   padding-top: 25px;
 
   &.in-auth-form {
+    text-align: center;
     max-width: 480px;
     padding-top: 0;
     padding-bottom: 25px;
 
     @include respond-to('medium') {
+      text-align: left;
       max-width: 100%;
     }
   }
@@ -18,5 +20,15 @@
   &.in-subscription {
     display: block;
     padding-top: 10px;
+  }
+}
+
+.rtl {
+  .m-error-message {
+    &.in-auth-form {
+      @include respond-to('medium') {
+        text-align: right;
+      }
+    }
   }
 }

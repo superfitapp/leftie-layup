@@ -8,6 +8,12 @@
     padding: 0;
   }
 
+  &.extra-space {
+    @include respond-to('largest') {
+      max-width: 1400px;
+    }
+  }
+
   &.in-desktop-topbar {
     @include respond-to('medium') {
       height: 100%;

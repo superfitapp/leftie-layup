@@ -1,0 +1,42 @@
+.m-search-form {
+  padding: 50px $mobile-space;
+
+  @include respond-to('medium') {
+    padding: 100px $mobile-space 75px;
+    margin: 0 auto;
+    max-width: 550px;
+  }
+
+  @include respond-to('extra-large') {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  fieldset {
+    position: relative;
+  }
+
+  span {
+    position: absolute;
+    left: $mobile-space;
+    top: 50%;
+    color: var(--placeholder-color);
+    font-size: 1rem;
+    pointer-events: none;
+    @include transform(translateY(-45%));
+
+    @include respond-to('medium') {
+      font-size: 1.125rem;
+      @include transform(translateY(-42%));
+    }
+  }
+}
+
+.rtl {
+  .m-search-form {
+    span {
+      left: auto;
+      right: $mobile-space;
+    }
+  }
+}

@@ -6,7 +6,7 @@
           {{t "Choose your subscription"}}
         </h1>
         <p class="m-heading__description">
-          {{t "Unlock full access to Daily Layups and subscriber-only content."}}
+          {{t "Unlock full access and see the entire library of members-only content & updates."}}
         </p>
       </section>
       <div class="l-subscriptions" data-aos="fade-up">
@@ -14,7 +14,7 @@
           <div class="m-subscription__main-container">
             <h4 class="m-subscription__type">{{t "Monthly"}}</h4>
             <div class="m-subscription__price">
-              $
+              {{@price.currency_symbol}}
               <span class="m-subscription__price__number">
                 {{@price.monthly}}
               </span>
@@ -50,7 +50,7 @@
           <div class="m-subscription__main-container">
             <h4 class="m-subscription__type">{{t "Yearly"}}</h4>
             <div class="m-subscription__price">
-              $
+              {{@price.currency_symbol}}
               <span class="m-subscription__price__number">
                 {{@price.yearly}}
               </span>

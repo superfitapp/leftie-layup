@@ -27,13 +27,19 @@ $(document).ready(() => {
   const $header = $('.js-header')
   const $openMenu = $('.js-open-menu')
   const $mobileTopbar = $('.js-mobile-topbar')
-  const $mobileSubmenu = $('.js-mobile-submenu')
+  const $mobileMenu = $('.js-mobile-menu')
+  const $submenu = $('.js-submenu')
+  const $toggleSubmenu = $('.js-toggle-submenu')
+  const $closeSubmenu = $('.js-close-submenu')
   const $openSearch = $('.js-open-search')
   const $closeSearch = $('.js-close-search')
   const $search = $('.js-search')
   const $inputSearch = $('.js-input-search')
+  const $searchInitState = $('.js-search-init-state')
+  const $searchResultsContainer = $('.js-search-results-container')
   const $searchResults = $('.js-search-results')
-  const $searchNoResults = $('.js-no-results')
+  const $searchNoResults = $('.js-search-no-results')
+  const $searchLoading = $('.js-search-loading')
   const $toggleDarkMode = $('.js-toggle-darkmode')
   const $openSecondaryMenu = $('.js-tooltip-secondary-menu')
   const $closeNotification = $('.js-notification-close')
@@ -42,7 +48,10 @@ $(document).ready(() => {
   const $desktopTopbarNav = $('.js-desktop-topbar-nav')
   const currentSavedTheme = localStorage.getItem('theme')
 
+  let observer = null
   let fuse = null
+  let searchTimer = null
+  let submenuIsOpen = false
   let secondaryMenuTippy = null
 
   const trySearchFeature = () => {
@@ -59,7 +68,7 @@ $(document).ready(() => {
     const api = new GhostContentAPI({
       url: host,
       key,
-      version: 'v2'
+      version: 'v3'
     })
     const allPosts = []
     const fuseOptions = {
@@ -68,7 +77,7 @@ $(document).ready(() => {
       location: 0,
       distance: 100,
       tokenize: true,
-      matchAllTokens: true,
+      matchAllTokens: false,
       maxPatternLength: 32,
       minMatchCharLength: 1,
       keys: ['title', 'custom_excerpt', 'html']
@@ -76,7 +85,7 @@ $(document).ready(() => {
 
     api.posts.browse({
       limit: 'all',
-      fields: 'id, title, url, published_at, custom_excerpt, html'
+      fields: 'id, title, url, published_at, custom_excerpt, html, feature_image, visibility'
     })
       .then((posts) => {
         for (var i = 0, len = posts.length; i < len; i++) {
@@ -88,6 +97,51 @@ $(document).ready(() => {
       .catch((error) => {
         console.log(error)
       })
+  }
+
+  const performSearch = () => {
+    if (!isMobile()) {
+      $searchInitState.hide()
+    }
+
+    const results = fuse.search($inputSearch.val())
+    const visibilityTypes = {
+      members: membersLabel,
+      paid: paidLabel
+    }
+    let htmlString = ''
+
+    if (results.length > 0) {
+      for (var i = 0, len = results.length; i < len; i++) {
+        const result = results[i]
+        const lastClass = i === len - 1 ? 'last' : ''
+        const resultImage = result.feature_image ?
+          `<a href="${result.url}" class="m-result__image">\
+              <div class="lozad" data-background-image="${result.feature_image}"></div>\
+            </a>` : ''
+
+        htmlString += `
+          <article class="m-result ${lastClass}">\
+            ${resultImage}\
+            <h3 class="m-result__title">\
+              <a href="${result.url}">${result.title}</a>\
+            </h3>\
+            <div class="m-result__metas">\
+              <span class="m-access-tag in-search-result ${result.visibility}" data-visibility="${visibilityTypes[result.visibility]}"></span>\
+              <span class="m-result__date">${formatDate(result.published_at)}</span>\
+            </div>\
+          </article>`
+      }
+
+      $searchNoResults.hide()
+      $searchResults.html(htmlString)
+      $searchResultsContainer.show()
+      observer.observe()
+    } else {
+      $searchResults.html('')
+      $searchResultsContainer.hide()
+      $searchNoResults.show()
+    }
   }
 
   const showNotification = (typeNotification) => {
@@ -133,6 +187,17 @@ $(document).ready(() => {
     }
   }
 
+  const openSubmenu = () => {
+    $toggleSubmenu.addClass('active')
+    $submenu.addClass('opened')
+  }
+
+  const closeSubmenu = () => {
+    submenuIsOpen = false
+    $toggleSubmenu.removeClass('active')
+    $submenu.removeClass('opened')
+  }
+
   const toggleDesktopTopbarOverflow = (disableOverflow) => {
     if (!isMobile()) {
       if (disableOverflow) {
@@ -149,73 +214,79 @@ $(document).ready(() => {
     $header.toggleClass('opened')
     $openMenu.toggleClass('opened')
     $mobileTopbar.toggleClass('opened')
-    $mobileSubmenu.toggleClass('opened')
+    $mobileMenu.toggleClass('opened')
+    $submenu.removeClass('opened')
 
-    anime({
-      targets: '.js-mobile-submenu .js-anime',
-      translateY: [-25, 0],
-      duration: 1000,
-      delay: (target, index) => {
-        return index * 25;
-      },
-      elasticity: 25
-    })
+    if ($header.hasClass('opened')) {
+      anime({
+        targets: '.js-mobile-menu .js-anime',
+        translateY: [-25, 0],
+        duration: 1000,
+        delay: (target, index) => {
+          return index * 25
+        },
+        elasticity: 25
+      })
+    } else {
+      closeSubmenu()
+    }
 
     toggleScrollVertical()
+  })
+
+  $toggleSubmenu.click(() => {
+    submenuIsOpen = !submenuIsOpen
+
+    if (submenuIsOpen) {
+      openSubmenu()
+    } else {
+      closeSubmenu()
+    }
+  })
+
+  $closeSubmenu.click(() => {
+    closeSubmenu()
   })
 
   $openSearch.click(() => {
     $search.addClass('opened')
     setTimeout(() => {
-      $inputSearch.focus()
-    }, 400);
+      if ($inputSearch.val().length === 0) {
+        $inputSearch.focus()
+      }
+    }, 400)
 
-    if (!isMobile()) {
-      toggleScrollVertical()
-    }
+    toggleScrollVertical()
   })
 
   $closeSearch.click(() => {
     $inputSearch.blur()
     $search.removeClass('opened')
 
-    if (!isMobile()) {
-      toggleScrollVertical()
-    }
+    toggleScrollVertical()
   })
 
   $inputSearch.keyup(() => {
+    if (searchTimer) {
+      clearTimeout(searchTimer)
+    }
+
     if ($inputSearch.val().length > 0 && fuse) {
-      const results = fuse.search($inputSearch.val())
-      let htmlString = ''
+      $searchLoading.show()
 
-      if (results.length > 0) {
-        for (var i = 0, len = results.length; i < len; i++) {
-          const lastClass = i === len - 1 ? 'last' : ''
-
-          htmlString += `
-          <article class="m-result ${lastClass}">\
-            <a href="${results[i].url}" class="m-result__link">\
-              <h3 class="m-result__title">${results[i].title}</h3>\
-              <p class="m-result__meta">\
-                <span>${formatDate(results[i].published_at)}</span>\
-              </p>\
-            </a>\
-          </article>`
-        }
-
-        $searchNoResults.hide()
-        $searchResults.html(htmlString)
-        $searchResults.show()
-      } else {
-        $searchResults.html('')
-        $searchResults.hide()
-        $searchNoResults.show()
-      }
+      searchTimer = setTimeout(() => {
+        performSearch()
+        $searchLoading.hide()
+      }, 1000)
     } else {
+      $searchLoading.hide()
       $searchResults.html('')
-      $searchResults.hide()
+      $searchResultsContainer.hide()
       $searchNoResults.hide()
+
+      if (!isMobile()) {
+        $searchInitState.show()
+      }
     }
   })
 
@@ -245,6 +316,16 @@ $(document).ready(() => {
       $(this).html(planAmount)
     })
   }
+
+  $(document).click((e) => {
+    if ($(e.target).hasClass('js-toggle-submenu') || $(e.target).parent().hasClass('js-toggle-submenu')) {
+      return
+    }
+
+    if (!isMobile() && submenuIsOpen && !$submenu[0].contains(e.target)) {
+      closeSubmenu()
+    }
+  })
 
   $(document).keyup((e) => {
     if (e.key === 'Escape' && $search.hasClass('opened')) {
@@ -289,7 +370,7 @@ $(document).ready(() => {
     headroom.init()
   }
 
-  const observer = lozad('.lozad', {
+  observer = lozad('.lozad', {
     loaded: (el) => {
       el.classList.add('loaded')
     }

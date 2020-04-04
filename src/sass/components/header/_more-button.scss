@@ -1,0 +1,64 @@
+.m-more-button {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  @extend .no-appearance;
+
+  &.in-mobile-menu {
+    align-self: flex-end;
+    flex-shrink: 0;
+  }
+
+  &.active {
+    &:before {
+      opacity: 1;
+    }
+
+    span {
+      @include respond-to('medium') {
+        @include transform(translate(-50%, -50%) rotate(90deg));
+      }
+    }
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 1;
+    background-color: var(--primary-subtle-color);
+    @include transition(opacity linear 0.2s);
+
+    @include respond-to('medium') {
+      opacity: 0;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--secondary-foreground-color);
+    z-index: 2;
+    @include transform(translate(-50%, -50%));
+    @include transition(transform 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+
+    &.icon-dots {
+      font-size: 4px;
+    }
+  }
+}

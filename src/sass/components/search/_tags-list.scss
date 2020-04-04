@@ -1,0 +1,18 @@
+.m-search-tags-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 15px 15px 0;
+  }
+}
+
+.rtl {
+  .m-search-tags-list {
+    li {
+      margin: 0 0 15px 15px;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.m-search-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 15px;
+  left: calc(100% - 52px);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--transparent-background);
+  cursor: pointer;
+  z-index: 2;
+  @extend .no-appearance;
+
+  @include respond-to('medium') {
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    left: calc(100% - 60px);
+  }
+
+  @include respond-to('extra-large') {
+    top: 40px;
+    left: calc(100% - 80px);
+  }
+
+  span {
+    color: var(--primary-foreground-color);
+    font-size: 0.75rem;
+
+    @include respond-to('medium') {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.rtl {
+  .m-search-close {
+    left: 15px;
+
+    @include respond-to('medium') {
+      left: 20px;
+    }
+
+    @include respond-to('extra-large') {
+      left: 40px;
+    }
+  }
+}
+
+_:-ms-input-placeholder, :root .m-search-close {
+  position: fixed !important;
+}
+
+@supports (-ms-ime-align:auto) {
+  .m-search-close {
+    position: fixed !important;
+  }
+}

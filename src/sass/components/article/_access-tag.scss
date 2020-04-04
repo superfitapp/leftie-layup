@@ -67,6 +67,20 @@
     background-color: $related-access-tag-background-color;
   }
 
+  &.in-recent-post,
+  &.in-search-result {
+    font-size: 0.5625rem;
+    padding: 2px 4px;
+    margin-top: 10px;
+    opacity: 0.8;
+  }
+
+  &.in-search-result {
+    font-size: 0.625rem;
+    margin-top: 0;
+    margin-right: 15px;
+  }
+
   &.in-account-module {
     margin-bottom: 25px;
 
@@ -115,6 +129,11 @@
     &.in-more-from-author {
       margin-right: 0;
       margin-left: 10px;
+    }
+
+    &.in-search-result {
+      margin-right: 0;
+      margin-left: 15px;
     }
 
     &.in-account-module {
