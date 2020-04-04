@@ -15,10 +15,11 @@ collections:
   /:
     permalink: /{slug}/
     template: index
+    filter: visibility:public
   /daily-layup/:
     permalink: /{slug}/
     template: index
-    filter: visibility:paid
+    filter: visibility:-public
   
 
 taxonomies:
