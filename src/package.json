@@ -9,8 +9,8 @@
     "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "docker-watch": "docker-compose up -d && node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npm run zip",
-    "zip": "cd .. && zip -r weiss-pro.zip ./* -x './src/*' 'weiss-pro.zip'"
+    "zip": "cd .. && zip -r weiss-pro.zip ./* -x './src/*' 'weiss-pro.zip'",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npm run zip"
   },
   "keywords": [],
   "author": {
