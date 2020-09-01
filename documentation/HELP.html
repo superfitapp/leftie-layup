@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Documentation</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+                padding: 20px 0;
+                margin: 0 auto;
+                max-width: 960px;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h4 id="documentation">Documentation</h4>
+<h1 id="weiss-pro---help">Weiss Pro - Help</h1>
+<p>If you have any questions or troubles with this product, please feel free to open an issue <a href="https://github.com/eddiesigner/weiss-pro/issues">here</a> or send an email at <a href="mailto:this.eduardo@gmail.com">this.eduardo@gmail.com</a>.</p>
+<p>Of course you can get support in the comments area of this item as well. I'll be happy to help you 😄</p>
+<h3 id="table-of-contents">Table of contents</h3>
+<ul>
+<li><a href="#weiss-pro---help">Weiss Pro - Help</a>
+<ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#how-to-upload-a-ghost-theme">How to upload a Ghost theme</a></li>
+<li><a href="#how-to-update-a-ghost-theme">How to update a Ghost theme</a></li>
+<li><a href="#how-to-enable-search">How to enable Search</a></li>
+<li><a href="#how-to-display-block-of-featured-articles">How to display block of featured articles</a></li>
+<li><a href="#how-to-enable-the-authors-page">How to enable the Authors page</a></li>
+<li><a href="#how-to-enable-taglist-page">How to enable Taglist page</a></li>
+<li><a href="#how-to-enable-the-newsletter">How to enable the Newsletter</a></li>
+<li><a href="#add-comments-to-your-blog">Add comments to your blog</a>
+<ul>
+<li><a href="#disqus">Disqus</a></li>
+<li><a href="#cove">Cove</a></li>
+</ul>
+</li>
+<li><a href="#how-to-hide-the-author-section-in-posts">How to hide the Author section in posts</a></li>
+<li><a href="#how-to-enable-the-members-feature">How to enable the Members feature</a>
+<ul>
+<li><a href="#members-pages">Members pages</a></li>
+<li><a href="#set-up">Set up</a></li>
+</ul>
+</li>
+<li><a href="#add-syntax-highlighting-with-prism">Add syntax highlighting with Prism</a></li>
+<li><a href="#install-google-analytics">Install Google Analytics</a></li>
+<li><a href="#theme-translation">Theme translation</a></li>
+<li><a href="#force-light-or-dark-mode">Force light or dark mode</a>
+<ul>
+<li><a href="#for-light-mode">For light mode:</a></li>
+<li><a href="#for-dark-mode">For dark mode:</a></li>
+</ul>
+</li>
+<li><a href="#how-to-disable-autoplay-of-the-featured-articles-carousel">How to disable Autoplay of the featured articles carousel</a></li>
+<li><a href="#how-to-disable-the-fade-animation">How to disable the fade animation</a></li>
+<li><a href="#open-external-links-in-a-new-tab-by-default">Open external links in a new tab by default</a></li>
+<li><a href="#theme-development-with-docker">Theme development with Docker</a>
+<ul>
+<li><a href="#development-mode">Development mode</a></li>
+<li><a href="#production-mode">Production mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-upload-a-ghost-theme">How to upload a Ghost theme</h2>
+<p>To upload this theme to your Ghost instance please follow these steps:</p>
+<ol>
+<li>
+<p>In the Ghost admin panel go to <strong>Design</strong> and scroll all the way down.</p>
+</li>
+<li>
+<p>Press the <strong>Upload a theme</strong> button.</p>
+</li>
+<li>
+<p>Then drag-and-drop the theme zip file or click to locate it. The file you have to upload in this case is <code>Weiss-Pro-Theme/theme/weiss-pro.zip</code></p>
+</li>
+<li>
+<p>When the upload is finished, you can activate it right away by pressing the <strong>Activate Now</strong> button, or you can also activate it later on if you want.</p>
+</li>
+</ol>
+<h2 id="how-to-update-a-ghost-theme">How to update a Ghost theme</h2>
+<p>To update this theme to the latest version you have to follow the same steps you followed when you first installed this theme, only this time you will upload the zip file of the new version.</p>
+<p>If you did not make any modifications to the theme files, you can do this process without worries. On the other hand, if you did make changes then you must first implement those changes to the new version files, otherwise your changes will be overwritten.</p>
+<p>To prevent any inconvenience, I recommend a couple of things:</p>
+<ul>
+<li>Please keep a backup of the current theme before updating to a new version.</li>
+<li>Whenever possible try to make changes through the <strong>Code Injection</strong> page in the Ghost admin panel. There you can easily add custom CSS and some scripts which will persist after updating to a new version.</li>
+</ul>
+<h2 id="how-to-enable-search">How to enable Search</h2>
+<p>To enable the search you have to do the following:</p>
+<ol>
+<li>
+<p>In the Ghost admin panel go to <strong>Integrations</strong> and press the <strong>Add custom integration</strong> button. You can name it as you like but I recommend you name it <em>Search</em>.</p>
+</li>
+<li>
+<p>Then 2 keys will be generated but you only need to copy the <strong>Content API Key</strong>.</p>
+</li>
+<li>
+<p>After that go to the <strong>Code injection</strong> page and paste the following code into the box corresponding to the <strong>Site Header</strong>:</p>
+</li>
+</ol>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+  <span class="hljs-keyword">const</span> ghostSearchApiKey = <span class="hljs-string">'YOUR_CONTENT_API_KEY_GOES_HERE'</span>;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<ol start="4">
+<li>
+<p>Remember that you have to replace <strong>YOUR_CONTENT_API_KEY_GOES_HERE</strong> with the <strong>Content API Key</strong> that you got in step 2.</p>
+</li>
+<li>
+<p>Finally press the <strong>Save</strong> button and refresh your blog page to see the search button.</p>
+</li>
+</ol>
+<h2 id="how-to-display-block-of-featured-articles">How to display block of featured articles</h2>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1594671222/weiss-pro/CleanShot_2020-07-13_at_22.12.26.png" alt=""></p>
+<p>The block at the top of the home page shows up to 5 featured articles. In order for it to appear you must first mark one or more articles as featured.</p>
+<p>To find out how to mark articles as featured you can refer to the bottom of the next article: <a href="https://ghost.org/faq/publishing-options/">https://ghost.org/faq/publishing-options/</a></p>
+<p>If you do not mark any articles as featured then a block will be displayed with your blog's title, description and a signup button (if you enable the members feature).</p>
+<h2 id="how-to-enable-the-authors-page">How to enable the Authors page</h2>
+<p>To enable the Authors page you have to do the following:</p>
+<ol>
+<li>
+<p>In the Ghost admin panel go to <strong>Pages</strong> and press the <strong>New page</strong> button.</p>
+</li>
+<li>
+<p>Write a title for the page (it is recommended that you name it <strong>Authors</strong>). It is important to note that if you decide to use some other title, you will have to manually change the <strong>Page URL</strong> in the right sidebar so that the value is <code>authors</code>, otherwise it will not work.</p>
+</li>
+<li>
+<p>Publish the page.</p>
+</li>
+</ol>
+<p><em>Note:</em> It is not necessary to write content in the body of the page as the content is generated automatically.</p>
+<p>If you want this page to appear in the main navigation menu, you must add it in the <strong>Design</strong> options.</p>
+<h2 id="how-to-enable-taglist-page">How to enable Taglist page</h2>
+<p>To enable the Taglist page you have to do the following:</p>
+<ol>
+<li>
+<p>In the Ghost control panel go to <strong>Pages</strong> and click on the <strong>New page</strong> button.</p>
+</li>
+<li>
+<p>Write a title for the page (it is recommended that you name it <strong>Tags</strong>). It is important to note that if you decide to use some other title, you will have to manually change the <strong>Page URL</strong> in the right sidebar so that the value is <code>tags</code>, otherwise it will not work.</p>
+</li>
+<li>
+<p>You can also set a featured image and an excerpt.</p>
+</li>
+<li>
+<p>Publish the page.</p>
+</li>
+</ol>
+<p><em>Note:</em> It is not necessary to write content in the body of the page as the content is generated automatically.</p>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1595174067/weiss-pro/CleanShot_2020-07-19_at_17.54.09.png" alt=""></p>
+<p>If you want this page to appear in the main navigation menu, you must add it in the <strong>Design</strong> options.</p>
+<p>It is worth noting that if you want each tag to display an image you must first upload an image through the Ghost admin. To do so, go to the Tags menu, select a tag and then upload an image in the corresponding box:</p>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1595173954/weiss-pro/CleanShot_2020-07-19_at_17.52.16.png" alt=""></p>
+<h2 id="how-to-enable-the-newsletter">How to enable the Newsletter</h2>
+<p>To enable the newsletter on your site you must go to the Admin panel, click on the menu <em>Labs</em> and then enable the option <em>Members</em>.</p>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1591025605/weiss-pro/Screenshot_2020-06-01_at_17.32.55.png" alt="enter image description here"></p>
+<p>The other options are irrelevant for the newsletter so don't worry about them unless you want to implement memberships on your site, if so I recommend that you read the <em>How to enable the Members feature</em> guide of this documentation.</p>
+<p>If you want to have a link for the <strong>Newsletter</strong> page in the main menu you can add the following link in the <em>Navigation</em> section of the <em>Design</em> page in the Admin Panel:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Label</th>
+<th style="text-align:center">Page URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Newsletter</td>
+<td style="text-align:center">https://YOUR_SITE_URL/<strong>newsletter</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Replace <code>YOUR_SITE_URL</code> with your own site url.</p>
+<h2 id="add-comments-to-your-blog">Add comments to your blog</h2>
+<h3 id="disqus">Disqus</h3>
+<p>Weiss Pro integrates perfectly with <a href="https://disqus.com">Disqus</a>, all you have to do is the following:</p>
+<ol>
+<li>
+<p>After creating an account in Disqus, you will have to create a new site in the <a href="https://disqus.com/admin">admin</a> of that platform.</p>
+</li>
+<li>
+<p>You must copy the <code>shortname</code> of your new site, this can be found in the preferences of your new site.</p>
+</li>
+</ol>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1577958242/weiss-pro/Screen_Shot_2020-01-02_at_10.43.31.png" alt=""></p>
+<ol start="3">
+<li>
+<p>Unzip the theme folder.</p>
+</li>
+<li>
+<p>You have to open with some code editor the file <code>post.hbs</code> that is included in the folder of the theme and look for the next piece of code:</p>
+</li>
+</ol>
+<pre><code class="language-html"><div>{{!--
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"l-comments"</span>&gt;</span>
+  If you want to embed comments, this is a good place to do it!
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+--}}
+</div></code></pre>
+<ol start="5">
+<li>Now you have to uncomment the code by removing the lines with <code>{{!--</code> and <code>--}}</code>, then replace the content with the Disqus Universal Code so it looks like this:</li>
+</ol>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"l-comments"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"disqus_thread"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">var</span> disqus_config = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">this</span>.page.url = <span class="hljs-string">"{{url absolute="</span><span class="hljs-literal">true</span><span class="hljs-string">"}}"</span>;
+      <span class="hljs-keyword">this</span>.page.identifier = <span class="hljs-string">"ghost-{{comment_id}}"</span>
+    };
+    (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> d = <span class="hljs-built_in">document</span>, s = d.createElement(<span class="hljs-string">'script'</span>);
+      s.src = <span class="hljs-string">'https://CHANGETHIS.disqus.com/embed.js'</span>;
+      s.setAttribute(<span class="hljs-string">'data-timestamp'</span>, +<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+      (d.head || d.body).appendChild(s);
+    })();
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<ol start="6">
+<li>Inside that piece of code look for the next line:</li>
+</ol>
+<pre><code class="language-js"><div>s.src = <span class="hljs-string">'https://CHANGETHIS.disqus.com/embed.js'</span>;
+</div></code></pre>
+<p>Replace <code>CHANGETHIS</code> with your <code>shortname</code>. Then save the file, zip the theme folder and upload it to your Ghost instance.</p>
+<h3 id="cove">Cove</h3>
+<p><a href="https://cove.chat/">Cove</a> is an alternative comment platform that allows you to embed fully functional comment threads from your subscribed members, allowing you to build a community for your membership audience on Ghost. In other words, Cove lets subscribers of your content log in and comment on your content.</p>
+<blockquote>
+<p>To install Cove into Ghost, you need to enable Members in Ghost, including setting up the email system.</p>
+</blockquote>
+<p>There is an <a href="https://ghost.org/integrations/cove-comments/">official guide</a> on how to integrate Cove with Ghost, the only difference is step 4 (Add the code to your theme), the difference is that you must paste the code provided by Cove in the same place you would with Disqus (as described above).</p>
+<p>That means, you have to open with some code editor the file <code>post.hbs</code> that is included in the folder of the theme (<code>Weiss-Pro-Theme/theme/weiss-pro/</code>) and replace the next piece of code:</p>
+<pre><code class="language-html"><div>{{!--
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"l-comments"</span>&gt;</span>
+  If you want to embed comments, this is a good place to do it!
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+--}}
+</div></code></pre>
+<p>with this:</p>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"l-comments"</span>&gt;</span>
+  {{#if @labs.members}}
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cove-count"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> Comments<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cove"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    {{#if @member}}
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Signed in as {{@member.email}} · <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:"</span> <span class="hljs-attr">data-members-signout</span>&gt;</span>Sign out<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    {{else}}
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Become a {{@site.title}} member below to join the conversation. As a member, you will also receive new posts by email (you can unsubscribe at any time).<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">data-members-form</span>=<span class="hljs-string">"signin"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cove-login"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cove-input"</span> <span class="hljs-attr">data-members-email</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">required</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your@email.com"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cove-button"</span>&gt;</span>Sign in to comment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"signin-success"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display:none"</span>&gt;</span>Great! Please check your inbox for a log in link.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"signin-error"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display:none"</span>&gt;</span>Something didn't work. Please try again.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    {{/if}}
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">const</span> Cove = {
+      publication: <span class="hljs-string">"YOUR_SITE_ID"</span>,
+      contentId: <span class="hljs-string">"{{id}}"</span>,
+      memberId: <span class="hljs-string">"{{@member.uuid}}"</span>,
+      memberEmail: <span class="hljs-string">"{{@member.email}}"</span>
+    }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  {{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<p>Then save the file, zip the theme folder and upload it to your Ghost instance.</p>
+<p>For more detailed info please refer to their official documentation: <a href="https://cove.chat/help/install-cove-in-ghost/">https://cove.chat/help/install-cove-in-ghost/</a></p>
+<h2 id="how-to-hide-the-author-section-in-posts">How to hide the Author section in posts</h2>
+<p>If you prefer to hide the author section at the bottom of a certain post, you can do so in the following way:</p>
+<p>Head to the page of the post you prefer in the Ghost Admin and in the post settings select the <strong>Without Author Section</strong> template, save the changes and you are all set.</p>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1594752497/weiss-pro/CleanShot_2020-07-14_at_20.46.51.png" alt=""></p>
+<h2 id="how-to-enable-the-members-feature">How to enable the Members feature</h2>
+<p>Weiss Pro supports both free and paid members. By default, users who sign up will automatically be free members and can sign in later with a magic link.</p>
+<p>If you set up paid tiers, members who have previously registered for free can pay a subscription to access your site's premium content.</p>
+<h3 id="members-pages">Members pages</h3>
+<p><strong>Sign up</strong></p>
+<p>This page is where users can sign up on your site. If they are already free members then they will see the subscription plans you have in place and will be able to pay to become paid members.</p>
+<p><strong>Sign in</strong></p>
+<p>On this page members of your site will be able to sign in. The only thing they will need is their email address in order to receive a magic link with which to sign in.</p>
+<p><strong>Membership</strong></p>
+<p>If users visiting this page are not registered or are free members they will see the subscription plans you have in place and will be able to pay to become paid members.</p>
+<p><strong>Account</strong></p>
+<p>On this page members will be able to view their account details.
+If they are free members then they will also see a link to go to the page where the subscription plans are shown.</p>
+<p>If they are paid members then they will see a list of their subscriptions, each with information such as price, expiration date, payment information and a link to cancel.</p>
+<p><strong>Newsletter</strong></p>
+<p>On this page any user can enter their email address to receive in their inbox content from your site periodically.</p>
+<h3 id="set-up">Set up</h3>
+<p>The first thing you need to do to allow members on your site is to enable this feature in the Admin panel and connect a Stripe account. In the following link you can see in detail what are the requirements and steps to correctly enable it: <a href="https://ghost.org/docs/members/requirements/">https://ghost.org/docs/members/requirements/</a></p>
+<p>After that you still have to follow these steps:</p>
+<p><strong>Step 1</strong></p>
+<p>Unzip the theme folder <code>Weiss-Pro-Theme/theme/weiss-pro.zip</code>.</p>
+<p><strong>Step 2</strong></p>
+<p>Head to the <em>Labs</em> page in your Admin panel, scroll to the bottom and press the button <em>Upload routes YAML</em>, then choose the file <code>routes.yaml</code> that is located in the root of the theme folder.</p>
+<p><strong>Step 3</strong></p>
+<p>You must now create the following pages in the Admin Panel:</p>
+<ul>
+<li>Sign up</li>
+<li>Sign in</li>
+<li>Membership</li>
+<li>Account</li>
+<li>Newsletter</li>
+</ul>
+<p>To create each page click on <em>Pages</em> in the navigation menu and then click on the <em>New page</em> button.</p>
+<p>You can assign any title you want to each page and you don't need to add content to them.</p>
+<p>The important thing is that the <em>slug</em> in the URL on each page <strong>matches</strong> the one on its corresponding page according to the following table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Page</th>
+<th style="text-align:center">Slug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Sign up</td>
+<td style="text-align:center"><strong>signup</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Sign in</td>
+<td style="text-align:center"><strong>signin</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Membership</td>
+<td style="text-align:center"><strong>membership</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Account</td>
+<td style="text-align:center"><strong>account</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Newsletter</td>
+<td style="text-align:center"><strong>newsletter</strong></td>
+</tr>
+</tbody>
+</table>
+<p>For example, this is what the settings on the <strong>sign up</strong> page should look like:</p>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1591011830/weiss-pro/Screenshot_2020-06-01_at_13.35.50.png" alt="enter image description here"></p>
+<p>Since Ghost generates the slug automatically based on the page title, you must make sure that the value of the <em>Page URL</em> field <strong>matches</strong> the one in the table above, otherwise you have to change it manually.</p>
+<p>Remember that you have to do this for every page in the list above.</p>
+<p><strong>Step 4</strong></p>
+<p>The Account, Sign in and Sign up links are automatically included in the main menu but if you also want to have links for the <strong>Membership</strong> and <strong>Newsletter</strong> pages you can add the following links in the <em>Navigation</em> section of the <em>Design</em> page in the Admin Panel:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Label</th>
+<th style="text-align:center">Page URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Membership</td>
+<td style="text-align:center">https://YOUR_SITE_URL/<strong>membership</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">Newsletter</td>
+<td style="text-align:center">https://YOUR_SITE_URL/<strong>newsletter</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p><img src="https://res.cloudinary.com/edev/image/upload/v1591010668/weiss-pro/Screenshot_2020-06-01_at_13.23.54.png" alt="enter image description here"></p>
+<p>Please make sure that the last part of each url matches its respective path in the <code>routes.yaml</code> file, otherwise it will not work.</p>
+<h2 id="add-syntax-highlighting-with-prism">Add syntax highlighting with Prism</h2>
+<p>The easiest (and recommended) way to install <strong>Prism</strong> on your blog is by following these steps:</p>
+<ol>
+<li>
+<p>Open the admin panel of your Ghost instance and head to the <em>Code injection</em> page.</p>
+</li>
+<li>
+<p>Add the Prism stylesheets links to the <em>Blog Header</em> section. For example, you can paste the following lines in order to use the theme <em>Tomorrow</em>:</p>
+</li>
+</ol>
+<pre><code class="language-html"><div><span class="hljs-comment">&lt;!-- prism.js --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-tomorrow.min.css"</span> /&gt;</span>
+</div></code></pre>
+<p>You can replace that theme for another you might like. Also you can add the following styles to make it prettier:</p>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-tag">pre</span><span class="hljs-selector-attr">[class*="language-"]</span> {
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1.5em</span> <span class="hljs-meta">!important</span>;
+  }
+  <span class="hljs-selector-tag">code</span> {
+    <span class="hljs-attribute">text-shadow</span>: none <span class="hljs-meta">!important</span>;
+  }
+  <span class="hljs-selector-class">.token</span><span class="hljs-selector-class">.operator</span> {
+    <span class="hljs-attribute">background</span>: none <span class="hljs-meta">!important</span>;
+  }
+  <span class="hljs-selector-pseudo">:not(pre)</span> &gt; <span class="hljs-selector-tag">code</span><span class="hljs-selector-attr">[class*="language-"]</span>,
+  <span class="hljs-selector-tag">pre</span><span class="hljs-selector-attr">[class*="language-"]</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#20262E</span> <span class="hljs-meta">!important</span>;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div></code></pre>
+<ol start="3">
+<li>Add the Prism scripts to the <em>Blog Footer</em> section. For example, you can paste the following lines in order to support HTML, CSS and Javascript syntax:</li>
+</ol>
+<pre><code class="language-html"><div><span class="hljs-comment">&lt;!-- prism.js --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-markup.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-css.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-javascript.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<p>Of course you can add <a href="https://cdnjs.com/libraries/prism">more languages</a> if needed or remove the ones you don't need.</p>
+<h2 id="install-google-analytics">Install Google Analytics</h2>
+<p>The very first thing you have to do is to create a Google account (if you haven't yet) and sign into <a href="https://analytics.google.com/analytics/web/">Google Analytics</a> with your credentials.</p>
+<p>After that you have to follow their guide to create an account for your blog. When you finish all the steps you'll get a tracking code.</p>
+<p>Now copy that code and head over to your Ghost admin panel, go to <strong>Code injection</strong> and paste it into the <em>Blog Header</em> section.</p>
+<h2 id="theme-translation">Theme translation</h2>
+<p>Weiss Pro is fully translatable and it comes with english and spanish translations ready to use.</p>
+<p>To change your blog language just open the Ghost admin panel, head to <strong>General</strong> and expand the <strong>Publication language</strong> section, now simply enter the language locale that you want, for example <code>en</code> for english or <code>es</code> for spanish. Finally press the <strong>Save settings</strong> button to reflect the changes on your blog.</p>
+<p>If you want to use a different language you have to make a copy of <code>locales/en.json</code> and rename it to <code>[language_code].json</code>. The <code>[language_code]</code> part need to be replaced with a valid <a href="https://www.w3schools.com/tags/ref_language_codes.asp">ISO Language Code</a>. Then you have to edit that file with a text editor and replace all the translations with yours.</p>
+<p>More info: <a href="https://ghost.org/docs/api/v2/handlebars-themes/helpers/translate/">https://ghost.org/docs/api/v2/handlebars-themes/helpers/translate/</a></p>
+<h2 id="force-light-or-dark-mode">Force light or dark mode</h2>
+<p>The default mode used by Weiss Pro is light but if the user's operating system has dark mode enabled, then it will automatically switch to the dark mode.</p>
+<p>The user can also choose the mode he wants by pressing the corresponding button in the main menu.</p>
+<p>In case you want to disable that behavior and keep only one of the two modes (either light or dark) you can do the following:</p>
+<p>Paste this code into the <strong>Site Header Code injection</strong> section of your Ghost instance:</p>
+<h4 id="for-light-mode">For light mode:</h4>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-pseudo">:root</span>,
+  <span class="hljs-selector-attr">[data-theme="light"]</span>,
+  <span class="hljs-selector-attr">[data-theme="dark"]</span>,
+  <span class="hljs-selector-pseudo">:root</span><span class="hljs-selector-pseudo">:not(</span><span class="hljs-selector-attr">[data-theme="light"]</span>) {
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#FFFFFF</span>;
+    <span class="hljs-attribute">--primary-foreground-color</span>: <span class="hljs-number">#2A2A2A</span>;
+    <span class="hljs-attribute">--secondary-foreground-color</span>: <span class="hljs-number">#333333</span>;
+    <span class="hljs-attribute">--primary-subtle-color</span>: <span class="hljs-number">#F5F6F9</span>;
+    <span class="hljs-attribute">--border-color</span>: <span class="hljs-number">#CECECE</span>;
+    <span class="hljs-attribute">--empty-color</span>: <span class="hljs-number">#F4F4F4</span>;
+    <span class="hljs-attribute">--input-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.1);
+    <span class="hljs-attribute">--transparent-background</span>: <span class="hljs-built_in">rgba</span>(255, 255, 255, 0.8);
+    <span class="hljs-attribute">--article-shadow-color</span>: <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.2);
+    <span class="hljs-attribute">--author-background-color</span>: <span class="hljs-number">#FAFAFA</span>;
+    <span class="hljs-attribute">--author-posts-background-color</span>: <span class="hljs-number">#F5F5F5</span>;
+    <span class="hljs-attribute">--placeholder-color</span>: <span class="hljs-number">#6F6F6F</span>;
+    <span class="hljs-attribute">--tag-hover-color</span>: <span class="hljs-number">#E6EAF5</span>;
+    <span class="hljs-attribute">--footer-background-color</span>: <span class="hljs-number">#131313</span>;
+    <span class="hljs-attribute">--footer-foreground-color</span>: <span class="hljs-number">#FFFFFF</span>;
+    <span class="hljs-attribute">--toggle-darkmode-button-color</span>: <span class="hljs-number">#EFEFEF</span>;
+    <span class="hljs-attribute">--toggle-darkmode-button-display-moon</span>: block;
+    <span class="hljs-attribute">--toggle-darkmode-button-display-sun</span>: none;
+    <span class="hljs-attribute">--full-content-shadow</span>: <span class="hljs-number">0</span> -<span class="hljs-number">17px</span> <span class="hljs-number">42px</span> <span class="hljs-number">4px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.15);
+    <span class="hljs-attribute">--label-color</span>: <span class="hljs-number">#616161</span>;
+    <span class="hljs-attribute">--header-menu-gradient-first-color</span>: <span class="hljs-built_in">rgba</span>(255, 255, 255, 0);
+    <span class="hljs-attribute">--header-menu-gradient-secound-color</span>: <span class="hljs-built_in">rgba</span>(255, 255, 255, 1);
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div></code></pre>
+<h4 id="for-dark-mode">For dark mode:</h4>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-pseudo">:root</span>,
+  <span class="hljs-selector-attr">[data-theme="light"]</span>,
+  <span class="hljs-selector-attr">[data-theme="dark"]</span>,
+  <span class="hljs-selector-pseudo">:root</span><span class="hljs-selector-pseudo">:not(</span><span class="hljs-selector-attr">[data-theme="light"]</span>) {
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#000000</span>;
+    <span class="hljs-attribute">--primary-foreground-color</span>: <span class="hljs-number">#EFEFEF</span>;
+    <span class="hljs-attribute">--secondary-foreground-color</span>: <span class="hljs-number">#DDDDDD</span>;
+    <span class="hljs-attribute">--primary-subtle-color</span>: <span class="hljs-number">#111111</span>;
+    <span class="hljs-attribute">--border-color</span>: <span class="hljs-number">#222222</span>;
+    <span class="hljs-attribute">--empty-color</span>: <span class="hljs-number">#141414</span>;
+    <span class="hljs-attribute">--input-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(20, 20, 20, 0.9);
+    <span class="hljs-attribute">--transparent-background</span>: <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.8);
+    <span class="hljs-attribute">--article-shadow-color</span>: <span class="hljs-built_in">rgba</span>(128, 128, 128, 0.2);
+    <span class="hljs-attribute">--author-background-color</span>: <span class="hljs-number">#0A0A0C</span>;
+    <span class="hljs-attribute">--author-posts-background-color</span>: <span class="hljs-number">#111114</span>;
+    <span class="hljs-attribute">--placeholder-color</span>: <span class="hljs-number">#6F6F6F</span>;
+    <span class="hljs-attribute">--tag-hover-color</span>: <span class="hljs-number">#161515</span>;
+    <span class="hljs-attribute">--footer-background-color</span>: <span class="hljs-number">#131313</span>;
+    <span class="hljs-attribute">--footer-foreground-color</span>: <span class="hljs-number">#FFFFFF</span>;
+    <span class="hljs-attribute">--toggle-darkmode-button-color</span>: <span class="hljs-number">#2A2A2A</span>;
+    <span class="hljs-attribute">--toggle-darkmode-button-display-moon</span>: none;
+    <span class="hljs-attribute">--toggle-darkmode-button-display-sun</span>: block;
+    <span class="hljs-attribute">--full-content-shadow</span>: <span class="hljs-number">0</span> -<span class="hljs-number">17px</span> <span class="hljs-number">42px</span> <span class="hljs-number">4px</span> <span class="hljs-built_in">rgba</span>(5, 5, 5, 1);
+    <span class="hljs-attribute">--label-color</span>: <span class="hljs-number">#bdbdbd</span>;
+    <span class="hljs-attribute">--header-menu-gradient-first-color</span>: <span class="hljs-built_in">rgba</span>(0, 0, 0, 0);
+    <span class="hljs-attribute">--header-menu-gradient-secound-color</span>: <span class="hljs-built_in">rgba</span>(0, 0, 0, 0.65);
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div></code></pre>
+<p>You might also want to hide the button that allows users to switch between modes, if that's the case then please add this style rule:</p>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-class">.m-toggle-darkmode</span> {
+    <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div></code></pre>
+<h2 id="how-to-disable-autoplay-of-the-featured-articles-carousel">How to disable Autoplay of the featured articles carousel</h2>
+<p>By default the featured articles carousel changes automatically every 5 seconds. If you want to disable this feature and let users change slides manually just do the following:</p>
+<ol>
+<li>In the Ghost admin panel go to the <strong>Code injection</strong> menu and paste the following code into the box corresponding to the <strong>Site Header</strong>:</li>
+</ol>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+  <span class="hljs-keyword">const</span> disableFeaturedSliderAutoplay = <span class="hljs-literal">true</span>;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<ol start="2">
+<li>Finally press the <strong>Save</strong> button and refresh your blog page to see the changes.</li>
+</ol>
+<h2 id="how-to-disable-the-fade-animation">How to disable the fade animation</h2>
+<p>To disable the fade animation that runs everytime you load a page you have to do the following:</p>
+<ol>
+<li>In the Ghost admin panel go to the <strong>Code injection</strong> menu and paste the following code into the box corresponding to the <strong>Site Header</strong>:</li>
+</ol>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+  <span class="hljs-keyword">const</span> disableFadeAnimation = <span class="hljs-literal">true</span>;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<ol start="2">
+<li>Finally press the <strong>Save</strong> button and refresh your blog page to see the changes.</li>
+</ol>
+<h2 id="open-external-links-in-a-new-tab-by-default">Open external links in a new tab by default</h2>
+<p>If you want all the external links to open in another tab you have to paste the following code into the <em>Code injection</em> page of your Ghost instance (<strong>Site Footer</strong> section):</p>
+<pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">const</span> anchors = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'a'</span>);
+    
+  <span class="hljs-keyword">for</span> (x = <span class="hljs-number">0</span>, l = anchors.length; x &lt; l; x++) {
+    <span class="hljs-keyword">const</span> regex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'/'</span> + <span class="hljs-built_in">window</span>.location.host + <span class="hljs-string">'/'</span>);
+        
+    <span class="hljs-keyword">if</span> (!regex.test(anchors[x].href)) {
+      anchors[x].setAttribute(<span class="hljs-string">'target'</span>, <span class="hljs-string">'_blank'</span>);
+    }
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<h2 id="theme-development-with-docker">Theme development with Docker</h2>
+<p><strong>This guide is only useful if you want to make several changes on this theme or if you want to build your own theme on top of it.</strong></p>
+<p>This guide asumes you're a developer with enough knowledge about web development.</p>
+<p><em>Note:</em> If you don't want to use Docker you can copy the source files that you need and use them as you like with your own development process.</p>
+<h3 id="development-mode">Development mode</h3>
+<p>The following steps will guide you so that you can have a development environment on your machine without having to install Ghost:</p>
+<ol>
+<li>
+<p>Install <a href="https://docs.docker.com/install/">Docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a>.</p>
+</li>
+<li>
+<p>Install <a href="https://nodejs.org/en/download/">Nodejs</a> and <a href="https://www.npmjs.com/get-npm">npm</a>.</p>
+</li>
+<li>
+<p>Copy the folder <code>Weiss-Pro-Theme/only-for-development</code> to a different location where you can work easily, then probably you might like to rename it.</p>
+</li>
+<li>
+<p>Open a terminal and go to the <code>NEW_FOLDER_LOCATION/src</code> directory.</p>
+</li>
+<li>
+<p>Run <code>npm install</code>.</p>
+</li>
+<li>
+<p>Run <code>npm run get-database</code> to get the Ghost database dump.</p>
+</li>
+<li>
+<p>Start Docker.</p>
+</li>
+<li>
+<p>Run <code>npm run docker-watch</code>.</p>
+</li>
+</ol>
+<p>Now you have an instant development setup and when you make changes you will see them right into the browser (hot-reloading).</p>
+<p>You can see your blog here: <code>http://localhost:3000</code> and you can access to the admin here: <code>http://localhost:3000/ghost</code>.</p>
+<p>The credentials for the admin are the following:</p>
+<p>User: <code>liebling@example.com</code>
+<br>
+Password: <code>0123456789</code></p>
+<p>If you add new files you will need to run <code>docker-compose restart</code> manually, this is because of this (from Ghost docs):</p>
+<blockquote>
+<p>If you add any new files to your theme during development, you'll need to restart Ghost to see the changes take effect.</p>
+</blockquote>
+<h3 id="production-mode">Production mode</h3>
+<p>When you're ready you can build the theme for production just by running <code>npm run production</code> (within the <code>src</code> directory).</p>
+<p>This command will generate the file <code>weiss-pro.zip</code> in the root of this directory. Now you can upload that file to your own Ghost instance 😎.</p>
+
+    </body>
+    </html>

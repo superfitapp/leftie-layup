@@ -1,0 +1,23 @@
+{{!--
+This navigation template is shared across all the pages.
+--}}
+
+{{#if isSecondary}}
+  <ul class="m-secondary-menu">
+    {{#foreach navigation}}
+      <li class="m-nav-item nav-{{slug}}{{#if current}} nav-current{{/if}}">
+        <a href="{{url absolute="true"}}">
+          <span>{{label}}</span>
+        </a>
+      </li>
+    {{/foreach}}
+  </ul>
+{{else}}
+  {{#foreach navigation}}
+    <li class="m-nav-item js-anime nav-{{slug}}{{#if current}} nav-current{{/if}}">
+      <a href="{{url absolute="true"}}">
+        <span>{{label}}</span>
+      </a>
+    </li>
+  {{/foreach}}
+{{/if}}

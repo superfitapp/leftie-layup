@@ -1,0 +1,47 @@
+.m-secondary-menu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  @include respond-to('medium') {
+    padding: 5px 0 !important;
+  }
+
+  .m-nav-item {
+    color: $submenu-text-color;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    border-bottom: 0;
+
+    &.nav-current {
+      a {
+        font-weight: 700;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 10px;
+      border-radius: 2px;
+      @include transition(background-color linear 0.1s);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      @include respond-to('medium') {
+        padding: 8px 10px;
+      }
+    }
+  }
+}
+
+.rtl {
+  .m-secondary-menu {
+    .m-nav-item,
+    .m-nav-item a {
+      text-align: right !important;
+    }
+  }
+}

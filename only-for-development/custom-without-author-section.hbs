@@ -1,0 +1,162 @@
+{{!--
+This template is used for the post page.
+--}}
+
+{{!-- This block loads specific styles for the post page --}}
+{{#contentFor "styles"}}
+  <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+<main class="main-wrap">
+  {{> header}}
+  {{#post}}
+    <article>
+      <div class="js-article">
+        {{#if feature_image}}
+        <section class="m-article-hero" data-aos="fade">
+          {{> hero-background background=feature_image}}
+          {{#if @labs.members}}
+            <span class="m-access-tag in-article-hero desktop {{visibility}}" data-visibility="{{t visibility}}"></span>
+          {{/if}}
+          <div class="m-article-hero__content">
+            {{#if @labs.members}}
+              <span class="m-access-tag in-article-hero {{visibility}}" data-visibility="{{t visibility}}"></span>
+            {{/if}}
+            <h1 class="m-article-title">{{title}}</h1>
+            <div class="m-article-metas {{#unless custom_excerpt}}no-excerpt{{/unless}}">
+              {{#if primary_tag}}
+                <a href="{{primary_tag.url}}" class="m-primary-tag">{{primary_tag.name}}</a>
+              {{/if}}
+              <p class="m-article-metas__time">
+                <span>{{date published_at timeago="true"}}</span>
+                {{#if reading_time}}
+                  <span>&nbsp; &bull; &nbsp;</span>
+                  <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                {{/if}}
+              </p>
+            </div>
+            {{#if custom_excerpt}}
+              <p class="m-article-excerpt">{{custom_excerpt}}</p>
+            {{/if}}
+          </div>
+        </section>
+        {{/if}}
+        <section class="l-article-wrapper {{#unless feature_image}}no-hero{{/unless}}" data-aos="fade-up">
+          <div class="l-article-wrapper__container">
+            <header class="m-article-header {{#unless feature_image}}no-hero{{/unless}}">
+              <h1 class="m-article-title">{{title}}</h1>
+              <div class="m-article-metas {{#unless custom_excerpt}}no-excerpt{{/unless}}">
+                {{#if primary_tag}}
+                  <a href="{{primary_tag.url}}"
+                    class="m-primary-tag {{#unless feature_image}}no-hero{{/unless}}">{{primary_tag.name}}</a>
+                {{/if}}
+                <p class="m-article-metas__time">
+                  <span>{{date published_at timeago="true"}}</span>
+                  {{#if reading_time}}
+                    <span>&nbsp; &bull; &nbsp;</span>
+                    <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                  {{/if}}
+                </p>
+              </div>
+              {{#if custom_excerpt}}
+                <p class="m-article-excerpt">{{custom_excerpt}}</p>
+              {{/if}}
+            </header>
+            <div class="m-article-divider {{#unless feature_image}}no-hero{{/unless}}"></div>
+            <section class="m-article-content js-post-content {{#unless feature_image}}no-hero{{/unless}}">
+              {{#if access}}
+                {{!-- if the user has access to this post, show it to them --}}
+                {{content}}
+              {{else}}
+                {{!-- if the user does not have access, show them an upgrade CTA --}}
+                <p class="align-center">
+                  {{t "You don't have access to this post at the moment, but if you upgrade your account you'll be able to see the
+                            whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you
+                            immediate access."}}
+                </p>
+              {{> "full-content"}}
+              {{/if}}
+            </section>
+            {{!-- Share  --}}
+            <div class="m-article-share">
+              <div class="m-article-share__container js-sticky">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}" class="m-article-share__button no-appearance focusable" target="_blank" rel="noopener" aria-label="Facebook">
+                  <span class="icon-facebook-outline" aria-hidden="true"></span>
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute='true'}}" class="m-article-share__button no-appearance focusable" target="_blank" rel="noopener" aria-label="Twitter">
+                  <span class="icon-twitter-outline" aria-hidden="true"></span>
+                </a>
+                <button class="m-article-share__button no-appearance focusable js-copy-link js-copy-tooltip" aria-label="{{t "Copy link"}}"
+                  data-tippy-content="{{t "Link copied!"}}">
+                  <span class="icon-link" aria-hidden="true"></span>
+                </button>
+                <input type="text" value="{{url absolute='true'}}" class="no-appearance invisible sr-only js-input-link" aria-hidden="true" tabindex="-1">
+              </div>
+            </div>
+            {{!-- List of tags  --}}
+            {{#if tags}}
+              <div class="l-tags">
+                <h3>{{t "Tags"}}:</h3>
+                <ul class="l-tags__list">
+                  {{#foreach tags}}
+                    <li>
+                      <a href="{{url}}" title="{{name}}" class="m-tag tag-{{id}} {{slug}}">{{name}}</a>
+                    </li>
+                  {{/foreach}}
+                </ul>
+              </div>
+            {{/if}}
+          </div>
+        </section>
+      </div>
+      {{!--
+        <div class="l-comments">
+          If you want to embed comments, this is a good place to do it!
+        </div>
+        --}}
+      {{!-- Related posts --}}
+      {{#get "posts" limit="3" filter="tags:{{primary_tag.slug}}+id:-{{id}}" as |related_posts|}}
+        {{#if related_posts}}
+          <section class="l-related-articles">
+            <div class="l-related-articles__wrapper">
+              <h3>{{t "Recommended for you"}}</h3>
+              <div class="l-related-articles__slider">
+                <div class="swiper-container js-related-slider">
+                  <div class="swiper-wrapper">
+                    {{#foreach related_posts visibility="all"}}
+                      {{!-- The tag below includes the markup for each related post - partials/related-post.hbs --}}
+                      {{> "related-post"}}
+                    {{/foreach}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        {{/if}}
+      {{/get}}
+      {{!-- Newsletter subscription form at the bottom of the page --}}
+      {{#if @labs.members}}
+        <section class="m-newsletter-section">
+          <div class="l-wrapper">
+            <div class="m-newsletter__content">
+              {{> "newsletter-form"}}
+            </div>
+          </div>
+        </section>
+      {{/if}}
+    </article>
+  {{/post}}
+  <button class="m-scroll-top no-appearance js-scroll-top">
+    <span class="icon-chevron-down"></span>
+  </button>
+</main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/post.js"}}"></script>
+{{/contentFor}}

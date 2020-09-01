@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/**
+ *  Helpers
+ */
+
+.hide {
+  display: none;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  line-height: 0;
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.focusable {
+  &:focus {
+    box-shadow: 0 0 0 2px $focus-color !important;
+  }
+}
+
+.content-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-appearance {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -o-appearance: none !important;
+  -ms-appearance: none !important;
+  appearance: none !important;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0
+}
+
+.no-scroll-y {
+  overflow-y: hidden;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.pos-relative {
+  position: relative;
+}
+
+.pos-absolute {
+  position: absolute;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.pointer {
+  cursor: pointer;
+}

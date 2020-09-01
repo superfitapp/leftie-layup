@@ -1,0 +1,54 @@
+{{!--
+This template contains the structure of featured articles slides.
+--}}
+
+<article class="m-featured-slide {{post_class}} post-access-{{visibility}} js-featured-slide swiper-slide">
+  <div class="m-featured-slide__content">
+    {{#if @labs.members}}
+      <span class="m-access-tag in-featured-slide {{visibility}}" data-visibility="{{t visibility}}"></span>
+    {{/if}}
+    <h1 class="m-featured-slide__title">
+      <a href="{{url}}">{{title}}</a>
+    </h1>
+    {{#if custom_excerpt}}
+      <p class="m-featured-slide__excerpt">{{custom_excerpt}}</p>
+    {{/if}}
+    <div class="m-featured-slide__metas">
+      <div class="m-featured-slide__authors">
+        {{#foreach authors limit="3"}}
+          <a href="{{url}}" class="m-featured-slide__author content-centered author-{{@index}} js-tooltip" aria-label="{{name}}" data-tippy-content="{{name}}">
+            {{#if profile_image}}
+              <div style="background-image: url({{img_url profile_image size="xs"}});"></div>
+            {{else}}
+              <div style="background-image: url({{asset "images/empty/author-avatar-illustration.svg"}});"></div>
+            {{/if}}
+          </a>
+        {{/foreach}}
+      </div>
+      <div class="m-featured-slide__timestamp">
+        <span>{{date published_at timeago="true"}}</span>
+        {{#if reading_time}}
+          <span>&nbsp; &bull; &nbsp;</span>
+          <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        {{/if}}
+      </div>
+    </div>
+    {{#if primary_tag}}
+      <a href="{{primary_tag.url}}" class="m-featured-slide__tag">{{primary_tag.name}}</a>
+    {{/if}}
+  </div>
+  <div class="m-featured-slide__picture {{#unless feature_image}}no-image{{/unless}}">
+    <a href="{{url}}" aria-hidden="true" tabindex="-1">
+      {{#if feature_image}}
+        <style>
+          #featured-slide-bg-{{id}} {
+            background-image: url({{img_url feature_image size='l'}});
+          }
+        </style>
+        <div id="featured-slide-bg-{{id}}"></div>
+      {{else}}
+        <div class="lozad no-animation" data-background-image="{{asset "images/empty/featured-illustration.svg"}}"></div>
+      {{/if}}
+    </a>
+  </div>
+</article>

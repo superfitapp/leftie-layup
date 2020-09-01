@@ -1,0 +1,42 @@
+.m-pagination__text {
+  display: inline-block;
+  color: var(--primary-foreground-color);
+  text-align: center;
+  letter-spacing: 0.6px;
+  font-size: 0.750rem;
+  font-weight: 500;
+  margin: 0 20px;
+
+  @include respond-to('medium') {
+    font-size: 0.875rem;
+  }
+}
+
+.m-pagination__button {
+  color: var(--secondary-foreground-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--secondary-foreground-color);
+
+  @include respond-to('medium') {
+    width: 40px;
+    height: 40px;
+  }
+
+  span {
+    color: inherit;
+    font-size: 0.813rem;
+
+    @include respond-to('medium') {
+      font-size: 0.938rem;
+    }
+  }
+}
+
+.rtl {
+  .m-pagination__button.next,
+  .m-pagination__button.prev {
+    @include transform(rotate(180deg));
+  }
+}

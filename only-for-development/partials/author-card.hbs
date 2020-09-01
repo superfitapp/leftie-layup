@@ -1,0 +1,57 @@
+{{!--
+This template contains the structure of authors cards.
+--}}
+
+<article
+  class="m-post-card {{#unless profile_image}}no-image{{/unless}} {{#if @even}}even{{else}}odd{{/if}} {{#if @last}}last{{/if}}">
+  <div class="m-post-card__image" data-aos="fade-up">
+    <div class="m-post-card__image__shadow"></div>
+    <a class="m-post-card__image__link" href="{{url}}" aria-hidden="true" tabindex="-1">
+      {{#if profile_image}}
+        <div class="m-post-card__image__background lozad" data-background-image="{{img_url profile_image size="m"}}"></div>
+      {{else}}
+        <div class="m-post-card__image__background lozad" data-background-image="{{asset "images/empty/author-empty-illustration.svg"}}"></div>
+      {{/if}}
+    </a>
+  </div>
+  <div class="m-post-card__content" data-aos="fade-up" data-aos-delay="250">
+    <h2 class="m-post-card__title"><a href="{{url}}">{{name}}</a></h2>
+    {{#if bio}}
+      <p class="m-post-card__excerpt">{{bio}}</p>
+    {{/if}}
+    {{#has any="twitter, facebook, website"}}
+      <ul class="m-post-card__social">
+        {{#if website}}
+          <li>
+            <a href="{{website}}" target="_blank" rel="noopener" aria-label="{{t "Website"}}">
+              <span class="icon-web" aria-hidden="true"></span>
+            </a>
+          </li>
+        {{/if}}
+        {{#if facebook}}
+          <li>
+            <a href="https://facebook.com/{{facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
+              <span class="icon-facebook" aria-hidden="true"></span>
+            </a>
+          </li>
+        {{/if}}
+        {{#if twitter}}
+          <li>
+            <a href="https://twitter.com/{{twitter}}" target="_blank" rel="noopener" aria-label="Twitter">
+              <span class="icon-twitter" aria-hidden="true"></span>
+            </a>
+          </li>
+        {{/if}}
+      </ul>
+    {{/has}}
+    <p class="m-post-card__stats">
+      <span>
+        {{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+      </span>
+      {{#if location}}
+        <span>&bull;</span>
+        <span>{{location}}</span>
+      {{/if}}
+    </p>
+  </div>
+</article>

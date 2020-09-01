@@ -1,0 +1,118 @@
+.l-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - #{$mobile-bar-height});
+  padding: 40px $mobile-space;
+
+  @include respond-to('medium') {
+    min-height: calc(100vh - #{$desktop-bar-height});
+    padding: 40px;
+  }
+
+  @include respond-to('large') {
+    padding: 75px 40px;
+  }
+
+  @include respond-to('extra-large') {
+    padding: 75px 0;
+  }
+}
+
+.l-auth__content {
+  width: 100%;
+  margin-top: -#{$mobile-bar-height};
+
+  @include respond-to('medium') {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -#{$desktop-bar-height};
+  }
+
+  @include respond-to('large') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include respond-to('extra-large') {
+    width: $medium-wrapper-width;
+  }
+
+  @include respond-to('largest') {
+    width: calc(#{$medium-wrapper-width} + 50px);
+  }
+
+  &.loading {
+    .m-button {
+      pointer-events: none;
+      cursor: default;
+      overflow: hidden;
+      background-color: var(--placeholder-color);
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 25%;
+        height: 2px;
+        background-color: $success-color;
+        @include animation('loading 1s infinite');
+        @include keyframes(loading) {
+          0% {
+            @include transform(translatex(0));
+          }
+          50% {
+            @include transform(translatex(300%));
+          }
+          100% {
+            @include transform(translatex(0));
+          }
+        }
+      }
+    }
+  }
+
+  &.success {
+    .m-alert.success {
+      display: block;
+    }
+
+    .l-auth__form__invalid,
+    .l-auth__form__error,
+    .m-auth-form {
+      display: none;
+    }
+  }
+
+  &.invalid {
+    .l-auth__form__invalid {
+      display: block;
+    }
+  }
+
+  &.error {
+    .l-auth__form__error {
+      display: block;
+    }
+  }
+
+  .m-alert.success,
+  .l-auth__form__invalid,
+  .l-auth__form__error {
+    display: none;
+  }
+}
+
+.l-auth__form {
+  @include respond-to('medium') {
+    order: 2;
+  }
+
+  @include respond-to('large') {
+    padding-right: 75px;
+    order: 1;
+  }
+}
