@@ -1,0 +1,108 @@
+.m-subscription {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  max-width: 420px;
+  margin: 0 auto 30px;
+
+  @include respond-to('medium') {
+    flex: 1 1 200px;
+    width: auto;
+    min-width: 200px;
+    max-width: 100%;
+    margin: 0 10px 0;
+  }
+
+  @include respond-to('extra-large') {
+    width: 350px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  &.last {
+    margin-bottom: 0;
+  }
+}
+
+.m-subscription__main-container {
+  flex: 1;
+}
+
+_:-ms-fullscreen, :root .m-subscription__main-container {
+  flex: 1 1 auto;
+}
+
+.m-subscription__type {
+  color: var(--secondary-foreground-color);
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.75px;
+  line-height: 1.2;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.m-subscription__price {
+  color: var(--label-color);
+  text-align: center;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.m-subscription__price__number {
+  color: var(--secondary-foreground-color);
+  font-size: 3rem;
+}
+
+.m-subscription__divider {
+  position: relative;
+  margin: 0 0 20px;
+  border: 0;
+  border-top: 1px solid var(--primary-subtle-color);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-subtle-color);
+    @include bs(0 0 0 10px var(--background-color));
+    @include transform(translate(-50%,-50%));
+  }
+}
+
+.m-subscription__list {
+  list-style-type: none;
+  padding: 10px 0 0;
+  margin: 0 0 40px;
+
+  li {
+    padding: 0;
+    color: var(--secondary-foreground-color);
+    text-align: center;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    font-size: 1rem;
+    margin-bottom: 15px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    span {
+      color: inherit;
+    }
+  }
+}
+
+.m-subscription__button-container {
+  display: flex;
+  justify-content: center;
+}

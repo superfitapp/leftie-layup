@@ -1,0 +1,21 @@
+<section class="m-full-content">
+  <div class="m-full-content__container">
+    <img width="315" height="250" data-src="{{asset "images/members/premium-illustration.svg"}}" alt=""
+      class="m-full-content__illustration lozad">
+    <div class="m-full-content__info">
+      <h2 class="m-full-content__title">{{t "Access all our content"}}</h2>
+      <p class="m-full-content__description">
+        {{t "Subscribe now and have access to all our stories, help us stay independent and enjoy exclusive content, with constant updates."}}
+      </p>
+      <div class="m-full-content__buttons">
+        {{#if @member}}
+          <a href="{{@site.url}}/account" class="m-button outlined no-fancy-animation">{{t "Account"}}</a>
+          <a href="{{@site.url}}/signup" class="m-button filled">{{t "Subscribe now"}}</a>
+        {{else}}
+          <a href="{{@site.url}}/signin" class="m-button outlined no-fancy-animation">{{t "Sign in"}}</a>
+          <a href="{{@site.url}}/signup" class="m-button filled">{{t "Sign up"}}</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+.m-footer-icon {
+  color: var(--footer-foreground-color);
+  font-size: 1rem;
+  width: 32px;
+  height: 32px;
+  margin: 0 6px;
+  border-radius: 20px;
+  cursor: pointer;
+  @extend .no-appearance;
+  @extend .content-centered;
+
+  &.last {
+    @include respond-to('medium') {
+      margin-right: 0;
+    }
+  }
+
+  span {
+    color: inherit;
+  }
+}
+
+.rtl {
+  .m-footer-icon {
+    &.last {
+      @include respond-to('medium') {
+        margin-left: 0;
+        margin-right: 6px;
+      }
+    }
+  }
+}

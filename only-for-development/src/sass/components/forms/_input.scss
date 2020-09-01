@@ -1,0 +1,43 @@
+.m-input {
+  color: var(--primary-foreground-color);
+  letter-spacing: 0.6px;
+  line-height: 1;
+  font-size: 1rem;
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  outline: 0;
+  background-color: var(--background-color);
+  @extend .no-appearance;
+
+  &:invalid,
+  &:focus:invalid {
+    outline: 0;
+    @include bs(0 0 0 0 transparent);
+  }
+
+  &.in-newsletter-form,
+  &.in-search-form {
+    @include respond-to('medium') {
+      letter-spacing: 1px;
+      font-size: 1.125rem;
+      padding: 18px 20px;
+    }
+  }
+
+  &.in-newsletter-form {
+    @include bs(var(--input-shadow));
+  }
+
+  &.in-search-form {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  &.in-auth-form {
+    @include respond-to('medium') {
+      padding: 12px 20px;
+    }
+  }
+}

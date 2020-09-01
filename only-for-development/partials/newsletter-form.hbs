@@ -1,0 +1,33 @@
+{{!--
+This template is used to display the form where users can subscribe to the newsletter.
+--}}
+
+<div class="m-newsletter__container">
+  <form data-members-form="subscribe" id="newsletter-form" class="m-newsletter__form-container">
+    <div class="m-newsletter__form">
+      <h1 class="m-newsletter__title">{{t "Subscribe to our newsletter"}}</h1>
+      <p class="m-newsletter__description">
+        {{t "Get the latest posts delivered right to your inbox."}}
+      </p>
+      <div class="m-fieldset in-newsletter-form">
+        <label for="newsletter-input" class="sr-only">{{t "Your email address"}}</label>
+        <input data-members-email id="newsletter-input" class="m-input focusable in-newsletter-form" type="email" placeholder="{{t "Your email address"}}" required />
+      </div>
+      <button id="newsletter-button" class="m-button primary focusable" type="submit">
+        <span>{{t "Subscribe"}}</span>
+      </button>
+    </div>
+    <div class="m-newsletter__success">
+      <img width="300" height="200" data-src="{{asset "images/subscribe/success-illustration.svg"}}" alt="" class="m-newsletter__illustration lozad">
+      <h1 class="m-newsletter__title">{{t "Awesome!"}}</h1>
+      <p class="m-newsletter__description {{#is "home"}}no-margin{{/is}}">
+        {{t "Now check your inbox and click the link to confirm your subscription."}}
+      </p>
+      {{^is "home"}}
+        <a href="{{@site.url}}" class="m-button outlined">{{t "Back to home"}}</a>
+      {{/is}}
+    </div>
+    <p class="m-newsletter__invalid m-error-message">{{t "Please enter a valid email address"}}</p>
+    <p class="m-newsletter__error m-error-message">{{t "Oops! There was an error sending the email, please try later"}}</p>
+  </form>
+</div>

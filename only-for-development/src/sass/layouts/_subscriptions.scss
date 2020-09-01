@@ -1,0 +1,14 @@
+.l-subscriptions {
+  @include respond-to('medium') {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &.smaller {
+    @include respond-to('medium') {
+      max-width: 920px;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+.m-featured-slider {
+  overflow: hidden;
+  width: calc(100% + 40px);
+  margin: 0 -#{$mobile-space};
+  border-bottom: 1px solid var(--background-color);
+  position: relative;
+
+  @include respond-to('medium') {
+    padding-top: 50px;
+    width: 100%;
+    margin: 0 0 40px;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    @include transition(opacity 0.2s linear);
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: $mobile-space;
+    left: 50%;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+    list-style-type: none;
+    z-index: 2;
+    @include transform(translateX(-50%));
+
+    @include respond-to('medium') {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      margin: 0 auto;
+      @include transform(translateX(0));
+    }
+
+    span {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      opacity: 1;
+      outline: 0;
+      background-color: var(--border-color);
+      @include transition(all 0.2s cubic-bezier(0.02, 0.01, 0.47,1));
+
+      @include respond-to('medium') {
+        background-color: var(--border-color);
+      }
+
+      &.swiper-pagination-bullet-active {
+        width: 20px;
+        height: 20px;
+        background-color: var(--background-color);
+
+        @include respond-to('medium') {
+          background-color: var(--primary-foreground-color);
+        }
+      }
+    }
+  }
+}

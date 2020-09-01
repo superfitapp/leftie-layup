@@ -1,0 +1,119 @@
+<main>
+  <div class="l-wrapper">
+    <div class="l-content">
+      <section class="m-heading" data-aos="fade">
+        <h1 class="m-heading__title">
+          {{t "Choose your subscription"}}
+        </h1>
+        <p class="m-heading__description">
+          {{t "Unlock full access and see the entire library of members-only content & updates."}}
+        </p>
+      </section>
+      <div class="l-subscriptions {{#if @member}}smaller{{/if}}" data-aos="fade-up">
+        {{^if @member}}
+          <div class="m-subscription">
+            <div class="m-subscription__main-container">
+              <h4 class="m-subscription__type">{{t "Free"}}</h4>
+              <div class="m-subscription__price">
+                {{@price.currency_symbol}}
+                <span class="m-subscription__price__number">
+                  0
+                </span>
+              </div>
+              <hr class="m-subscription__divider" />
+              <ul class="m-subscription__list">
+                <li>
+                  {{t "Full access to content for subscribers"}}
+                </li>
+                <li>
+                  {{t "Regular updates with new content"}}
+                </li>
+                <li>
+                  {{t "Get updates to your inbox"}}
+                </li>
+              </ul>
+            </div>
+            <div class="m-subscription__button-container">
+              <a href="{{@site.url}}/signup" class="m-button primary focusable">
+                <span>{{t "Subscribe now"}}</span>
+              </a>
+            </div>
+          </div>
+        {{/if}}
+        <div class="m-subscription">
+          <div class="m-subscription__main-container">
+            <h4 class="m-subscription__type">{{t "Monthly"}}</h4>
+            <div class="m-subscription__price">
+              {{@price.currency_symbol}}
+              <span class="m-subscription__price__number">
+                {{@price.monthly}}
+              </span>
+              / {{t "month"}}
+            </div>
+            <hr class="m-subscription__divider" />
+            <ul class="m-subscription__list">
+              <li>
+                {{t "Full access to all premium posts"}}
+              </li>
+              <li>
+                {{t "Regular updates with new content"}}
+              </li>
+              <li>
+                {{t "Get updates to your inbox"}}
+              </li>
+              <li>
+                {{t "Support independent publishing"}}
+              </li>
+              <li>
+                {{t "Simple, secure card payment"}}
+              </li>
+            </ul>
+          </div>
+          <div class="m-subscription__button-container">
+            <a href="javascript:void(0)" class="m-button primary focusable" data-members-plan="Monthly">
+              <span>{{t "Subscribe now"}}</span>
+            </a>
+          </div>
+        </div>
+        <div class="m-subscription last">
+          <div class="m-subscription__main-container">
+            <h4 class="m-subscription__type">{{t "Yearly"}}</h4>
+            <div class="m-subscription__price">
+              {{@price.currency_symbol}}
+              <span class="m-subscription__price__number">
+                {{@price.yearly}}
+              </span>
+              / {{t "year"}}
+            </div>
+            <hr class="m-subscription__divider" />
+            <ul class="m-subscription__list">
+              <li>
+                {{t "Full access to all premium posts"}}
+              </li>
+              <li>
+                {{t "Regular updates with new content"}}
+              </li>
+              <li>
+                {{t "Get updates to your inbox"}}
+              </li>
+              <li>
+                {{t "Support independent publishing"}}
+              </li>
+              <li>
+                {{t "Simple, secure card payment"}}
+              </li>
+              <li>
+                {{t "Save money by paying annually"}}
+              </li>
+            </ul>
+          </div>
+          <div class="m-subscription__button-container">
+            <a href="javascript:void(0)" class="m-button primary focusable" data-members-plan="Yearly">
+              <span>{{t "Subscribe now"}}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

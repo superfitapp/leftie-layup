@@ -1,0 +1,22 @@
+.m-desktop-topbar-icon {
+  color: var(--primary-foreground-color);
+  font-size: 1.125rem;
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  @extend .no-appearance;
+  @extend .content-centered;
+
+  span {
+    color: inherit;
+  }
+}
+
+.rtl {
+  .m-desktop-topbar-icon {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+}

@@ -1,0 +1,89 @@
+{{!--
+This search template is used to display the search form.
+You need to create a custom integration first to get a Content API key and then 
+follow the instructions to enable the search feature.
+--}}
+
+<div class="l-search js-search" role="dialog" aria-modal="true" aria-label="{{t "Search"}}">
+  <button class="m-search-close focusable js-close-search" aria-label="{{t "Close"}}">
+    <span class="icon-close" aria-hidden="true"></span>
+  </button>
+  <form class="m-search-form">
+    <div class="pos-relative">
+      <span class="icon-search" aria-hidden="true"></span>
+      <label for="search-input" class="sr-only">{{t "Type to search"}}</label>
+      <input id="search-input" type="text" class="m-input focusable in-search-form js-input-search" placeholder="{{t "Type to search"}}">
+      <div class="m-loading-ring in-search-form js-search-loading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </form>
+  <div class="l-search__content">
+    <div class="l-search__main">
+      <div class="m-search-empty-block as-init-state js-search-init-state">
+        <h3 class="m-search-empty-block__title">
+          {{t "Discover more content..."}}
+        </h3>
+        <img width="380" height="260" class="m-search-empty-block__illustration lozad" data-src="{{asset "images/empty/no-search.svg"}}" alt="">
+        <p class="m-search-empty-block__description">
+          {{t "Enter some keywords in the search box above, we will do our best to offer you relevant results."}}
+        </p>
+      </div>
+      <div class="l-search__results js-search-results-container">
+        <h5 class="m-search-label in-search-results">{{t "Results"}}</h5>
+        <div class="js-search-results"></div>
+      </div>
+      <div class="m-search-empty-block as-no-results js-search-no-results">
+        <h3 class="m-search-empty-block__title">
+          {{t "We're sorry!"}}
+        </h3>
+        <div class="m-search-empty-block__illustration in-no-results">
+          <img width="380" height="260" data-src="{{asset "images/empty/featured-illustration.svg"}}" class="lozad" alt="">
+        </div>
+        <p class="m-search-empty-block__description">
+          {{t "We couldn't find any results for your search. Please try again with another keywords."}}
+        </p>
+      </div>
+    </div>
+    <div class="l-search__sidebar">
+      <div class="l-search__sidebar-sticky">
+        <div class="l-search__sidebar-block">
+          <h5 class="m-search-label">{{t "Recent articles"}}</h5>
+          {{#get "posts" limit="4" order="published_at desc" as |recent_articles|}}
+            {{#if recent_articles}}
+              {{#foreach recent_articles visibility="all"}}
+                {{!-- The tag below includes the markup for each recent post - partials/recent-post.hbs --}}
+                {{> "recent-post"}}
+              {{/foreach}}
+            {{else}}
+              <p class="m-search-not-found-text">
+                {{t "No recent articles were found :/"}}
+              </p>
+            {{/if}}
+          {{/get}}
+        </div>
+        <div class="l-search__sidebar-block last">
+          <h5 class="m-search-label">{{t "Tags"}}</h5>
+          {{#get "tags" limit="10" as |tags|}}
+            {{#if tags}}
+              <ul class="m-search-tags-list">
+                {{#foreach tags}}
+                  <li>
+                    <a href="{{url}}" title="{{name}}" class="m-tag tag-{{id}} {{slug}}">{{name}}</a>
+                  </li>
+                {{/foreach}}
+              </ul>
+            {{else}}
+              <p class="m-search-not-found-text">
+                {{t "No tags were found :/"}}
+              </p>
+            {{/if}}
+          {{/get}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
