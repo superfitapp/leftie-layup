@@ -289,15 +289,15 @@
     color: var(--secondary-foreground-color);
     letter-spacing: 0.2px;
     line-height: 1.5;
-    font-size: 1.250rem;
-    font-family: $font-playfair;
+    font-size: 1.0rem;
+    font-family: $font-roboto;
     font-weight: 500;
     padding: 0 0 0 20px;
     margin: 0 0 25px;
     border-left: 4px solid var(--primary-subtle-color);
 
     @include respond-to('medium') {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       padding: 0 0 0 25px;
       margin: 0 30px 30px;
     }
