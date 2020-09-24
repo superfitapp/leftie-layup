@@ -49,4 +49,3 @@ mix.js('js/helpers.js', 'js/')
       '../**/*.hbs'
     ]
   });
-  

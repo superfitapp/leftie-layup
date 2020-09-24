@@ -1,5 +1,5 @@
 .m-article-share {
-  margin-bottom: 40px;
+  margin: 40px;
 
   @include respond-to('medium') {
     margin-bottom: 75px;
@@ -8,14 +8,14 @@
   @include respond-to('large') {
     position: absolute;
     top: 200px;
-    right: 50px;
+    left: 0px;
     bottom: 0;
     width: 40px;
     margin-bottom: 0;
   }
 
   @include respond-to('extra-large') {
-    right: -90px;
+    left: -60px;
   }
 }
 

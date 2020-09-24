@@ -1,0 +1,35 @@
+.m-article-toc {
+  margin: 30px 20px;
+
+  @include respond-to('medium') {
+    margin-bottom: 75px;
+  }
+
+  @include respond-to('large') {  
+    position: absolute;
+    top: 200px;
+    right: 50px;
+    bottom: 0;
+    width: 100px;
+    margin-bottom: 0;
+  }
+
+  @include respond-to('extra-large') {
+    right: 0px;
+  }
+}
+
+.m-article-toc__container {
+  display: flex;
+  align-items: center;
+
+  @include respond-to('large') {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.toc>.toc-list li {
+  margin: 10px 0;
+}

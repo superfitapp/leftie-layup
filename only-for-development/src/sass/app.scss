@@ -52,5 +52,50 @@
 @import "components/footer/footer";
 @import "components/footer/icon";
 @import "components/footer/copyright";
-
 @import "libs/aos/aos";
+
+.m-article-content h2,
+.m-article-content h3 {
+	outline: none;
+}
+body {
+	overflow: visible;
+}
+.post-full-content {
+	display: grid;
+	grid-template-columns: 1fr 0.2fr;
+	padding: 0 0 6vw;
+	margin: 0;
+}
+.toc-container {
+	order: 1;
+}
+.toc-container .toc {
+
+	@include respond-to('large') {
+		font-size: 0.9rem;
+		min-width: 200px;
+	}
+	
+	@include respond-to('extra-large') {
+		font-size: 1.1rem;
+		min-width: 260px;
+  }
+	
+	background-color: var(--background-color);
+	color: var(--primary-foreground-color);
+	padding: 10px;
+	position: sticky;
+	top: 70px;
+	min-width: 260px;
+	font-family: $font-roboto;
+	font-size: 1.1rem;
+	line-height: 1.6em;
+	padding: 0 0.8em;
+}
+.is-active-link::before {
+	background-color: #581EA1;
+}
+ol.toc-list {
+	margin: 0;
+}

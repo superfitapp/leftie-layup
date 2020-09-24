@@ -71,7 +71,7 @@ $(document).ready(() => {
   const $inputLink = $('.js-input-link')
   const $relatedSliderContainer = $('.js-related-slider')
 
-  fitvids('.js-post-content')
+  fitvids('.m-article-content')
 
   const adjustShare = () => {
     let $stickyShare = null
@@ -100,7 +100,7 @@ $(document).ready(() => {
   adjustShare()
   adjustImageGallery()
 
-  $('.js-post-content').find('figure img').each(function () {
+  $('.m-article-content').find('figure img').each(function () {
     if (
       !$(this).closest('figure').hasClass('kg-bookmark-card') &&
       !$(this).parent().is('a')
