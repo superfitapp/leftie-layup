@@ -2,6 +2,10 @@
   <div class="l-wrapper">
     <div class="l-content">
       <section class="m-heading" data-aos="fade">
+
+        <img style="text-align: center; margin: 10px auto; width: 200px;"
+          data-src="{{asset "images/members/premium-illustration.svg"}}" alt="" class="lozad">
+
         <h1 class="m-heading__title">
           {{t "Choose your subscription"}}
         </h1>
@@ -11,34 +15,31 @@
       </section>
       <div class="l-subscriptions {{#if @member}}smaller{{/if}}" data-aos="fade-up">
         {{^if @member}}
-          <div class="m-subscription">
-            <div class="m-subscription__main-container">
-              <h4 class="m-subscription__type">{{t "Free"}}</h4>
-              <div class="m-subscription__price">
-                {{@price.currency_symbol}}
-                <span class="m-subscription__price__number">
-                  0
-                </span>
-              </div>
-              <hr class="m-subscription__divider" />
-              <ul class="m-subscription__list">
-                <li>
-                  {{t "Full access to content for subscribers"}}
-                </li>
-                <li>
-                  {{t "Regular updates with new content"}}
-                </li>
-                <li>
-                  {{t "Get updates to your inbox"}}
-                </li>
-              </ul>
+        <div class="m-subscription">
+          <div class="m-subscription__main-container">
+            <h4 class="m-subscription__type">{{t "Free"}}</h4>
+            <div class="m-subscription__price">
+              {{@price.currency_symbol}}
+              <span class="m-subscription__price__number">
+                0
+              </span>
             </div>
-            <div class="m-subscription__button-container">
-              <a href="{{@site.url}}/signup" class="m-button primary focusable">
-                <span>{{t "Subscribe now"}}</span>
-              </a>
-            </div>
+            <hr class="m-subscription__divider" />
+            <ul class="m-subscription__list">
+              <li>
+                {{t "Full access to content for subscribers"}}
+              </li>
+              <li>
+                {{t "Get updates to your inbox"}}
+              </li>
+            </ul>
           </div>
+          <div class="m-subscription__button-container">
+            <a href="{{@site.url}}/signup" class="m-button primary focusable">
+              <span>{{t "Subscribe now"}}</span>
+            </a>
+          </div>
+        </div>
         {{/if}}
         <div class="m-subscription">
           <div class="m-subscription__main-container">

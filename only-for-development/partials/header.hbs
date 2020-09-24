@@ -40,9 +40,9 @@ This header template is shared across all the pages.
                 <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
                   <a href="{{@site.url}}/signin">{{t "Sign in"}}</a>
                 </li>
-                <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
+                {{!-- <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
                   <a href="{{@site.url}}/signup">{{t "Sign up"}}</a>
-                </li>
+                </li> --}}
               {{/if}}
             {{/if}}
             {{#if @site.secondary_navigation}}
