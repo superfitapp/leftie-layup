@@ -38,7 +38,7 @@ This header template is shared across all the pages.
             </li>
             {{else}}
             <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
-              <a href="{{@site.url}}/signin">{{t "Sign in"}}</a>
+              <a target="_blank" href="https://superfit.app.link/e/download-the-app">Get our free app</a>
             </li>
             {{!-- <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
                   <a href="{{@site.url}}/signup">{{t "Sign up"}}</a>
@@ -135,8 +135,8 @@ This header template is shared across all the pages.
           <a href="#signout" class="m-button outlined focusable in-desktop-topbar"
             data-members-signout>{{t "Log out"}}</a>
           {{else}}
-          <a href="{{@site.url}}/signin" class="m-button simple focusable in-desktop-topbar">{{t "Sign in"}}</a>
-          <a href="{{@site.url}}/signup" class="m-button outlined focusable in-desktop-topbar">{{t "Sign up"}}</a>
+          {{!-- <a href="{{@site.url}}/signin" class="m-button simple focusable in-desktop-topbar">{{t "Sign in"}}</a> --}}
+          <a target="_blank" href="https://superfit.app.link/e/download-the-app" class="m-button outlined focusable in-desktop-topbar">Get our free app</a>
           {{/if}}
           {{/if}}
           <button class="m-desktop-topbar-icon focusable js-open-search" aria-label="{{t "Open search"}}">
