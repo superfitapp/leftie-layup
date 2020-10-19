@@ -22,9 +22,9 @@
 .m-auth-heading__title {
   color: var(--secondary-foreground-color);
   line-height: 1.2;
-  font-family: $font-playfair;
+  font-family: $font-inter;
   font-size: 2.250rem;
-  font-weight: 700;
+  font-weight: 800;
   margin:  0 0 15px;
 
   @include respond-to('large') {

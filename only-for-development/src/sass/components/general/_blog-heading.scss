@@ -13,9 +13,9 @@
   color: var(--secondary-foreground-color);
   line-height: 1.3;
   letter-spacing: 2px;
-  font-family: $font-playfair;
+  font-family: $font-inter;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 10px;
 
   @include respond-to('medium') {

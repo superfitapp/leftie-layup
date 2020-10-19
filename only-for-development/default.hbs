@@ -31,7 +31,7 @@
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
-      font-weight: 700;
+      font-weight: 800;
       font-display: swap;
       src: url("{{asset 'fonts/playfair-display/latin/playfair-display-700.eot'}}");
       src: url("{{asset 'fonts/playfair-display/latin/playfair-display-700.eot?#iefix'}}") format('embedded-opentype'),
@@ -41,41 +41,44 @@
           url("{{asset 'fonts/playfair-display/latin/playfair-display-700.svg#PlayfairDisplay'}}") format('svg');
     }
 
+    /* inter-800 */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url("{{asset 'fonts/inter/Inter-ExtraBold.woff2'}}") format('woff2'),
+          url("{{asset 'fonts/inter/Inter-ExtraBold.woff'}}") format('woff'),
+          url("{{asset 'fonts/inter/Inter-ExtraBold.ttf'}}") format('truetype')
+    }
+
     /* roboto-regular */
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url("{{asset 'fonts/roboto/latin/roboto-regular.eot'}}");
-      src: local('Roboto'), local('Roboto-Regular'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.eot?#iefix'}}") format('embedded-opentype'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.woff2'}}") format('woff2'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.woff'}}") format('woff'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.ttf'}}") format('truetype'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.svg#Roboto'}}") format('svg');
+      src: url("{{asset 'fonts/inter/Inter-Regular.woff2'}}") format('woff2'),
+          url("{{asset 'fonts/inter/Inter-Regular.woff'}}") format('woff'),
+          url("{{asset 'fonts/inter/Inter-Regular.ttf'}}") format('truetype')
     }
 
     /* roboto-500 */
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url("{{asset 'fonts/roboto/latin/roboto-500.eot'}}");
-      src: local('Roboto Medium'), local('Roboto-Medium'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.eot?#iefix'}}") format('embedded-opentype'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.woff2'}}") format('woff2'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.woff'}}") format('woff'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.ttf'}}") format('truetype'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.svg#Roboto'}}") format('svg');
+      src: url("{{asset 'fonts/inter/Inter-Medium.woff2'}}") format('woff2'),
+          url("{{asset 'fonts/inter/Inter-Medium.woff'}}") format('woff'),
+          url("{{asset 'fonts/inter/Inter-Medium.ttf'}}") format('truetype')
     }
 
     /* roboto-700 */
     @font-face {
       font-family: 'Roboto';
       font-style: normal;
-      font-weight: 700;
+      font-weight: 800;
       font-display: swap;
       src: url("{{asset 'fonts/roboto/latin/roboto-700.eot'}}");
       src: local('Roboto Bold'), local('Roboto-Bold'),

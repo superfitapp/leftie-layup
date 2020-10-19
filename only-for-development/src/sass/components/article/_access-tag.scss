@@ -43,7 +43,7 @@
       top: 40px;
       left: 40px;
       font-size: 0.6875rem;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 0;
       z-index: 2;
 
@@ -93,14 +93,14 @@
 
     &.subscriber {
       color: $alert-text-color;
-      font-weight: 700;
+      font-weight: 800;
       border-color: $badge-color;
       background-color: $badge-color;
     }
 
     &.active {
       color: $alert-text-color;
-      font-weight: 700;
+      font-weight: 800;
       border-color: $success-color;
       background-color: $success-color;
     }

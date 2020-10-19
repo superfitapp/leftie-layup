@@ -29,9 +29,9 @@
 
 .m-featured-slide__title {
   color: var(--background-color);
-  font-family: $font-playfair;
+  font-family: $font-inter;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 30px;
 
   @include respond-to('medium') {
@@ -163,7 +163,7 @@
   color: var(--background-color);
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.750rem;
   padding-bottom: 3px;
   position: relative;
