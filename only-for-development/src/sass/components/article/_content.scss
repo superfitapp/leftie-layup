@@ -22,7 +22,7 @@
   h6 {
     color: var(--primary-foreground-color);
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 800;
     padding-top: 5px;
     margin: 0 0 30px;
 
@@ -81,7 +81,6 @@
   }
 
   p {
-    letter-spacing: 0.4px;
     line-height: 1.5;
     font-size: 1rem;
     margin-bottom: 25px;
@@ -290,7 +289,7 @@
     letter-spacing: 0.2px;
     line-height: 1.5;
     font-size: 1.0rem;
-    font-family: $font-roboto;
+    font-family: $font-inter-text;
     font-weight: 500;
     padding: 0 0 0 20px;
     margin: 0 0 25px;

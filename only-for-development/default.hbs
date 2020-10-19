@@ -31,59 +31,63 @@
     @font-face {
       font-family: 'Playfair Display';
       font-style: normal;
-      font-weight: 700;
+      font-weight: 800;
       font-display: swap;
       src: url("{{asset 'fonts/playfair-display/latin/playfair-display-700.eot'}}");
       src: url("{{asset 'fonts/playfair-display/latin/playfair-display-700.eot?#iefix'}}") format('embedded-opentype'),
-          url("{{asset 'fonts/playfair-display/latin/playfair-display-700.woff2'}}") format('woff2'),
-          url("{{asset 'fonts/playfair-display/latin/playfair-display-700.woff'}}") format('woff'),
-          url("{{asset 'fonts/playfair-display/latin/playfair-display-700.ttf'}}") format('truetype'),
-          url("{{asset 'fonts/playfair-display/latin/playfair-display-700.svg#PlayfairDisplay'}}") format('svg');
+      url("{{asset 'fonts/playfair-display/latin/playfair-display-700.woff2'}}") format('woff2'),
+      url("{{asset 'fonts/playfair-display/latin/playfair-display-700.woff'}}") format('woff'),
+      url("{{asset 'fonts/playfair-display/latin/playfair-display-700.ttf'}}") format('truetype'),
+      url("{{asset 'fonts/playfair-display/latin/playfair-display-700.svg#PlayfairDisplay'}}") format('svg');
+    }
+
+    /* inter-800 */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url("{{asset 'fonts/inter/Inter-ExtraBold.woff2'}}") format('woff2'),
+      url("{{asset 'fonts/inter/Inter-ExtraBold.woff'}}") format('woff'),
+      url("{{asset 'fonts/inter/Inter-ExtraBold.ttf'}}") format('truetype')
     }
 
     /* roboto-regular */
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url("{{asset 'fonts/roboto/latin/roboto-regular.eot'}}");
-      src: local('Roboto'), local('Roboto-Regular'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.eot?#iefix'}}") format('embedded-opentype'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.woff2'}}") format('woff2'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.woff'}}") format('woff'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.ttf'}}") format('truetype'),
-          url("{{asset 'fonts/roboto/latin/roboto-regular.svg#Roboto'}}") format('svg');
+      src: url("{{asset 'fonts/inter/Inter-Regular.woff2'}}") format('woff2'),
+      url("{{asset 'fonts/inter/Inter-Regular.woff'}}") format('woff'),
+      url("{{asset 'fonts/inter/Inter-Regular.ttf'}}") format('truetype')
     }
 
     /* roboto-500 */
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url("{{asset 'fonts/roboto/latin/roboto-500.eot'}}");
-      src: local('Roboto Medium'), local('Roboto-Medium'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.eot?#iefix'}}") format('embedded-opentype'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.woff2'}}") format('woff2'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.woff'}}") format('woff'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.ttf'}}") format('truetype'),
-          url("{{asset 'fonts/roboto/latin/roboto-500.svg#Roboto'}}") format('svg');
+      src: url("{{asset 'fonts/inter/Inter-Medium.woff2'}}") format('woff2'),
+      url("{{asset 'fonts/inter/Inter-Medium.woff'}}") format('woff'),
+      url("{{asset 'fonts/inter/Inter-Medium.ttf'}}") format('truetype')
     }
 
     /* roboto-700 */
     @font-face {
       font-family: 'Roboto';
       font-style: normal;
-      font-weight: 700;
+      font-weight: 800;
       font-display: swap;
       src: url("{{asset 'fonts/roboto/latin/roboto-700.eot'}}");
-      src: local('Roboto Bold'), local('Roboto-Bold'),
-          url("{{asset 'fonts/roboto/latin/roboto-700.eot?#iefix'}}") format('embedded-opentype'),
-          url("{{asset 'fonts/roboto/latin/roboto-700.woff2'}}") format('woff2'),
-          url("{{asset 'fonts/roboto/latin/roboto-700.woff'}}") format('woff'),
-          url("{{asset 'fonts/roboto/latin/roboto-700.ttf'}}") format('truetype'),
-          url("{{asset 'fonts/roboto/latin/roboto-700.svg#Roboto'}}") format('svg');
+      src: local('Roboto Bold'),
+      local('Roboto-Bold'),
+      url("{{asset 'fonts/roboto/latin/roboto-700.eot?#iefix'}}") format('embedded-opentype'),
+      url("{{asset 'fonts/roboto/latin/roboto-700.woff2'}}") format('woff2'),
+      url("{{asset 'fonts/roboto/latin/roboto-700.woff'}}") format('woff'),
+      url("{{asset 'fonts/roboto/latin/roboto-700.ttf'}}") format('truetype'),
+      url("{{asset 'fonts/roboto/latin/roboto-700.svg#Roboto'}}") format('svg');
     }
 
     /* iconmoon */
@@ -100,6 +104,9 @@
     }
   </style>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.0/tocbot.css"
+    integrity="sha512-2kqK5bWDwdrluTn6Wkj+jgiwyzvAHLirVp08Kz7kN5I8PWQ0tUtEMxfhyWDCrnws91BJ9PfrUy6ImfA7Qb22TA=="
+    crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
 
   {{!-- This #block helper will inject a stylesheet for a specific page --}}
@@ -126,17 +133,18 @@
 
   {{!-- Search form --}}
   {{> search}}
-  
+
   {{!-- The footer --}}
   {{> footer}}
 
   {{!-- Notifications alerts --}}
   {{#if @labs.members}}
-    {{> "notifications"}}
+  {{> "notifications"}}
   {{/if}}
 
   {{!-- Common scripts shared between pages --}}
-  <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+  <script crossorigin="anonymous"
+    src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
   {{!--
 
     anime.js v3.2.0
@@ -203,6 +211,19 @@
   <script defer src="{{asset "js/vendor/content-api.min.js"}}"></script>
   <script defer src="{{asset "js/vendor.js"}}"></script>
   <script defer src="{{asset "js/app.js"}}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.0/tocbot.min.js"
+    integrity="sha512-oD3xGN8YTxenx6tdS4D/RKqO4OtORBQtAb2/FseM17GGMIi6jMwKUBc8duX4A5RwMOGGXoFBZrsqbOk8GpXFgQ=="
+    crossorigin="anonymous">
+    </script>
+
+  <script>
+    tocbot.init({
+      tocSelector: '.toc',
+      contentSelector: '.m-article-content',
+      hasInnerContainers: true
+    });
+  </script>
 
   {{!-- The #block helper will pull in data from the #contentFor other template files --}}
   {{{block "scripts"}}}

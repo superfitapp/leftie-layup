@@ -5,15 +5,15 @@ This header template is shared across all the pages.
 <header class="m-header js-header">
   <div class="m-mobile-topbar js-mobile-topbar">
     {{#if @site.logo}}
-      <a href="{{@site.url}}" class="m-logo in-mobile-topbar">
-        <img src="{{@site.logo}}" alt="{{@site.title}}">
-      </a>
+    <a href="{{@site.url}}" class="m-logo in-mobile-topbar">
+      <img src="{{@site.logo}}" alt="{{@site.title}}">
+    </a>
     {{else}}
-      <span class="m-site-name in-mobile-topbar">
-        <a href="{{@site.url}}">
-          {{@site.title}}
-        </a>
-      </span>
+    <span class="m-site-name in-mobile-topbar">
+      <a href="{{@site.url}}">
+        {{@site.title}}
+      </a>
+    </span>
     {{/if}}
     <button class="m-open-menu focusable js-open-menu" aria-label="{{t "Open menu"}}">
       <span aria-hidden="true">
@@ -26,45 +26,48 @@ This header template is shared across all the pages.
         <nav role="navigation" aria-label="{{t "Main menu"}}">
           <ul>
             {{#if @site.navigation}}
-              {{navigation}}
+            {{navigation}}
             {{/if}}
             {{#if @labs.members}}
-              {{#if @member}}
-                <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
-                  <a href="{{@site.url}}/account">{{t "Account"}}</a>
-                </li>
-                <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
-                  <a href="#signout" data-members-signout>{{t "Log out"}}</a>
-                </li>
-              {{else}}
-                <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
-                  <a href="{{@site.url}}/signin">{{t "Sign in"}}</a>
-                </li>
-                {{!-- <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
+            {{#if @member}}
+            <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
+              <a href="{{@site.url}}/account">{{t "Account"}}</a>
+            </li>
+            <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
+              <a href="#signout" data-members-signout>{{t "Log out"}}</a>
+            </li>
+            {{else}}
+            <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
+              <a target="_blank" href="https://superfit.app.link/e/download-the-app">Get our free app</a>
+            </li>
+            {{!-- <li class="m-nav-item js-anime {{#if current}} nav-current{{/if}}">
                   <a href="{{@site.url}}/signup">{{t "Sign up"}}</a>
                 </li> --}}
-              {{/if}}
+            {{/if}}
             {{/if}}
             {{#if @site.secondary_navigation}}
-              <li class="m-nav-item more-item js-anime">
-                <button class="m-button simple focusable in-mobile-menu as-more js-tooltip-secondary-menu" aria-label="{{t "More"}}">
-                  {{t "More"}}
-                  <span class="icon-chevron-down" aria-hidden="true"></span>
-                </button>
-              </li>
+            <li class="m-nav-item more-item js-anime">
+              <button class="m-button simple focusable in-mobile-menu as-more js-tooltip-secondary-menu"
+                aria-label="{{t "More"}}">
+                {{t "More"}}
+                <span class="icon-chevron-down" aria-hidden="true"></span>
+              </button>
+            </li>
             {{/if}}
           </ul>
         </nav>
         <div class="m-mobile-menu__social js-anime">
           {{#if @site.facebook}}
-            <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook" class="m-mobile-menu-icon focusable">
-              <span class="icon-facebook" aria-hidden="true"></span>
-            </a>
+          <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook"
+            class="m-mobile-menu-icon focusable">
+            <span class="icon-facebook" aria-hidden="true"></span>
+          </a>
           {{/if}}
           {{#if @site.twitter}}
-            <a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener" aria-label="Twitter" class="m-mobile-menu-icon focusable">
-              <span class="icon-twitter" aria-hidden="true"></span>
-            </a>
+          <a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener" aria-label="Twitter"
+            class="m-mobile-menu-icon focusable">
+            <span class="icon-twitter" aria-hidden="true"></span>
+          </a>
           {{/if}}
           <button class="m-mobile-menu-icon focusable js-open-search" aria-label="{{t "Open search"}}">
             <span class="icon-search" aria-hidden="true"></span>
@@ -92,23 +95,24 @@ This header template is shared across all the pages.
       <div class="m-desktop-topbar__content js-desktop-topbar-content">
         <nav class="m-desktop-topbar__nav js-desktop-topbar-nav" role="navigation" aria-label="{{t "Main menu"}}">
           {{#if @site.logo}}
-            <a href="{{@site.url}}" class="m-logo in-desktop-topbar">
-              <img src="{{@site.logo}}" alt="{{@site.title}}">
-            </a>
+          <a href="{{@site.url}}" class="m-logo in-desktop-topbar">
+            <img src="{{@site.logo}}" alt="{{@site.title}}">
+          </a>
           {{else}}
-            <span class="m-site-name in-desktop-topbar">
-              <a href="{{@site.url}}">
-                {{@site.title}}
-              </a>
-            </span>
+          <span class="m-site-name in-desktop-topbar">
+            <a href="{{@site.url}}">
+              {{@site.title}}
+            </a>
+          </span>
           {{/if}}
           <div class="m-desktop-topbar__navigation-wrapper">
             <ul class="m-navigation in-desktop-topbar">
               {{#if @site.navigation}}
-                {{navigation}}
+              {{navigation}}
               {{/if}}
               <li class="m-nav-item no-effect js-anime">
-                <button class="m-more-button in-desktop-menu focusable js-toggle-submenu" aria-label="{{t "Open submenu"}}">
+                <button class="m-more-button in-desktop-menu focusable js-toggle-submenu"
+                  aria-label="{{t "Open submenu"}}">
                   <span class="icon-dots" aria-hidden="true"></span>
                 </button>
               </li>
@@ -117,21 +121,23 @@ This header template is shared across all the pages.
         </nav>
         <div class="m-desktop-topbar__buttons">
           {{#if @site.secondary_navigation}}
-            <span>
-              <button class="m-button simple focusable in-desktop-topbar as-more js-tooltip-secondary-menu" aria-label="{{t "More"}}">
-                {{t "More"}}
-                <span class="icon-chevron-down" aria-hidden="true"></span>
-              </button>
-            </span>
+          <span>
+            <button class="m-button simple focusable in-desktop-topbar as-more js-tooltip-secondary-menu"
+              aria-label="{{t "More"}}">
+              {{t "More"}}
+              <span class="icon-chevron-down" aria-hidden="true"></span>
+            </button>
+          </span>
           {{/if}}
           {{#if @labs.members}}
-            {{#if @member}}
-              <a href="{{@site.url}}/account" class="m-button simple focusable in-desktop-topbar">{{t "Account"}}</a>
-              <a href="#signout" class="m-button outlined focusable in-desktop-topbar" data-members-signout>{{t "Log out"}}</a>
-            {{else}}
-              <a href="{{@site.url}}/signin" class="m-button simple focusable in-desktop-topbar">{{t "Sign in"}}</a>
-              <a href="{{@site.url}}/signup" class="m-button outlined focusable in-desktop-topbar">{{t "Sign up"}}</a>
-            {{/if}}
+          {{#if @member}}
+          <a href="{{@site.url}}/account" class="m-button simple focusable in-desktop-topbar">{{t "Account"}}</a>
+          <a href="#signout" class="m-button outlined focusable in-desktop-topbar"
+            data-members-signout>{{t "Log out"}}</a>
+          {{else}}
+          {{!-- <a href="{{@site.url}}/signin" class="m-button simple focusable in-desktop-topbar">{{t "Sign in"}}</a> --}}
+          <a target="_blank" href="https://superfit.app.link/e/download-the-app" class="m-button outlined focusable in-desktop-topbar">Get our free app</a>
+          {{/if}}
           {{/if}}
           <button class="m-desktop-topbar-icon focusable js-open-search" aria-label="{{t "Open search"}}">
             <span class="icon-search" aria-hidden="true"></span>
@@ -148,45 +154,45 @@ This header template is shared across all the pages.
       </div>
     </div>
   </div>
-  
+
   <div class="m-submenu js-submenu">
     <div class="m-submenu__main">
       <div class="l-wrapper in-submenu {{#if @labs.members}}extra-space{{/if}}">
         <div class="m-submenu__section">
           <h5 class="m-search-label">{{t "Recent articles"}}</h5>
           {{#get "posts" limit="4" order="published_at desc" as |recent_articles|}}
-            {{#if recent_articles}}
-              <div class="m-submenu__grid">
-                {{#foreach recent_articles visibility="all"}}
-                  <div class="m-submenu__grid__item">
-                    {{!-- The tag below includes the markup for each recent post - partials/recent-post.hbs --}}
-                    {{> "recent-post"}}
-                  </div>
-                {{/foreach}}
-              </div>
-            {{else}}
-              <p class="m-search-not-found-text">
-                {{t "No recent articles were found :/"}}
-              </p>
-            {{/if}}
+          {{#if recent_articles}}
+          <div class="m-submenu__grid">
+            {{#foreach recent_articles visibility="all"}}
+            <div class="m-submenu__grid__item">
+              {{!-- The tag below includes the markup for each recent post - partials/recent-post.hbs --}}
+              {{> "recent-post"}}
+            </div>
+            {{/foreach}}
+          </div>
+          {{else}}
+          <p class="m-search-not-found-text">
+            {{t "No recent articles were found :/"}}
+          </p>
+          {{/if}}
           {{/get}}
         </div>
         <div class="m-submenu__section last">
           <h5 class="m-search-label">{{t "Tags"}}</h5>
           {{#get "tags" limit="10" as |tags|}}
-            {{#if tags}}
-              <ul class="m-search-tags-list">
-                {{#foreach tags}}
-                  <li>
-                    <a href="{{url}}" title="{{name}}" class="m-tag tag-{{id}} {{slug}}">{{name}}</a>
-                  </li>
-                {{/foreach}}
-              </ul>
-            {{else}}
-              <p class="m-search-not-found-text">
-                {{t "No tags were found :/"}}
-              </p>
-            {{/if}}
+          {{#if tags}}
+          <ul class="m-search-tags-list">
+            {{#foreach tags}}
+            <li>
+              <a href="{{url}}" title="{{name}}" class="m-tag tag-{{id}} {{slug}}">{{name}}</a>
+            </li>
+            {{/foreach}}
+          </ul>
+          {{else}}
+          <p class="m-search-not-found-text">
+            {{t "No tags were found :/"}}
+          </p>
+          {{/if}}
           {{/get}}
         </div>
       </div>
@@ -200,12 +206,12 @@ This header template is shared across all the pages.
   </div>
 
   {{#if @site.secondary_navigation}}
-    <div id="secondary-navigation-template" style="display: none;">
-      {{navigation type="secondary"}}
-    </div>
+  <div id="secondary-navigation-template" style="display: none;">
+    {{navigation type="secondary"}}
+  </div>
   {{/if}}
 
   {{#is "post"}}
-    <div class="m-progress js-progress-bar"></div>
+  <div class="m-progress js-progress-bar"></div>
   {{/is}}
 </header>

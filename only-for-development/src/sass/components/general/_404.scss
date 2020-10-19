@@ -1,9 +1,9 @@
 .m-404__title {
   color: var(--primary-foreground-color);
   letter-spacing: 4px;
-  font-family: $font-playfair;
+  font-family: $font-inter;
   font-size: 9.125rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 30px;
 
   @include respond-to('medium') {

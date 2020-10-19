@@ -143,8 +143,8 @@
   letter-spacing: 0.4px;
   line-height: 1.3;
   font-size: 2.5rem;
-  font-family: $font-playfair;
-  font-weight: 700;
+  font-family: $font-inter;
+  font-weight: 800;
   margin: 0 0 25px;
 
   @include respond-to('medium') {

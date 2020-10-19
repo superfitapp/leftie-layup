@@ -129,8 +129,8 @@
   letter-spacing: 0.2px;
   line-height: 1.4;
   margin: 0 0 10px;
-  font-family: $font-roboto;
-  font-weight: 700;
+  font-family: $font-inter-text;
+  font-weight: 800;
   font-size: 1.125rem;
 
   @include respond-to('extra-large') {

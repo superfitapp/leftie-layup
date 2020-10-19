@@ -39,8 +39,7 @@ mix.js('js/helpers.js', 'js/')
     processCssUrls: false
   })
   .copy('sass/fonts/icomoon/*.*', '../assets/fonts/icomoon/')
-  .copyDirectory('sass/fonts/playfair-display/', '../assets/fonts/playfair-display/')
-  .copyDirectory('sass/fonts/roboto/', '../assets/fonts/roboto/')
+  .copyDirectory('sass/fonts/inter/', '../assets/fonts/inter/')
   .copy('js/vendor/content-api.min.js', '../assets/js/vendor/')
   .browserSync({
     proxy: "localhost:2368",

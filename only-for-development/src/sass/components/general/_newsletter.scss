@@ -59,9 +59,9 @@
 .m-newsletter__title {
   color: var(--primary-foreground-color);
   line-height: 1.2;
-  font-family: $font-playfair;
+  font-family: $font-inter;
   font-size: 2.250rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 25px;
 
   @include respond-to('medium') {
