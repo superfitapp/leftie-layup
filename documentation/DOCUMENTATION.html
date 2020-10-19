@@ -30,7 +30,7 @@
 <h1 id="weiss-pro---ghost-theme">Weiss Pro - Ghost Theme</h1>
 <p>First of all thank you so much for purchasing this theme, you're awesome! ✨</p>
 <p>Weiss Pro is a modern and beautiful Ghost theme ready to make your content shine. It comes with a lot of features including members support, dark mode, search and much more.</p>
-<p><em>Current version: 1.6.0</em></p>
+<p><em>Current version: 1.7.0</em></p>
 <p><strong>To know how to install, enable and configure all the features that this theme offers (memberships, search, comments, etc.) please refer to the <code>HELP.html</code> file.</strong></p>
 <h2 id="preview">Preview</h2>
 <p>You can see a live demo here: <a href="https://weiss-pro.eduardogomez.io">https://weiss-pro.eduardogomez.io</a></p>
@@ -115,27 +115,95 @@
 │   │   │   ├── icomoon.ttf
 │   │   │   └── icomoon.woff
 │   │   ├── playfair-display
-│   │   │   ├── playfair-display-v21-latin-700.eot
-│   │   │   ├── playfair-display-v21-latin-700.svg
-│   │   │   ├── playfair-display-v21-latin-700.ttf
-│   │   │   ├── playfair-display-v21-latin-700.woff
-│   │   │   └── playfair-display-v21-latin-700.woff2
+│   │   │   ├── cyrillic
+│   │   │   │   ├── playfair-display-700.eot
+│   │   │   │   ├── playfair-display-700.svg
+│   │   │   │   ├── playfair-display-700.ttf
+│   │   │   │   ├── playfair-display-700.woff
+│   │   │   │   └── playfair-display-700.woff2
+│   │   │   ├── latin
+│   │   │   │   ├── playfair-display-700.eot
+│   │   │   │   ├── playfair-display-700.svg
+│   │   │   │   ├── playfair-display-700.ttf
+│   │   │   │   ├── playfair-display-700.woff
+│   │   │   │   └── playfair-display-700.woff2
+│   │   │   ├── latin-ext
+│   │   │   │   ├── playfair-display-700.eot
+│   │   │   │   ├── playfair-display-700.svg
+│   │   │   │   ├── playfair-display-700.ttf
+│   │   │   │   ├── playfair-display-700.woff
+│   │   │   │   └── playfair-display-700.woff2
+│   │   │   └── vietnamese
+│   │   │       ├── playfair-display-700.eot
+│   │   │       ├── playfair-display-700.svg
+│   │   │       ├── playfair-display-700.ttf
+│   │   │       ├── playfair-display-700.woff
+│   │   │       └── playfair-display-700.woff2
 │   │   └── roboto
-│   │       ├── roboto-v20-latin-500.eot
-│   │       ├── roboto-v20-latin-500.svg
-│   │       ├── roboto-v20-latin-500.ttf
-│   │       ├── roboto-v20-latin-500.woff
-│   │       ├── roboto-v20-latin-500.woff2
-│   │       ├── roboto-v20-latin-700.eot
-│   │       ├── roboto-v20-latin-700.svg
-│   │       ├── roboto-v20-latin-700.ttf
-│   │       ├── roboto-v20-latin-700.woff
-│   │       ├── roboto-v20-latin-700.woff2
-│   │       ├── roboto-v20-latin-regular.eot
-│   │       ├── roboto-v20-latin-regular.svg
-│   │       ├── roboto-v20-latin-regular.ttf
-│   │       ├── roboto-v20-latin-regular.woff
-│   │       └── roboto-v20-latin-regular.woff2
+│   │       ├── cyrillic
+│   │       │   ├── roboto-500.eot
+│   │       │   ├── roboto-500.svg
+│   │       │   ├── roboto-500.ttf
+│   │       │   ├── roboto-500.woff
+│   │       │   ├── roboto-500.woff2
+│   │       │   ├── roboto-700.eot
+│   │       │   ├── roboto-700.svg
+│   │       │   ├── roboto-700.ttf
+│   │       │   ├── roboto-700.woff
+│   │       │   ├── roboto-700.woff2
+│   │       │   ├── roboto-regular.eot
+│   │       │   ├── roboto-regular.svg
+│   │       │   ├── roboto-regular.ttf
+│   │       │   ├── roboto-regular.woff
+│   │       │   └── roboto-regular.woff2
+│   │       ├── latin
+│   │       │   ├── roboto-500.eot
+│   │       │   ├── roboto-500.svg
+│   │       │   ├── roboto-500.ttf
+│   │       │   ├── roboto-500.woff
+│   │       │   ├── roboto-500.woff2
+│   │       │   ├── roboto-700.eot
+│   │       │   ├── roboto-700.svg
+│   │       │   ├── roboto-700.ttf
+│   │       │   ├── roboto-700.woff
+│   │       │   ├── roboto-700.woff2
+│   │       │   ├── roboto-regular.eot
+│   │       │   ├── roboto-regular.svg
+│   │       │   ├── roboto-regular.ttf
+│   │       │   ├── roboto-regular.woff
+│   │       │   └── roboto-regular.woff2
+│   │       ├── latin-ext
+│   │       │   ├── roboto-500.eot
+│   │       │   ├── roboto-500.svg
+│   │       │   ├── roboto-500.ttf
+│   │       │   ├── roboto-500.woff
+│   │       │   ├── roboto-500.woff2
+│   │       │   ├── roboto-700.eot
+│   │       │   ├── roboto-700.svg
+│   │       │   ├── roboto-700.ttf
+│   │       │   ├── roboto-700.woff
+│   │       │   ├── roboto-700.woff2
+│   │       │   ├── roboto-regular.eot
+│   │       │   ├── roboto-regular.svg
+│   │       │   ├── roboto-regular.ttf
+│   │       │   ├── roboto-regular.woff
+│   │       │   └── roboto-regular.woff2
+│   │       └── vietnamese
+│   │           ├── roboto-500.eot
+│   │           ├── roboto-500.svg
+│   │           ├── roboto-500.ttf
+│   │           ├── roboto-500.woff
+│   │           ├── roboto-500.woff2
+│   │           ├── roboto-700.eot
+│   │           ├── roboto-700.svg
+│   │           ├── roboto-700.ttf
+│   │           ├── roboto-700.woff
+│   │           ├── roboto-700.woff2
+│   │           ├── roboto-regular.eot
+│   │           ├── roboto-regular.svg
+│   │           ├── roboto-regular.ttf
+│   │           ├── roboto-regular.woff
+│   │           └── roboto-regular.woff2
 │   ├── images
 │   │   ├── empty
 │   │   │   ├── author-avatar-illustration.svg
@@ -152,6 +220,7 @@
 │   │   └── subscribe
 │   │       └── success-illustration.svg
 │   ├── js
+│   │   ├── account.js
 │   │   ├── app.js
 │   │   ├── helpers.js
 │   │   ├── home.js
@@ -240,7 +309,7 @@
 <li><a href="https://github.com/rodneyrehm/viewport-units-buggyfill">viewport-units-buggyfill</a></li>
 </ul>
 <h2 id="license">License</h2>
-<p>Copyright (c) 2019-2020 Eduardo Gómez, all rights reserved.</p>
+<p>Copyright (c) 2020-2021 Eduardo Gómez, all rights reserved.</p>
 
     </body>
     </html>

@@ -17,7 +17,7 @@ collections:
     permalink: /{slug}/
     template: index
     filter: visibility:public
-  /daily-layup/:
+  /the-layup/:
     permalink: /{slug}/
     template: index
     filter: visibility:-public

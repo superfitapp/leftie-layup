@@ -20,6 +20,7 @@ mix.js('js/helpers.js', 'js/')
   .js('js/app.js', 'js/')
   .js('js/home.js', 'js/')
   .js('js/post.js', 'js/')
+  .js('js/account.js', 'js/')
   .extract()
   .setResourceRoot('/assets')
   .setPublicPath('../assets')
@@ -38,8 +39,8 @@ mix.js('js/helpers.js', 'js/')
     processCssUrls: false
   })
   .copy('sass/fonts/icomoon/*.*', '../assets/fonts/icomoon/')
-  .copy('sass/fonts/playfair-display/*.*', '../assets/fonts/playfair-display/')
-  .copy('sass/fonts/roboto/*.*', '../assets/fonts/roboto/')
+  .copyDirectory('sass/fonts/playfair-display/', '../assets/fonts/playfair-display/')
+  .copyDirectory('sass/fonts/roboto/', '../assets/fonts/roboto/')
   .copy('js/vendor/content-api.min.js', '../assets/js/vendor/')
   .browserSync({
     proxy: "localhost:2368",
@@ -49,3 +50,4 @@ mix.js('js/helpers.js', 'js/')
       '../**/*.hbs'
     ]
   });
+  

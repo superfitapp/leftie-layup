@@ -44,7 +44,6 @@ $(document).ready(() => {
   const $toggleDarkMode = $('.js-toggle-darkmode')
   const $openSecondaryMenu = $('.js-tooltip-secondary-menu')
   const $closeNotification = $('.js-notification-close')
-  const $planPrice = $('.js-plan-price')
   const $desktopTopbarContent = $('.js-desktop-topbar-content')
   const $desktopTopbarNav = $('.js-desktop-topbar-nav')
   const currentSavedTheme = localStorage.getItem('theme')
@@ -312,13 +311,6 @@ $(document).ready(() => {
   $closeNotification.click(function() {
     closeNotification($(this).parent())
   })
-
-  if ($planPrice.length > 0) {
-    $planPrice.each(function() {
-      const planAmount = parseInt($(this).attr('data-plan-price')) / 100
-      $(this).html(planAmount)
-    })
-  }
 
   $(document).click((e) => {
     if ($(e.target).hasClass('js-toggle-submenu') || $(e.target).parent().hasClass('js-toggle-submenu')) {

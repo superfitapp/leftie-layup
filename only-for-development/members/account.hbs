@@ -20,6 +20,17 @@ into the {body} of the default.hbs template --}}
         {{#if @member.paid}}
 
           {{!-- Logged in, paying member: Show account info --}}
+          <script>
+            const labels = {
+              Monthly: '{{t "Monthly"}}',
+              Yearly: '{{t "Yearly"}}',
+              Complimentary: '{{t "Complimentary"}}',
+              active: '{{t "Active"}}',
+              trialing: '{{t "trialing"}}',
+              month: '{{t "month"}}',
+              year: '{{t "year"}}'
+            }
+          </script>
           <section class="m-account-module" data-aos="fade-up">
             <header class="m-account-module__header">
               <h1 class="m-account-module__title">
@@ -57,9 +68,9 @@ into the {body} of the default.hbs template --}}
             <div class="m-account-module__body in-subscriptions">
               {{#foreach @member.subscriptions}}
                 <div class="m-account-subscription {{#if @last}}last{{/if}}">
-                  <span class="m-access-tag in-account-module in-subscription {{status}}" data-visibility="{{status}}"></span>
+                  <span class="m-access-tag in-account-module in-subscription js-plan-status {{status}}" data-status="{{status}}" data-visibility="{{status}}"></span>
                   <div class="m-account-subscription-summary">
-                    <h2 class="m-account-subscription-summary__title">
+                    <h2 class="m-account-subscription-summary__title js-plan-nickname" data-nickname="{{plan.nickname}}">
                       {{plan.nickname}}
                     </h2>
                     <span class="m-account-subscription-summary__id">
@@ -68,7 +79,7 @@ into the {body} of the default.hbs template --}}
                   </div>
                   <div class="m-account-subscription-plan">
                     <p class="m-account-subscription-plan__price">
-                      <span class="uppercase">{{plan.currency}}</span> {{plan.currency_symbol}}<span class="m-account-subscription-plan__price__number js-plan-price" data-plan-price="{{ plan.amount }}">{{plan.amount}}</span> / {{plan.interval}}
+                      <span class="uppercase">{{plan.currency}}</span> {{plan.currency_symbol}}<span class="m-account-subscription-plan__price__number js-plan-price" data-plan-price="{{ plan.amount }}">{{plan.amount}}</span> / <span class="js-plan-interval" data-interval="{{plan.interval}}">{{plan.interval}}</span>
                     </p>
                     <span clasS="m-account-subscription-plan__date">
                       {{#if cancel_at_period_end}}
@@ -79,7 +90,7 @@ into the {body} of the default.hbs template --}}
                     </span>
                   </div>
                   <div class="m-account-module__body__flex-container">
-                    <div class="m-account-info-block in-subscription">
+                    <div class="m-account-info-block in-subscription {{^if default_payment_card_last4}}last{{/if}}">
                       <span class="m-account-info-block__label">{{t "Customer details"}}</span>
                       <p class="m-account-info-block__value">
                         <span class="m-account-info-block__value__line">
@@ -92,13 +103,15 @@ into the {body} of the default.hbs template --}}
                         {{/if}}
                       </p>
                     </div>
-                    <div class="m-account-info-block in-subscription last">
-                      <span class="m-account-info-block__label">{{t "Card details"}}</span>
-                      <p class="m-account-info-block__value">
-                        <span class="icon-card m-account-info-block__value__icon"></span>
-                        **** **** **** {{default_payment_card_last4}}
-                      </p>
-                    </div>
+                    {{#if default_payment_card_last4}}
+                      <div class="m-account-info-block in-subscription last">
+                        <span class="m-account-info-block__label">{{t "Card details"}}</span>
+                        <p class="m-account-info-block__value">
+                          <span class="icon-card m-account-info-block__value__icon"></span>
+                          **** **** **** {{default_payment_card_last4}}
+                        </p>
+                      </div>
+                    {{/if}}
                   </div>
                   {{cancel_link
                     class="m-account-link"
@@ -162,3 +175,8 @@ into the {body} of the default.hbs template --}}
     </div>
   </main>
 </div>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/account.js"}}"></script>
+{{/contentFor}}

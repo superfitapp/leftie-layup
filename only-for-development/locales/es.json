@@ -99,7 +99,7 @@
   "Yearly Subscription": "Subscripción anual",
   "You don't have access to this post at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access.": "No tienes acceso a este post en este momento, pero si actualizas tu cuenta podrás verlo todo, así como todos los demás posts en el archivo. Suscribirse sólo toma unos segundos y te dará acceso inmediato.",
   "Your email address": "Tu dirección de correo",
-  "active": "Activa",
+  "Active": "Activa",
   "cancel subscription": "cancelar suscripción",
   "continue subscription": "continuar suscripción",
   "edit billing info": "editar la información de pago",
@@ -112,5 +112,6 @@
   "paid": "premium",
   "trialing": "Prueba",
   "with this tag": "con esta etiqueta",
-  "year": "año"
+  "year": "año",
+  "Complimentary": "De cortesía"
 }

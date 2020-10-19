@@ -13,7 +13,7 @@
   "Card details": "Card details",
   "Check your inbox and click the link to complete signin.": "Check your inbox and click the link to complete signin.",
   "Check your inbox and click the link to confirm your subscription.": "Check your inbox and click the link to confirm your subscription.",
-  "Choose your subscription": "The Daily Layup",
+  "Choose your subscription": "The Layup",
   "Close": "Close",
   "Close submenu": "Close submenu",
   "Continue": "Continue",
@@ -65,7 +65,7 @@
   "Published with": "Published with",
   "Recent articles": "Recent articles",
   "Recommended for you": "Recommended for you",
-  "Regular updates with new content": "Daily Layups (3-4 weekly articles)",
+  "Regular updates with new content": "Daily Layups (2-3 weekly articles)",
   "Results": "Results",
   "Save money by paying annually": "Save money by paying annually",
   "Scroll to top": "Scroll to top",
@@ -99,7 +99,7 @@
   "Yearly Subscription": "Yearly Subscription",
   "You don't have access to this post at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access.": "You don't have access to this post at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access.",
   "Your email address": "Your email address",
-  "active": "Active",
+  "Active": "Active",
   "cancel subscription": "cancel subscription",
   "continue subscription": "continue subscription",
   "edit billing info": "edit billing info",
@@ -112,5 +112,6 @@
   "paid": "Daily Layup",
   "trialing": "Trial",
   "with this tag": "with this tag",
-  "year": "year"
+  "year": "year",
+  "Complimentary": "Complimentary"
 }

@@ -117,10 +117,12 @@ This header template is shared across all the pages.
         </nav>
         <div class="m-desktop-topbar__buttons">
           {{#if @site.secondary_navigation}}
-            <button class="m-button simple focusable in-desktop-topbar as-more js-tooltip-secondary-menu" aria-label="{{t "More"}}">
-              {{t "More"}}
-              <span class="icon-chevron-down" aria-hidden="true"></span>
-            </button>
+            <span>
+              <button class="m-button simple focusable in-desktop-topbar as-more js-tooltip-secondary-menu" aria-label="{{t "More"}}">
+                {{t "More"}}
+                <span class="icon-chevron-down" aria-hidden="true"></span>
+              </button>
+            </span>
           {{/if}}
           {{#if @labs.members}}
             {{#if @member}}

@@ -58,6 +58,7 @@
 <li><a href="#add-syntax-highlighting-with-prism">Add syntax highlighting with Prism</a></li>
 <li><a href="#install-google-analytics">Install Google Analytics</a></li>
 <li><a href="#theme-translation">Theme translation</a></li>
+<li><a href="#how-to-use-a-different-character-encoding">How to use a different character encoding</a></li>
 <li><a href="#force-light-or-dark-mode">Force light or dark mode</a>
 <ul>
 <li><a href="#for-light-mode">For light mode:</a></li>
@@ -200,10 +201,10 @@
 <p><img src="https://res.cloudinary.com/edev/image/upload/v1577958242/weiss-pro/Screen_Shot_2020-01-02_at_10.43.31.png" alt=""></p>
 <ol start="3">
 <li>
-<p>Unzip the theme folder.</p>
+<p>Unzip the theme folder <code>Weiss-Pro-Theme/theme/weiss-pro.zip</code>.</p>
 </li>
 <li>
-<p>You have to open with some code editor the file <code>post.hbs</code> that is included in the folder of the theme and look for the next piece of code:</p>
+<p>You have to open with some text editor the file <code>post.hbs</code> that is included in the theme folder and look for the next piece of code:</p>
 </li>
 </ol>
 <pre><code class="language-html"><div>{{!--
@@ -244,7 +245,7 @@
 <p>To install Cove into Ghost, you need to enable Members in Ghost, including setting up the email system.</p>
 </blockquote>
 <p>There is an <a href="https://ghost.org/integrations/cove-comments/">official guide</a> on how to integrate Cove with Ghost, the only difference is step 4 (Add the code to your theme), the difference is that you must paste the code provided by Cove in the same place you would with Disqus (as described above).</p>
-<p>That means, you have to open with some code editor the file <code>post.hbs</code> that is included in the folder of the theme (<code>Weiss-Pro-Theme/theme/weiss-pro/</code>) and replace the next piece of code:</p>
+<p>That means, you have to open with some text editor the file <code>post.hbs</code> that is included in the theme folder (<code>Weiss-Pro-Theme/theme/weiss-pro/</code>) and replace the next piece of code:</p>
 <pre><code class="language-html"><div>{{!--
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"l-comments"</span>&gt;</span>
   If you want to embed comments, this is a good place to do it!
@@ -428,6 +429,95 @@ If they are free members then they will also see a link to go to the page where 
 <p>To change your blog language just open the Ghost admin panel, head to <strong>General</strong> and expand the <strong>Publication language</strong> section, now simply enter the language locale that you want, for example <code>en</code> for english or <code>es</code> for spanish. Finally press the <strong>Save settings</strong> button to reflect the changes on your blog.</p>
 <p>If you want to use a different language you have to make a copy of <code>locales/en.json</code> and rename it to <code>[language_code].json</code>. The <code>[language_code]</code> part need to be replaced with a valid <a href="https://www.w3schools.com/tags/ref_language_codes.asp">ISO Language Code</a>. Then you have to edit that file with a text editor and replace all the translations with yours.</p>
 <p>More info: <a href="https://ghost.org/docs/api/v2/handlebars-themes/helpers/translate/">https://ghost.org/docs/api/v2/handlebars-themes/helpers/translate/</a></p>
+<h2 id="how-to-use-a-different-character-encoding">How to use a different character encoding</h2>
+<p>The fonts used in this theme support Latin characters by default, this means that they support languages such as English, Spanish, Italian, French, German, Portuguese, among others. In most cases this is more than enough and you can skip this guide ;)</p>
+<p>However, if the content of your blog is written in languages that are derived from Cyrillic (Russian, Ukrainian, Serbian, etc.) or in Vietnamese, then your blog will have to load a different version of the fonts. Fortunately this theme includes different font files for the following character encodings:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">Latin (default)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Latin_Extended-A">Latin extended</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cyrillic_script">Cyrillic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/VSCII">Vietnamese</a></li>
+</ul>
+<p>If you want to change the character encoding so that the text in your content is displayed correctly, follow these steps:</p>
+<ol>
+<li>
+<p>Unzip the theme folder <code>Weiss-Pro-Theme/theme/weiss-pro.zip</code>.</p>
+</li>
+<li>
+<p>Open with some text editor the file <code>default.hbs</code> that is included in the theme folder.</p>
+</li>
+<li>
+<p>Search and replace all the matches of <code>latin/</code> with <code>latin-ext/</code> or <code>cyrillic/</code> or <code>vietnamese/</code>.</p>
+</li>
+</ol>
+<p>For example, if you want to use Cyrillic because your content is written in Russian, then the relevant part should look like this:</p>
+<pre><code class="language-css"><div>    <span class="hljs-comment">/* playfair-display-700 */</span>
+    @<span class="hljs-keyword">font-face</span> {
+      <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Playfair Display'</span>;
+      <span class="hljs-attribute">font-style</span>: normal;
+      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+      <span class="hljs-attribute">font-display</span>: swap;
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/playfair-display/cyrillic/playfair-display-700.eot'}}"</span>);
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/playfair-display/cyrillic/playfair-display-700.eot?#iefix'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'embedded-opentype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/playfair-display/cyrillic/playfair-display-700.woff2'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff2'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/playfair-display/cyrillic/playfair-display-700.woff'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/playfair-display/cyrillic/playfair-display-700.ttf'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'truetype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/playfair-display/cyrillic/playfair-display-700.svg#PlayfairDisplay'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'svg'</span>);
+    }
+
+    <span class="hljs-comment">/* roboto-regular */</span>
+    @<span class="hljs-keyword">font-face</span> {
+      <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>;
+      <span class="hljs-attribute">font-style</span>: normal;
+      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
+      <span class="hljs-attribute">font-display</span>: swap;
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-regular.eot'}}"</span>);
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">local</span>(<span class="hljs-string">'Roboto'</span>), <span class="hljs-built_in">local</span>(<span class="hljs-string">'Roboto-Regular'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-regular.eot?#iefix'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'embedded-opentype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-regular.woff2'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff2'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-regular.woff'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-regular.ttf'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'truetype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-regular.svg#Roboto'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'svg'</span>);
+    }
+
+    <span class="hljs-comment">/* roboto-500 */</span>
+    @<span class="hljs-keyword">font-face</span> {
+      <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>;
+      <span class="hljs-attribute">font-style</span>: normal;
+      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">500</span>;
+      <span class="hljs-attribute">font-display</span>: swap;
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-500.eot'}}"</span>);
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">local</span>(<span class="hljs-string">'Roboto Medium'</span>), <span class="hljs-built_in">local</span>(<span class="hljs-string">'Roboto-Medium'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-500.eot?#iefix'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'embedded-opentype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-500.woff2'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff2'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-500.woff'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-500.ttf'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'truetype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-500.svg#Roboto'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'svg'</span>);
+    }
+
+    <span class="hljs-comment">/* roboto-700 */</span>
+    @<span class="hljs-keyword">font-face</span> {
+      <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>;
+      <span class="hljs-attribute">font-style</span>: normal;
+      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+      <span class="hljs-attribute">font-display</span>: swap;
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-700.eot'}}"</span>);
+      <span class="hljs-attribute">src</span>: <span class="hljs-built_in">local</span>(<span class="hljs-string">'Roboto Bold'</span>), <span class="hljs-built_in">local</span>(<span class="hljs-string">'Roboto-Bold'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-700.eot?#iefix'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'embedded-opentype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-700.woff2'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff2'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-700.woff'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-700.ttf'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'truetype'</span>),
+          <span class="hljs-built_in">url</span>(<span class="hljs-string">"{{asset 'fonts/roboto/cyrillic/roboto-700.svg#Roboto'}}"</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'svg'</span>);
+    }
+</div></code></pre>
+<ol start="4">
+<li>
+<p>Save the file.</p>
+</li>
+<li>
+<p>Zip the theme folder again and upload it to your Ghost instance.</p>
+</li>
+</ol>
 <h2 id="force-light-or-dark-mode">Force light or dark mode</h2>
 <p>The default mode used by Weiss Pro is light but if the user's operating system has dark mode enabled, then it will automatically switch to the dark mode.</p>
 <p>The user can also choose the mode he wants by pressing the corresponding button in the main menu.</p>
